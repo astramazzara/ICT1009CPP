@@ -1,0 +1,17 @@
+﻿  Crawler.cpp
+C:\Users\alexthetechkia\source\repos\CPPProject1009\Crawler.cpp(44,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\CPPProject1009\Crawler.cpp(123,21): warning C4018: '<': signed/unsigned mismatch
+  jsoncpp.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4217: symbol '___iob_func' defined in 'Crawler.obj' is imported by 'libcurl.lib(url.obj)' in function '_Curl_init_userdefined'
+LINK : warning LNK4217: symbol '___iob_func' defined in 'Crawler.obj' is imported by 'libcurl.lib(cookie.obj)' in function '_Curl_cookie_add'
+LINK : warning LNK4286: symbol '___iob_func' defined in 'Crawler.obj' is imported by 'libcurl.lib(mprintf.obj)'
+LINK : warning LNK4217: symbol '___iob_func' defined in 'Crawler.obj' is imported by 'libcurl.lib(formdata.obj)' in function '_FormAdd'
+libcurl.lib(base64.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(base64.obj)' or at 'C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(HMAC_SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(HMAC_SHA1.obj)' or at 'C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(oauthlib.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(oauthlib.obj)' or at 'C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(SHA1.obj)' or at 'C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(twitcurl.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(twitcurl.obj)' or at 'C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(urlencode.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(urlencode.obj)' or at 'C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\twitcurl.pdb'; linking object as if no debug info
+  CPPProject1009.vcxproj -> C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\CPPProject1009.exe
