@@ -1,0 +1,27 @@
+﻿  base64.cpp
+C:\Users\alexthetechkia\source\repos\libtwitcurl\base64.cpp(96,61): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
+C:\Users\alexthetechkia\source\repos\libtwitcurl\base64.cpp(113,59): warning C4267: '=': conversion from 'size_t' to 'unsigned char', possible loss of data
+  HMAC_SHA1.cpp
+  oauthlib.cpp
+C:\Users\alexthetechkia\source\repos\libtwitcurl\oauthlib.cpp(260,22): warning C4477: 'sprintf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'time_t'
+C:\Users\alexthetechkia\source\repos\libtwitcurl\oauthlib.cpp(260,22): message : consider using '%lld' in the format string
+C:\Users\alexthetechkia\source\repos\libtwitcurl\oauthlib.cpp(260,22): message : consider using '%I64d' in the format string
+  SHA1.cpp
+  twitcurl.cpp
+  urlencode.cpp
+  Generating Code...
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1459,5): warning MSB8012: TargetPath(C:\Users\alexthetechkia\source\repos\libtwitcurl\.\Release\twitcurl.lib) does not match the Library's OutputFile property value (C:\Users\alexthetechkia\source\repos\libtwitcurl\lib\libcurl.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1461,5): warning MSB8012: TargetName(twitcurl) does not match the Library's OutputFile property value (libcurl). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+  Replacing .\Release\base64.obj
+  Replacing .\Release\HMAC_SHA1.obj
+  Replacing .\Release\oauthlib.obj
+  Replacing .\Release\SHA1.obj
+  Replacing .\Release\twitcurl.obj
+  Replacing .\Release\urlencode.obj
+libcurl.lib(WLDAP32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in libcurl.lib(WS2_32.dll); second definition ignored
+libcurl.lib(ADVAPI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in libcurl.lib(WS2_32.dll); second definition ignored
+libcurl.lib(LIBEAY32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in libcurl.lib(WS2_32.dll); second definition ignored
+libcurl.lib(SSLEAY32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in libcurl.lib(WS2_32.dll); second definition ignored
+libcurl.lib(GDI32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in libcurl.lib(WS2_32.dll); second definition ignored
+libcurl.lib(USER32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in libcurl.lib(WS2_32.dll); second definition ignored
+  twitcurl.vcxproj -> C:\Users\alexthetechkia\source\repos\libtwitcurl\.\Release\twitcurl.lib
