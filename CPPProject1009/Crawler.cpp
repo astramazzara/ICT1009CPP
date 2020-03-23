@@ -85,6 +85,7 @@ string Crawler::crawlerCleanText(string text) {
 	regex regexNewLine("\n+");
 	regex regexCarriageReturn("\r+");
 	regex regexTab("\t+");
+	regex regexCommaBlackSlash("[,\/]");
 	regex regexMultiSpace("[\\s]+");
 	regex regexLeadSpaces("^\\s+");
 	regex regexTrailSpaces("\\s+$");
@@ -95,14 +96,27 @@ string Crawler::crawlerCleanText(string text) {
 	regex regexHashtags("#[\\S]+");
 	//remove mentions
 	regex regexMentions("@[\\S]+");
+	//remove &amp;
+	regex regexAnd("&amp;");
+	//remove RT
+	regex regexRT("RT");
+	//remove Double Apostrophe
+	regex regexDoubleApostrophe("\\\"");
 
 	text = regex_replace(text, regexNonAscii, "");
+
 	text = regex_replace(text, regexLinks, "");
 	text = regex_replace(text, regexHashtags, "");
 	text = regex_replace(text, regexMentions, "");
+	text = regex_replace(text, regexAnd, " ");
+	text = regex_replace(text, regexRT, "");
+	text = regex_replace(text, regexDoubleApostrophe, "");
+
 	text = regex_replace(text, regexNewLine, " ");
 	text = regex_replace(text, regexCarriageReturn, " ");
 	text = regex_replace(text, regexTab, " ");
+	text = regex_replace(text, regexCommaBlackSlash, "");
+
 	text = regex_replace(text, regexMultiSpace, " ");
 	text = regex_replace(text, regexLeadSpaces, "");
 	text = regex_replace(text, regexTrailSpaces, "");
