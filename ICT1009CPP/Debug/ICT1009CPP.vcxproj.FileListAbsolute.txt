@@ -1,0 +1,5 @@
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\ICT1009CPP.vcxprojAssemblyReference.cache
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\My1008projects.GUI.resources
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\ICT1009CPP.vcxproj.GenerateResource.cache
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\ICT1009CPP.exe
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\ICT1009CPP.pdb

@@ -1,5 +1,0 @@
-﻿  Crawler.cpp
-C:\Users\alexthetechkia\source\repos\CPPProject1009\Crawler.cpp(44,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\CPPProject1009\Crawler.cpp(88,29): warning C4129: '/': unrecognized character escape sequence
-C:\Users\alexthetechkia\source\repos\CPPProject1009\Crawler.cpp(137,21): warning C4018: '<': signed/unsigned mismatch
-  CPPProject1009.vcxproj -> C:\Users\alexthetechkia\source\repos\CPPProject1009\Debug\CPPProject1009.exe
