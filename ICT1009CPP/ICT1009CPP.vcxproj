@@ -145,12 +145,14 @@
     <ClCompile Include="Crawler.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="include\json\jsoncpp.cpp" />
+    <ClCompile Include="TwitterFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Crawler.h" />
     <ClInclude Include="GUI.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="twitter.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GUI.resx">
