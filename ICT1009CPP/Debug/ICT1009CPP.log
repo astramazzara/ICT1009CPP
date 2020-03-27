@@ -1,22 +1,27 @@
-﻿  newnewsapi.cpp
-  Crawler.cpp
-C:\Users\lim_j\Documents\GitHub\newnewsapi\newnewsapi\newnewsapi\newnewsapi.cpp(5,10): fatal error C1083: Cannot open include file: 'rapidjson/document.h': No such file or directory
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Crawler.cpp(50,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Crawler.cpp(94,29): warning C4129: '/': unrecognized character escape sequence
-  GUI.cpp
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Crawler.cpp(143,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(62,12): warning C4101: 'tm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,22): warning C4101: 'z': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(54,14): warning C4101: 'newDateTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,29): warning C4101: 'mm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,37): warning C4101: 'year': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,25): warning C4101: 'hh': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,33): warning C4101: 'ss': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,6): warning C4101: 'day': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(55,9): warning C4101: 'newTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,17): warning C4101: 'mth': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(61,11): warning C4101: 'date': unreferenced local variable
-  jsoncpp.cpp
-  TwitterFunction.cpp
-  Generating Code...
+﻿  GUI.cpp
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(387,13): warning C4101: 'tm': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,23): warning C4101: 'z': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(380,15): warning C4101: 'newDateTime': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,30): warning C4101: 'mm': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,38): warning C4101: 'year': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,26): warning C4101: 'hh': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,34): warning C4101: 'ss': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,7): warning C4101: 'day': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(381,10): warning C4101: 'newTime': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,18): warning C4101: 'mth': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(386,12): warning C4101: 'date': unreferenced local variable
 C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.cpp(8,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  Crawler.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'ucrtd.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4217: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(url.obj)' in function '_Curl_init_userdefined'
+LINK : warning LNK4217: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(cookie.obj)' in function '_Curl_cookie_add'
+LINK : warning LNK4286: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(mprintf.obj)'
+LINK : warning LNK4217: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(formdata.obj)' in function '_FormAdd'
+libcurl.lib(base64.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(base64.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(HMAC_SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(HMAC_SHA1.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(oauthlib.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(oauthlib.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(SHA1.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(twitcurl.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(twitcurl.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(urlencode.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(urlencode.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+  ICT1009CPP.vcxproj -> C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\Debug\ICT1009CPP.exe

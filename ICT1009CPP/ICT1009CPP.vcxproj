@@ -146,7 +146,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\newnewsapi\newnewsapi\newnewsapi\newnewsapi.cpp" />
     <ClCompile Include="Crawler.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="include\json\jsoncpp.cpp" />

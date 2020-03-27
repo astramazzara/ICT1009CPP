@@ -26,13 +26,14 @@ public:
 	string getDate() { return dateTime; }
 	string getUserId() { return userid; }
 	string getPost() { return post; }
-	string get_csvfilepath() { return filepath; }
-	int readData();
+	string get_csvfilepath() {  return filepath; }
+	//int readData();
 };
 //set filepath from gui
 void twitterData::set_csvfilepath(string path) 
 {
 	filepath = path;
+	
 }
 
 twitterData::twitterData(string new_dateTime, string new_userid, string new_post) {
@@ -45,9 +46,9 @@ void twitterData::storeData(string new_dateTime, string new_userid, string new_p
 	userid = new_userid;
 	post = new_post;
 }
-
+/*
 int twitterData::readData() {
-	//*************RE-POSITION FROM GLOBAL****************//
+	//*************RE-POSITION FROM GLOBAL****************
 	twitterData twitter[100];
 	string dateTime;
 	const char* newDateTime;
@@ -73,7 +74,7 @@ int twitterData::readData() {
 		
 	}
 	return i;
-}
+}*/
 
 /*int main() {
 	int size = 0;

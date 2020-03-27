@@ -6,6 +6,11 @@
 #include <filesystem>
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <vector>
+#include <sstream>
+#include <ctime>
+#include <iomanip>
 namespace fs = std::filesystem;
 using namespace System;
 using namespace std;
@@ -368,25 +373,54 @@ namespace CPPProject1009Gui
 	{
 		twitterData display;
 		twitterData twitter[100];
+		//int size =display.readData();
 
+		//not mine
+		string dateTime;
+		const char* newDateTime;
+		time_t newTime;
+		string userid;
+		string post;
+		string nth;
+		int i = 0;
+		int day, date, mth, z, hh, mm, ss, year;
+		struct tm tm;
+		ifstream f("twitterData.csv");
+		
+
+		getline(f, nth);
 
 		
-		int size =display.readData();
+		while (f.peek() != EOF) {
+			getline(f, dateTime, ',');
+			getline(f, userid, ',');
+			getline(f, post, '\n');
+
+			twitter[i].storeData(dateTime, userid, post);
+			
+			i++;
+			//std::string test1 = std::to_string(i);
+			//String^ str2 = gcnew String(test1.c_str());
+			//MessageBox::Show(str2);
+		}
 
 		//richTextBox1->Text = marshal_as<String^>(display.getDate());
-		for (int i = 0; i < size; ++i) {
+		for (int j = 0; j < i; ++j) {
 			//std::string date = marshal_as<std::string>(twitter[i].getDate());
 			//textBox1->Text="Time Date";
+
+			//std::string test1 = std::to_string(j);
+			//String^ str2 = gcnew String(test1.c_str());
+			//MessageBox::Show(str2);
+			richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[j].getDate()) + "\r"
+				+ "User ID: " + marshal_as<String^>(twitter[j].getUserId()) + "\r"
+				+ "User Post: " + marshal_as<String^>(twitter[j].getPost()) + "\r"+"\r";
 			
 			
-			richTextBox1->Text = "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
-								 + "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-								 + "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r";
+			
 			
 
-			//cout << twitter[i].getDate() << endl;
-			//cout << twitter[i].getUserId() << endl;
-			//cout << twitter[i].getPost()<< endl;
+			
 		}
 	}
 };
