@@ -1,7 +1,15 @@
-#pragma once
+
 #include "Crawler.h"
+#include "twitter.h"
 #include <string>
 #include <msclr\marshal_cppstd.h>
+#include <filesystem>
+#include <string>
+#include <iostream>
+namespace fs = std::filesystem;
+using namespace System;
+using namespace std;
+
 
 
 using namespace msclr::interop;
@@ -17,7 +25,8 @@ FILE _iob[] = { *stdin, *stdout, *stderr };
 extern "C" FILE * __cdecl __iob_func(void) { return _iob; }
 extern "C" void __imp__set_output_format(void) {};
 
-namespace CPPProject1009Gui {
+namespace CPPProject1009Gui
+{
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -35,6 +44,8 @@ namespace CPPProject1009Gui {
 		GUI(void)
 		{
 			InitializeComponent();
+
+
 			//
 			//TODO: Add the constructor code here
 			//
@@ -66,13 +77,23 @@ namespace CPPProject1009Gui {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ keywordTb;
 	private: System::Windows::Forms::Button^ importBtn;
-	private: System::Windows::Forms::RichTextBox^ rtbDisplay;
+
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+
+
+
+
+	private: System::Windows::Forms::Button^ displayBtn;
+	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+
+	private: System::ComponentModel::IContainer^ components;
+
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -81,6 +102,7 @@ namespace CPPProject1009Gui {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->recordTb = (gcnew System::Windows::Forms::TextBox());
@@ -89,12 +111,14 @@ namespace CPPProject1009Gui {
 			this->keywordTb = (gcnew System::Windows::Forms::TextBox());
 			this->crawlBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->displayBtn = (gcnew System::Windows::Forms::Button());
+			this->importBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
-			this->rtbDisplay = (gcnew System::Windows::Forms::RichTextBox());
-			this->importBtn = (gcnew System::Windows::Forms::Button());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -131,16 +155,15 @@ namespace CPPProject1009Gui {
 			// 
 			// recordTb
 			// 
-			this->recordTb->Location = System::Drawing::Point(120, 122);
+			this->recordTb->Location = System::Drawing::Point(118, 84);
 			this->recordTb->Name = L"recordTb";
 			this->recordTb->Size = System::Drawing::Size(100, 20);
-			this->recordTb->TabIndex = 9;
-			this->recordTb->TextChanged += gcnew System::EventHandler(this, &GUI::recordTb_TextChanged);
+			this->recordTb->TabIndex = 0;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(35, 125);
+			this->label2->Location = System::Drawing::Point(33, 87);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(79, 13);
 			this->label2->TabIndex = 8;
@@ -149,7 +172,7 @@ namespace CPPProject1009Gui {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(66, 86);
+			this->label1->Location = System::Drawing::Point(64, 48);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(48, 13);
 			this->label1->TabIndex = 7;
@@ -157,15 +180,14 @@ namespace CPPProject1009Gui {
 			// 
 			// keywordTb
 			// 
-			this->keywordTb->Location = System::Drawing::Point(120, 83);
+			this->keywordTb->Location = System::Drawing::Point(118, 45);
 			this->keywordTb->Name = L"keywordTb";
 			this->keywordTb->Size = System::Drawing::Size(100, 20);
-			this->keywordTb->TabIndex = 6;
-			this->keywordTb->TextChanged += gcnew System::EventHandler(this, &GUI::keywordTb_TextChanged);
+			this->keywordTb->TabIndex = 9;
 			// 
 			// crawlBtn
 			// 
-			this->crawlBtn->Location = System::Drawing::Point(144, 163);
+			this->crawlBtn->Location = System::Drawing::Point(142, 125);
 			this->crawlBtn->Name = L"crawlBtn";
 			this->crawlBtn->Size = System::Drawing::Size(76, 33);
 			this->crawlBtn->TabIndex = 0;
@@ -175,8 +197,9 @@ namespace CPPProject1009Gui {
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->richTextBox1);
+			this->tabPage2->Controls->Add(this->displayBtn);
 			this->tabPage2->Controls->Add(this->importBtn);
-			this->tabPage2->Controls->Add(this->rtbDisplay);
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
@@ -184,6 +207,26 @@ namespace CPPProject1009Gui {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"View Record";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// displayBtn
+			// 
+			this->displayBtn->Location = System::Drawing::Point(513, 374);
+			this->displayBtn->Name = L"displayBtn";
+			this->displayBtn->Size = System::Drawing::Size(75, 23);
+			this->displayBtn->TabIndex = 5;
+			this->displayBtn->Text = L"Display CSV";
+			this->displayBtn->UseVisualStyleBackColor = true;
+			this->displayBtn->Click += gcnew System::EventHandler(this, &GUI::displayBtn_Click);
+			// 
+			// importBtn
+			// 
+			this->importBtn->Location = System::Drawing::Point(417, 374);
+			this->importBtn->Name = L"importBtn";
+			this->importBtn->Size = System::Drawing::Size(75, 23);
+			this->importBtn->TabIndex = 3;
+			this->importBtn->Text = L"Import CSV file";
+			this->importBtn->UseVisualStyleBackColor = true;
+			this->importBtn->Click += gcnew System::EventHandler(this, &GUI::importBtn_Click_1);
 			// 
 			// tabPage3
 			// 
@@ -222,23 +265,18 @@ namespace CPPProject1009Gui {
 			this->tabPage6->Text = L"tabPage6";
 			this->tabPage6->UseVisualStyleBackColor = true;
 			// 
-			// rtbDisplay
+			// contextMenuStrip1
 			// 
-			this->rtbDisplay->Location = System::Drawing::Point(9, 17);
-			this->rtbDisplay->Name = L"rtbDisplay";
-			this->rtbDisplay->Size = System::Drawing::Size(608, 324);
-			this->rtbDisplay->TabIndex = 2;
-			this->rtbDisplay->Text = L"";
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// importBtn
+			// richTextBox1
 			// 
-			this->importBtn->Location = System::Drawing::Point(499, 377);
-			this->importBtn->Name = L"importBtn";
-			this->importBtn->Size = System::Drawing::Size(75, 23);
-			this->importBtn->TabIndex = 3;
-			this->importBtn->Text = L"Import CSV file";
-			this->importBtn->UseVisualStyleBackColor = true;
-			this->importBtn->Click += gcnew System::EventHandler(this, &GUI::importBtn_Click_1);
+			this->richTextBox1->Location = System::Drawing::Point(3, 6);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(618, 333);
+			this->richTextBox1->TabIndex = 6;
+			this->richTextBox1->Text = L"";
 			// 
 			// GUI
 			// 
@@ -290,37 +328,68 @@ namespace CPPProject1009Gui {
 			MessageBox::Show("Successfully Crawled and Saved to File");
 		}
 	}
-	/*END  OF BUTTONS for Crawling*/
+		   /*END  OF BUTTONS for Crawling*/
 
 
-	/*BUTTONS for Importing CSV File*/
+		   /*BUTTONS for Importing CSV File*/
 	private: System::Void importBtn_Click_1(System::Object^ sender, System::EventArgs^ e)
 	{
-		System::String^ filename;
+		
+		
 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 
-		openFileDialog1->InitialDirectory = "c:\\";
-		//openFileDialog1->Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-		//openFileDialog1->FilterIndex = 2;
+		openFileDialog1->InitialDirectory = "C:\\Users\\lim_j\\Documents\\GitHub\\ICT1009CPP\\ICT1009CPP\\";
 		openFileDialog1->RestoreDirectory = true;
 
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
+			System::String^ filepath = System::IO::Path::GetFileName(openFileDialog1->FileName);
+			std::string filename = marshal_as<std::string>(filepath);
 
+	
+			 //fs::path filepath = fs::u8path(fpath);
+			 //std::string path_string = filepath.u8string();
 
-			filename = openFileDialog1->FileName;
-			//rtbDisplay.Text = filename;
-			MessageBox::Show(filename, "Path:");
+			 //String^ str2 = gcnew String(path_string.c_str());
+
+			twitterData tweet;
+			tweet.set_csvfilepath(filename);// use stadard string
+			MessageBox::Show(filepath, "FilePath:");//use system strig
+
+			
+
 		}
 	}
-	/*END  OF BUTTONS for Importing CSV File*/
-private: System::Void keywordTb_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void recordTb_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void importBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+		   /*END  OF BUTTONS for Importing CSV File*/
+
 	
+	private: System::Void displayBtn_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		twitterData display;
+		twitterData twitter[100];
+
+
+		
+		int size =display.readData();
+
+		//richTextBox1->Text = marshal_as<String^>(display.getDate());
+		for (int i = 0; i < size; ++i) {
+			//std::string date = marshal_as<std::string>(twitter[i].getDate());
+			//textBox1->Text="Time Date";
+			
+			
+			richTextBox1->Text = "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
+								 + "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
+								 + "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r";
+			
+
+			//cout << twitter[i].getDate() << endl;
+			//cout << twitter[i].getUserId() << endl;
+			//cout << twitter[i].getPost()<< endl;
+		}
+	}
 };
 }
+
+

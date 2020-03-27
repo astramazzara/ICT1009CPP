@@ -27,6 +27,9 @@
     <ClCompile Include="TwitterFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\newnewsapi\newnewsapi\newnewsapi\newnewsapi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI.h">
