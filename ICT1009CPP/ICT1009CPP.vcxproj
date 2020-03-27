@@ -152,6 +152,7 @@
     <ClCompile Include="TwitterFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cna.h" />
     <ClInclude Include="Crawler.h" />
     <ClInclude Include="GUI.h">
       <FileType>CppForm</FileType>
