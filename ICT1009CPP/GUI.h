@@ -96,6 +96,11 @@ namespace CPPProject1009Gui
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::Button^ btnCrawlCNA;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::GroupBox^ groupBox1;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -123,6 +128,7 @@ namespace CPPProject1009Gui
 			this->keywordTb = (gcnew System::Windows::Forms::TextBox());
 			this->crawlBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->displayBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
@@ -134,12 +140,18 @@ namespace CPPProject1009Gui
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->btnCrawlCNA = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			this->tabPage3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -158,11 +170,8 @@ namespace CPPProject1009Gui
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Controls->Add(this->recordTb);
-			this->tabPage1->Controls->Add(this->label2);
-			this->tabPage1->Controls->Add(this->label1);
-			this->tabPage1->Controls->Add(this->keywordTb);
-			this->tabPage1->Controls->Add(this->crawlBtn);
+			this->tabPage1->Controls->Add(this->groupBox2);
+			this->tabPage1->Controls->Add(this->groupBox1);
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
@@ -173,7 +182,7 @@ namespace CPPProject1009Gui
 			// 
 			// recordTb
 			// 
-			this->recordTb->Location = System::Drawing::Point(114, 77);
+			this->recordTb->Location = System::Drawing::Point(107, 58);
 			this->recordTb->Name = L"recordTb";
 			this->recordTb->Size = System::Drawing::Size(100, 20);
 			this->recordTb->TabIndex = 0;
@@ -181,7 +190,7 @@ namespace CPPProject1009Gui
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(29, 80);
+			this->label2->Location = System::Drawing::Point(22, 61);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(79, 13);
 			this->label2->TabIndex = 8;
@@ -190,7 +199,7 @@ namespace CPPProject1009Gui
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(60, 41);
+			this->label1->Location = System::Drawing::Point(53, 22);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(48, 13);
 			this->label1->TabIndex = 7;
@@ -198,14 +207,14 @@ namespace CPPProject1009Gui
 			// 
 			// keywordTb
 			// 
-			this->keywordTb->Location = System::Drawing::Point(114, 38);
+			this->keywordTb->Location = System::Drawing::Point(107, 19);
 			this->keywordTb->Name = L"keywordTb";
 			this->keywordTb->Size = System::Drawing::Size(100, 20);
 			this->keywordTb->TabIndex = 9;
 			// 
 			// crawlBtn
 			// 
-			this->crawlBtn->Location = System::Drawing::Point(138, 120);
+			this->crawlBtn->Location = System::Drawing::Point(131, 101);
 			this->crawlBtn->Name = L"crawlBtn";
 			this->crawlBtn->Size = System::Drawing::Size(76, 33);
 			this->crawlBtn->TabIndex = 0;
@@ -225,6 +234,16 @@ namespace CPPProject1009Gui
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"View Record";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(405, 374);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 7;
+			this->button1->Text = L"Import CSV";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &GUI::button1_Click);
 			// 
 			// richTextBox1
 			// 
@@ -317,15 +336,63 @@ namespace CPPProject1009Gui
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// button1
+			// groupBox1
 			// 
-			this->button1->Location = System::Drawing::Point(405, 374);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Import CSV";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &GUI::button1_Click);
+			this->groupBox1->Controls->Add(this->crawlBtn);
+			this->groupBox1->Controls->Add(this->recordTb);
+			this->groupBox1->Controls->Add(this->keywordTb);
+			this->groupBox1->Controls->Add(this->label2);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Location = System::Drawing::Point(28, 25);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(257, 158);
+			this->groupBox1->TabIndex = 10;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Twitter Crawl";
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->btnCrawlCNA);
+			this->groupBox2->Controls->Add(this->radioButton2);
+			this->groupBox2->Controls->Add(this->radioButton1);
+			this->groupBox2->Location = System::Drawing::Point(28, 223);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(257, 154);
+			this->groupBox2->TabIndex = 11;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"CNA Crawl";
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(40, 45);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(85, 17);
+			this->radioButton1->TabIndex = 0;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"radioButton1";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(40, 90);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(36, 17);
+			this->radioButton2->TabIndex = 1;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"All";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
+			// btnCrawlCNA
+			// 
+			this->btnCrawlCNA->Location = System::Drawing::Point(150, 114);
+			this->btnCrawlCNA->Name = L"btnCrawlCNA";
+			this->btnCrawlCNA->Size = System::Drawing::Size(75, 23);
+			this->btnCrawlCNA->TabIndex = 2;
+			this->btnCrawlCNA->Text = L"Crawl";
+			this->btnCrawlCNA->UseVisualStyleBackColor = true;
+			this->btnCrawlCNA->Click += gcnew System::EventHandler(this, &GUI::btnCrawlCNA_Click);
 			// 
 			// GUI
 			// 
@@ -338,10 +405,13 @@ namespace CPPProject1009Gui
 			this->Text = L"Crawler GUI";
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
-			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -464,6 +534,8 @@ namespace CPPProject1009Gui
 	}
 
 
+private: System::Void btnCrawlCNA_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
 
