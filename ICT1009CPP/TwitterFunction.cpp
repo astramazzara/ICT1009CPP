@@ -5,16 +5,17 @@
 #include <iomanip>
 #include "twitter.h"
 using namespace std;
-twitterData twitter[100];
 
-int readData() {
+// global variables
+twitterData twitter[100]; // store twitter data in an array
+int size = 0;				  // define size of data
+void readData() {
 	string dateTime;
 	const char* newDateTime;
 	time_t newTime;
 	string userid;
 	string post;
 	string nth;
-	int i = 0;
 	int day, date, mth, z, hh, mm, ss, year;
 	struct tm tm;
 	ifstream f("TwitterData.csv");
@@ -35,19 +36,18 @@ int readData() {
 		tm.tm_sec = ss;
 		newTime = mktime(&tm);
 		*/
-		twitter[i].storeData(dateTime, userid, post);
-		i++;
+		twitter[::size].storeData(dateTime, userid, post);
+		::size++;
 		//cout << "Date Time: " << newTime << endl;
 	}
-	return i;
 }
 int main() {
-	int size = 0;
-	size = readData();
-	for (int i = 0; i < size; ++i) {
+	readData();
+	for (int i = 0; i < ::size; ++i) {
 		cout << "Date Time: " << twitter[i].getDate() << endl;
 		cout << "Username: " << twitter[i].getUserId() << endl;
 		cout << "Tweet Post: " << twitter[i].getPost() << endl;
 	}
+	cout << ::size;
 
 }
