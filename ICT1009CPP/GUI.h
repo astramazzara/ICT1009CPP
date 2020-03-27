@@ -81,7 +81,7 @@ namespace CPPProject1009Gui
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ keywordTb;
-	private: System::Windows::Forms::Button^ importBtn;
+
 
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
 
@@ -90,6 +90,13 @@ namespace CPPProject1009Gui
 
 	private: System::Windows::Forms::Button^ displayBtn;
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::Button^ button1;
+
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -116,17 +123,23 @@ namespace CPPProject1009Gui
 			this->keywordTb = (gcnew System::Windows::Forms::TextBox());
 			this->crawlBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->displayBtn = (gcnew System::Windows::Forms::Button());
-			this->importBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
+			this->tabPage3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -160,7 +173,7 @@ namespace CPPProject1009Gui
 			// 
 			// recordTb
 			// 
-			this->recordTb->Location = System::Drawing::Point(118, 84);
+			this->recordTb->Location = System::Drawing::Point(114, 77);
 			this->recordTb->Name = L"recordTb";
 			this->recordTb->Size = System::Drawing::Size(100, 20);
 			this->recordTb->TabIndex = 0;
@@ -168,7 +181,7 @@ namespace CPPProject1009Gui
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(33, 87);
+			this->label2->Location = System::Drawing::Point(29, 80);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(79, 13);
 			this->label2->TabIndex = 8;
@@ -177,7 +190,7 @@ namespace CPPProject1009Gui
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(64, 48);
+			this->label1->Location = System::Drawing::Point(60, 41);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(48, 13);
 			this->label1->TabIndex = 7;
@@ -185,14 +198,14 @@ namespace CPPProject1009Gui
 			// 
 			// keywordTb
 			// 
-			this->keywordTb->Location = System::Drawing::Point(118, 45);
+			this->keywordTb->Location = System::Drawing::Point(114, 38);
 			this->keywordTb->Name = L"keywordTb";
 			this->keywordTb->Size = System::Drawing::Size(100, 20);
 			this->keywordTb->TabIndex = 9;
 			// 
 			// crawlBtn
 			// 
-			this->crawlBtn->Location = System::Drawing::Point(142, 125);
+			this->crawlBtn->Location = System::Drawing::Point(138, 120);
 			this->crawlBtn->Name = L"crawlBtn";
 			this->crawlBtn->Size = System::Drawing::Size(76, 33);
 			this->crawlBtn->TabIndex = 0;
@@ -202,9 +215,9 @@ namespace CPPProject1009Gui
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->button1);
 			this->tabPage2->Controls->Add(this->richTextBox1);
 			this->tabPage2->Controls->Add(this->displayBtn);
-			this->tabPage2->Controls->Add(this->importBtn);
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
@@ -212,6 +225,14 @@ namespace CPPProject1009Gui
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"View Record";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Location = System::Drawing::Point(3, 6);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(618, 333);
+			this->richTextBox1->TabIndex = 6;
+			this->richTextBox1->Text = L"";
 			// 
 			// displayBtn
 			// 
@@ -223,18 +244,9 @@ namespace CPPProject1009Gui
 			this->displayBtn->UseVisualStyleBackColor = true;
 			this->displayBtn->Click += gcnew System::EventHandler(this, &GUI::displayBtn_Click);
 			// 
-			// importBtn
-			// 
-			this->importBtn->Location = System::Drawing::Point(417, 374);
-			this->importBtn->Name = L"importBtn";
-			this->importBtn->Size = System::Drawing::Size(75, 23);
-			this->importBtn->TabIndex = 3;
-			this->importBtn->Text = L"Import CSV file";
-			this->importBtn->UseVisualStyleBackColor = true;
-			this->importBtn->Click += gcnew System::EventHandler(this, &GUI::importBtn_Click_1);
-			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->dataGridView1);
 			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
@@ -242,6 +254,36 @@ namespace CPPProject1009Gui
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Function1";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Column1,
+					this->Column2, this->Column3
+			});
+			this->dataGridView1->Location = System::Drawing::Point(9, 30);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(606, 300);
+			this->dataGridView1->TabIndex = 0;
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"DateTime";
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"ID";
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Post";
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
 			// 
 			// tabPage4
 			// 
@@ -275,13 +317,15 @@ namespace CPPProject1009Gui
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// richTextBox1
+			// button1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(3, 6);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(618, 333);
-			this->richTextBox1->TabIndex = 6;
-			this->richTextBox1->Text = L"";
+			this->button1->Location = System::Drawing::Point(405, 374);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 7;
+			this->button1->Text = L"Import CSV";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &GUI::button1_Click);
 			// 
 			// GUI
 			// 
@@ -296,6 +340,8 @@ namespace CPPProject1009Gui
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
+			this->tabPage3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -337,10 +383,7 @@ namespace CPPProject1009Gui
 
 
 		   /*BUTTONS for Importing CSV File*/
-	private: System::Void importBtn_Click_1(System::Object^ sender, System::EventArgs^ e)
-	{
-		
-		
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 
@@ -352,17 +395,17 @@ namespace CPPProject1009Gui
 			System::String^ filepath = System::IO::Path::GetFileName(openFileDialog1->FileName);
 			std::string filename = marshal_as<std::string>(filepath);
 
-	
-			 //fs::path filepath = fs::u8path(fpath);
-			 //std::string path_string = filepath.u8string();
 
-			 //String^ str2 = gcnew String(path_string.c_str());
+			//fs::path filepath = fs::u8path(fpath);
+			//std::string path_string = filepath.u8string();
+
+			//String^ str2 = gcnew String(path_string.c_str());
 
 			twitterData tweet;
 			tweet.set_csvfilepath(filename);// use stadard string
 			MessageBox::Show(filepath, "FilePath:");//use system strig
 
-			
+
 
 		}
 	}
@@ -417,12 +460,10 @@ namespace CPPProject1009Gui
 				+ "User Post: " + marshal_as<String^>(twitter[j].getPost()) + "\r"+"\r";
 			
 			
-			
-			
-
-			
 		}
 	}
+
+
 };
 }
 
