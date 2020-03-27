@@ -11,6 +11,18 @@
 #include <sstream>
 #include <ctime>
 #include <iomanip>
+
+
+
+#include "rapidjson/document.h"
+#include <cpr/cpr.h>
+#include <Windows.h>
+#include "cna.h"
+
+using namespace rapidjson;
+using namespace std;
+using namespace cpr;
+
 namespace fs = std::filesystem;
 using namespace System;
 using namespace std;
@@ -534,9 +546,7 @@ namespace CPPProject1009Gui
 	}
 
 
-private: System::Void btnCrawlCNA_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+
 }
 
 

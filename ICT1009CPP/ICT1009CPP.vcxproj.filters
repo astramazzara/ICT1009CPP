@@ -38,5 +38,8 @@
     <ClInclude Include="twitter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
