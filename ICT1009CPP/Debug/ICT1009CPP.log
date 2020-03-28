@@ -1,15 +1,27 @@
 ﻿  GUI.cpp
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(498,13): warning C4101: 'tm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,23): warning C4101: 'z': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(491,15): warning C4101: 'newDateTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,30): warning C4101: 'mm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,38): warning C4101: 'year': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,26): warning C4101: 'hh': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,34): warning C4101: 'ss': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,7): warning C4101: 'day': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(492,10): warning C4101: 'newTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,18): warning C4101: 'mth': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(497,12): warning C4101: 'date': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(70,12): warning C4101: 'tm': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,22): warning C4101: 'z': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(64,14): warning C4101: 'newDateTime': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,29): warning C4101: 'mm': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,37): warning C4101: 'year': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,25): warning C4101: 'hh': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,33): warning C4101: 'ss': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,6): warning C4101: 'day': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(65,9): warning C4101: 'newTime': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,17): warning C4101: 'mth': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\twitter.h(69,11): warning C4101: 'date': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(647,13): warning C4101: 'tm': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,23): warning C4101: 'z': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(640,15): warning C4101: 'newDateTime': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,30): warning C4101: 'mm': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,38): warning C4101: 'year': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,26): warning C4101: 'hh': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,34): warning C4101: 'ss': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,7): warning C4101: 'day': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(641,10): warning C4101: 'newTime': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,18): warning C4101: 'mth': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(646,12): warning C4101: 'date': unreferenced local variable
+C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.h(708,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\lim_j\Documents\GitHub\ICT1009CPP\ICT1009CPP\GUI.cpp(8,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
   Crawler.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
