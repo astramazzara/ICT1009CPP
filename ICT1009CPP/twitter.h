@@ -4,8 +4,11 @@
 #include <sstream>
 #include <algorithm>
 #include <map>
-
-
+#include <ctime>
+#include <iomanip>
+#include <string>
+#include <regex>
+#include <functional>
 using namespace std;
 
 
@@ -51,13 +54,45 @@ void twitterData::storeData(string new_dateTime, string new_userid, string new_p
 
 typedef map<string, int> word_count_list;
 
-struct val_morethan : binary_function <pair<string, int>, pair<string, int>, bool>
+struct val_morethan
 {
-	bool operator() (const pair<string, int>& x, const pair<string, int>& y) const
+	inline bool operator() (const pair<string, int>& x, const pair<string, int>& y) const
 	{
 		return x.second > y.second;
 	}
 }val_lt;
+
+struct userid_asc
+{
+
+	inline bool operator() (twitterData& x, twitterData& y) {
+		return x.getUserId() < y.getUserId();
+	}
+}userid_asc;
+
+struct userid_desc
+{
+
+	inline bool operator() (twitterData& x, twitterData& y) {
+		return x.getUserId() > y.getUserId();
+	}
+}userid_desc;
+
+struct post_asc
+{
+
+	inline bool operator() (twitterData& x, twitterData& y) {
+		return x.getPost() < y.getPost();
+	}
+}post_asc;
+
+struct post_desc
+{
+
+	inline bool operator() (twitterData& x, twitterData& y) {
+		return x.getPost() > y.getPost();
+	}
+}post_desc;
 
 //----------------------------------------------- DEFINE GLOBAL VARIABLES -----------------------------------------------//
 vector <twitterData> twitter; // store twitter data in an array

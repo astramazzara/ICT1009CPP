@@ -117,7 +117,7 @@ namespace CPPProject1009Gui
 	private: System::Windows::Forms::Button^ searchBtn;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Button^ clearBtn;
-	private: System::Windows::Forms::Label^ label5;
+
 	private: System::Windows::Forms::TextBox^ searchTb2;
 	private: System::Windows::Forms::Button^ searchBtn2;
 	private: System::Windows::Forms::Label^ label7;
@@ -129,6 +129,15 @@ namespace CPPProject1009Gui
 	private: System::Windows::Forms::RichTextBox^ richTextBox2;
 	private: System::Windows::Forms::Button^ clearBtn2;
 	private: System::Windows::Forms::Button^ toptenBtn;
+
+
+	private: System::Windows::Forms::Button^ btnSort;
+	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::GroupBox^ groupBox4;
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+
+
+
 
 
 
@@ -169,6 +178,9 @@ namespace CPPProject1009Gui
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->btnSort = (gcnew System::Windows::Forms::Button());
+			this->toptenBtn = (gcnew System::Windows::Forms::Button());
 			this->clearBtn = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->searchTb = (gcnew System::Windows::Forms::TextBox());
@@ -177,23 +189,25 @@ namespace CPPProject1009Gui
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->displayBtn = (gcnew System::Windows::Forms::Button());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->searchTb2 = (gcnew System::Windows::Forms::TextBox());
-			this->searchBtn2 = (gcnew System::Windows::Forms::Button());
-			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
+			this->clearBtn2 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->displayBtn2 = (gcnew System::Windows::Forms::Button());
-			this->clearBtn2 = (gcnew System::Windows::Forms::Button());
-			this->toptenBtn = (gcnew System::Windows::Forms::Button());
+			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
+			this->searchTb2 = (gcnew System::Windows::Forms::TextBox());
+			this->searchBtn2 = (gcnew System::Windows::Forms::Button());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			this->tabPage3->SuspendLayout();
+			this->groupBox3->SuspendLayout();
+			this->groupBox4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -204,7 +218,7 @@ namespace CPPProject1009Gui
 			this->tabControl1->Location = System::Drawing::Point(-1, -1);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(649, 516);
+			this->tabControl1->Size = System::Drawing::Size(941, 555);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage1
@@ -214,7 +228,7 @@ namespace CPPProject1009Gui
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(641, 490);
+			this->tabPage1->Size = System::Drawing::Size(933, 529);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Crawler";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -326,27 +340,68 @@ namespace CPPProject1009Gui
 			// 
 			this->tabPage2->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->tabPage2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->tabPage2->Controls->Add(this->groupBox4);
+			this->tabPage2->Controls->Add(this->groupBox3);
 			this->tabPage2->Controls->Add(this->toptenBtn);
-			this->tabPage2->Controls->Add(this->label5);
 			this->tabPage2->Controls->Add(this->clearBtn);
 			this->tabPage2->Controls->Add(this->label4);
-			this->tabPage2->Controls->Add(this->searchTb);
-			this->tabPage2->Controls->Add(this->searchBtn);
 			this->tabPage2->Controls->Add(this->button1);
 			this->tabPage2->Controls->Add(this->richTextBox1);
 			this->tabPage2->Controls->Add(this->displayBtn);
+			this->tabPage2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(641, 490);
+			this->tabPage2->Size = System::Drawing::Size(933, 529);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Twitter";
 			// 
+			// comboBox2
+			// 
+			this->comboBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Sort ascending order by username", L"Sort descending order by username",
+					L"Sort ascending order by post", L"Sort descending order by post"
+			});
+			this->comboBox2->Location = System::Drawing::Point(6, 21);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(192, 21);
+			this->comboBox2->TabIndex = 20;
+			// 
+			// btnSort
+			// 
+			this->btnSort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnSort->Location = System::Drawing::Point(66, 48);
+			this->btnSort->Name = L"btnSort";
+			this->btnSort->Size = System::Drawing::Size(75, 23);
+			this->btnSort->TabIndex = 18;
+			this->btnSort->Text = L"Sort";
+			this->btnSort->UseVisualStyleBackColor = true;
+			this->btnSort->Click += gcnew System::EventHandler(this, &GUI::btnSort_Click);
+			// 
+			// toptenBtn
+			// 
+			this->toptenBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->toptenBtn->Location = System::Drawing::Point(211, 489);
+			this->toptenBtn->Name = L"toptenBtn";
+			this->toptenBtn->Size = System::Drawing::Size(95, 33);
+			this->toptenBtn->TabIndex = 15;
+			this->toptenBtn->Text = L"Top Ten words";
+			this->toptenBtn->UseVisualStyleBackColor = true;
+			this->toptenBtn->Click += gcnew System::EventHandler(this, &GUI::toptenBtn_Click);
+			// 
 			// clearBtn
 			// 
-			this->clearBtn->Location = System::Drawing::Point(537, 437);
+			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->clearBtn->Location = System::Drawing::Point(600, 489);
 			this->clearBtn->Name = L"clearBtn";
-			this->clearBtn->Size = System::Drawing::Size(97, 33);
+			this->clearBtn->Size = System::Drawing::Size(120, 33);
 			this->clearBtn->TabIndex = 12;
 			this->clearBtn->Text = L"Clear Display";
 			this->clearBtn->UseVisualStyleBackColor = true;
@@ -358,7 +413,7 @@ namespace CPPProject1009Gui
 			this->label4->BackColor = System::Drawing::Color::LightGray;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(9, 25);
+			this->label4->Location = System::Drawing::Point(6, 3);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(234, 25);
 			this->label4->TabIndex = 11;
@@ -367,17 +422,19 @@ namespace CPPProject1009Gui
 			// searchTb
 			// 
 			this->searchTb->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->searchTb->Location = System::Drawing::Point(434, 24);
+			this->searchTb->Location = System::Drawing::Point(17, 21);
 			this->searchTb->Name = L"searchTb";
-			this->searchTb->Size = System::Drawing::Size(100, 20);
+			this->searchTb->Size = System::Drawing::Size(173, 22);
 			this->searchTb->TabIndex = 9;
 			// 
 			// searchBtn
 			// 
 			this->searchBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->searchBtn->Location = System::Drawing::Point(550, 16);
+			this->searchBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->searchBtn->Location = System::Drawing::Point(66, 49);
 			this->searchBtn->Name = L"searchBtn";
-			this->searchBtn->Size = System::Drawing::Size(75, 32);
+			this->searchBtn->Size = System::Drawing::Size(75, 24);
 			this->searchBtn->TabIndex = 8;
 			this->searchBtn->Text = L"Search";
 			this->searchBtn->UseVisualStyleBackColor = true;
@@ -385,9 +442,11 @@ namespace CPPProject1009Gui
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(9, 437);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(9, 489);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 33);
+			this->button1->Size = System::Drawing::Size(95, 33);
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"Import CSV";
 			this->button1->UseVisualStyleBackColor = true;
@@ -395,19 +454,23 @@ namespace CPPProject1009Gui
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(6, 75);
+			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->richTextBox1->Location = System::Drawing::Point(6, 31);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->ReadOnly = true;
-			this->richTextBox1->Size = System::Drawing::Size(628, 356);
+			this->richTextBox1->Size = System::Drawing::Size(714, 452);
 			this->richTextBox1->TabIndex = 6;
 			this->richTextBox1->Text = L"";
 			// 
 			// displayBtn
 			// 
 			this->displayBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->displayBtn->Location = System::Drawing::Point(100, 437);
+			this->displayBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->displayBtn->Location = System::Drawing::Point(110, 489);
 			this->displayBtn->Name = L"displayBtn";
-			this->displayBtn->Size = System::Drawing::Size(75, 33);
+			this->displayBtn->Size = System::Drawing::Size(95, 33);
 			this->displayBtn->TabIndex = 5;
 			this->displayBtn->Text = L"Display CSV";
 			this->displayBtn->UseVisualStyleBackColor = true;
@@ -427,50 +490,46 @@ namespace CPPProject1009Gui
 			this->tabPage3->Location = System::Drawing::Point(4, 22);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(641, 490);
+			this->tabPage3->Size = System::Drawing::Size(933, 529);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"CNA";
 			// 
-			// contextMenuStrip1
+			// clearBtn2
 			// 
-			this->contextMenuStrip1->Name = L"contextMenuStrip1";
-			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			this->clearBtn2->Location = System::Drawing::Point(537, 429);
+			this->clearBtn2->Name = L"clearBtn2";
+			this->clearBtn2->Size = System::Drawing::Size(97, 39);
+			this->clearBtn2->TabIndex = 21;
+			this->clearBtn2->Text = L"Clear Display";
+			this->clearBtn2->UseVisualStyleBackColor = true;
 			// 
-			// label5
+			// button2
 			// 
-			this->label5->AutoSize = true;
-			this->label5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(317, 24);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(111, 18);
-			this->label5->TabIndex = 14;
-			this->label5->Text = L"Search Keyword:";
+			this->button2->Location = System::Drawing::Point(667, 67);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 39);
+			this->button2->TabIndex = 20;
+			this->button2->Text = L"Import CSV";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
-			// label6
+			// displayBtn2
 			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::LightGray;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(9, 29);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(210, 25);
-			this->label6->TabIndex = 0;
-			this->label6->Text = L"CNA Crawl Display";
+			this->displayBtn2->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->displayBtn2->Location = System::Drawing::Point(667, 130);
+			this->displayBtn2->Name = L"displayBtn2";
+			this->displayBtn2->Size = System::Drawing::Size(75, 39);
+			this->displayBtn2->TabIndex = 19;
+			this->displayBtn2->Text = L"Display CSV";
+			this->displayBtn2->UseVisualStyleBackColor = true;
 			// 
-			// label7
+			// richTextBox2
 			// 
-			this->label7->AutoSize = true;
-			this->label7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(314, 20);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(111, 18);
-			this->label7->TabIndex = 15;
-			this->label7->Text = L"Search Keyword:";
+			this->richTextBox2->Location = System::Drawing::Point(6, 67);
+			this->richTextBox2->Name = L"richTextBox2";
+			this->richTextBox2->ReadOnly = true;
+			this->richTextBox2->Size = System::Drawing::Size(628, 356);
+			this->richTextBox2->TabIndex = 18;
+			this->richTextBox2->Text = L"";
 			// 
 			// searchTb2
 			// 
@@ -491,58 +550,62 @@ namespace CPPProject1009Gui
 			this->searchBtn2->UseVisualStyleBackColor = true;
 			this->searchBtn2->Click += gcnew System::EventHandler(this, &GUI::searchBtn2_Click);
 			// 
-			// richTextBox2
+			// label7
 			// 
-			this->richTextBox2->Location = System::Drawing::Point(6, 67);
-			this->richTextBox2->Name = L"richTextBox2";
-			this->richTextBox2->ReadOnly = true;
-			this->richTextBox2->Size = System::Drawing::Size(628, 356);
-			this->richTextBox2->TabIndex = 18;
-			this->richTextBox2->Text = L"";
+			this->label7->AutoSize = true;
+			this->label7->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(314, 20);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(111, 18);
+			this->label7->TabIndex = 15;
+			this->label7->Text = L"Search Keyword:";
 			// 
-			// button2
+			// label6
 			// 
-			this->button2->Location = System::Drawing::Point(14, 429);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 39);
-			this->button2->TabIndex = 20;
-			this->button2->Text = L"Import CSV";
-			this->button2->UseVisualStyleBackColor = true;
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::LightGray;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(9, 29);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(210, 25);
+			this->label6->TabIndex = 0;
+			this->label6->Text = L"CNA Crawl Display";
 			// 
-			// displayBtn2
+			// contextMenuStrip1
 			// 
-			this->displayBtn2->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->displayBtn2->Location = System::Drawing::Point(105, 429);
-			this->displayBtn2->Name = L"displayBtn2";
-			this->displayBtn2->Size = System::Drawing::Size(75, 39);
-			this->displayBtn2->TabIndex = 19;
-			this->displayBtn2->Text = L"Display CSV";
-			this->displayBtn2->UseVisualStyleBackColor = true;
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// clearBtn2
+			// groupBox3
 			// 
-			this->clearBtn2->Location = System::Drawing::Point(527, 429);
-			this->clearBtn2->Name = L"clearBtn2";
-			this->clearBtn2->Size = System::Drawing::Size(97, 39);
-			this->clearBtn2->TabIndex = 21;
-			this->clearBtn2->Text = L"Clear Display";
-			this->clearBtn2->UseVisualStyleBackColor = true;
+			this->groupBox3->Controls->Add(this->searchBtn);
+			this->groupBox3->Controls->Add(this->searchTb);
+			this->groupBox3->Location = System::Drawing::Point(730, 31);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(196, 81);
+			this->groupBox3->TabIndex = 22;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"Search by Keyword";
 			// 
-			// toptenBtn
+			// groupBox4
 			// 
-			this->toptenBtn->Location = System::Drawing::Point(190, 437);
-			this->toptenBtn->Name = L"toptenBtn";
-			this->toptenBtn->Size = System::Drawing::Size(95, 33);
-			this->toptenBtn->TabIndex = 15;
-			this->toptenBtn->Text = L"Top Ten words";
-			this->toptenBtn->UseVisualStyleBackColor = true;
-			this->toptenBtn->Click += gcnew System::EventHandler(this, &GUI::toptenBtn_Click);
+			this->groupBox4->Controls->Add(this->comboBox2);
+			this->groupBox4->Controls->Add(this->btnSort);
+			this->groupBox4->Location = System::Drawing::Point(730, 128);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Size = System::Drawing::Size(200, 84);
+			this->groupBox4->TabIndex = 23;
+			this->groupBox4->TabStop = false;
+			this->groupBox4->Text = L"Sort By";
 			// 
 			// GUI
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(649, 517);
+			this->ClientSize = System::Drawing::Size(941, 555);
 			this->Controls->Add(this->tabControl1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"GUI";
@@ -557,6 +620,9 @@ namespace CPPProject1009Gui
 			this->tabPage2->PerformLayout();
 			this->tabPage3->ResumeLayout(false);
 			this->tabPage3->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
+			this->groupBox4->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -700,12 +766,13 @@ namespace CPPProject1009Gui
 
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
 			//std::vector<string> srch(search1.begin(), search1.end());
+			
 			readData();
-
 			vector<twitterData> filtered;
 			filtered = searchKeyword(searchword);//function
 			
-			for (int j = 0; j < filtered.size(); ++j) {
+			for (int j = 0; j < filtered.size(); ++j) 
+			{
 				
 				richTextBox1->Text += "Date Time: " + marshal_as<String^>(filtered[j].getDate()) + "\r"
 									+ "User ID: " + marshal_as<String^>(filtered[j].getUserId()) + "\r"
@@ -722,11 +789,82 @@ namespace CPPProject1009Gui
 	private: System::Void clearBtn_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		richTextBox1->Text = "";
-	}
+	}/*End of clear BUTTON*/
+	
+	/*Start of top ten BUTTON*/
 	private: System::Void toptenBtn_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
+		readData();
+		vector<pair<string, int> > wordvector;
+		wordvector = top10WordTopics();
+		for (int i = 0; i < wordvector.size(); ++i) 
+		{
+			richTextBox1->Text += marshal_as<String^>(wordvector[i].first) + 
+							" = " + marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
+		}
+	}/*End of top ten BUTTON*/
+	
+	/*Start of Sort BUTTON*/
+	private: System::Void btnSort_Click(System::Object^ sender, System::EventArgs^ e) 
+	{		
+		if (comboBox2->Text=="Sort ascending order by username")
+		{
+			readData();
+			// function sort userid ascending
+			sort(twitter.begin(), twitter.end(), userid_asc);		
+			
+			for (int i = 0; i < ::size; ++i) {
 
-	}
+				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
+					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
+					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
+			}
+		}
+		else if(comboBox2->Text == "Sort descending order by username")
+		{
+			readData();
+			// function sort userid descending
+			
+			sort(twitter.begin(), twitter.end(), userid_desc);
+			
+			for (int i = 0; i < ::size; ++i) {
+
+				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
+					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
+					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
+			}
+		}
+		else if (comboBox2->Text == "Sort ascending order by post")
+		{
+			readData();
+			// function sort post ascending
+			
+			sort(twitter.begin(), twitter.end(), post_asc);
+			
+			for (int i = 0; i < ::size; ++i) {
+
+				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
+					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
+					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
+			}
+		}
+		else if (comboBox2->Text == "Sort descending order by post")
+		{
+			readData();
+			// function sort post descending
+			sort(twitter.begin(), twitter.end(), post_desc);
+			for (int i = 0; i < ::size; ++i) {
+
+				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
+					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
+					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
+			}
+		}
+		else
+		{
+			MessageBox::Show("Please input Keyword to sort!", "Error:");
+		}
+	}/*End of top ten BUTTON*/
 
 
 
@@ -735,6 +873,10 @@ namespace CPPProject1009Gui
 /*CNA Buttons*/
 private: System::Void searchBtn2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+
+
+
+
 
 };
 }
