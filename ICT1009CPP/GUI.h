@@ -149,6 +149,7 @@ namespace CPPProject1009Gui
 
 
 
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -365,7 +366,7 @@ namespace CPPProject1009Gui
 			this->groupBox4->Controls->Add(this->btnSort);
 			this->groupBox4->Location = System::Drawing::Point(730, 128);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(200, 84);
+			this->groupBox4->Size = System::Drawing::Size(200, 104);
 			this->groupBox4->TabIndex = 23;
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Text = L"Sort By";
@@ -638,8 +639,8 @@ namespace CPPProject1009Gui
 		}
 #pragma endregion
 
-		/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<BUTTON FUNCTIONS ARE ALL HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
+	
+		
 		/*---------------BUTTONS for Crawling---------------------------------------*/
 	private: System::Void crawlBtn_Click(System::Object^ sender, System::EventArgs^ e)
 	{	//Keywords
@@ -673,10 +674,12 @@ namespace CPPProject1009Gui
 			MessageBox::Show("Successfully Crawled and Saved to File");
 		}
 	}
-		   /*--------------------END  OF BUTTONS for Crawling------------------------*/
+		/*--------------------END  OF BUTTONS for Crawling--------------------------*/
+
+	/*-----------------------------------------------Twitter Buttons-------------------------------------------*/
 
 
-		   /*--------------------BUTTONS for Importing CSV File----------------------*/
+		/*--------------------BUTTONS for Importing CSV File------------------------*/
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
@@ -694,7 +697,7 @@ namespace CPPProject1009Gui
 			//std::string path_string = filepath.u8string();
 
 			//String^ str2 = gcnew String(path_string.c_str());
-
+			readData();
 			twitterData tweet;
 			tweet.set_csvfilepath(filename);// use stadard string
 			MessageBox::Show("Successfully Load "+filepath, "FilePath:");//use system strig
@@ -703,46 +706,15 @@ namespace CPPProject1009Gui
 
 		}
 	}
-		   /*---------------------END  OF BUTTONS for Importing CSV File-------------------------*/
+		/*---------------------END  OF BUTTONS for Importing CSV File---------------*/
 
-		   /*--------------------------DISPLAY CSV BUTTON----------------------------------------*/
+		/*--------------------------DISPLAY CSV BUTTON------------------------------*/
 	private: System::Void displayBtn_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		twitterData display;
-		twitterData twitter[100];
-		//int size =display.readData();
-
-		//not mine
-		string dateTime;
-		const char* newDateTime;
-		time_t newTime;
-		string userid;
-		string post;
-		string nth;
-		int i = 0;
-		int day, date, mth, z, hh, mm, ss, year;
-		struct tm tm;
-		ifstream f("twitterData.csv");
-
-
-		getline(f, nth);
-
-
-		while (f.peek() != EOF) {
-			getline(f, dateTime, ',');
-			getline(f, userid, ',');
-			getline(f, post, '\n');
-
-			twitter[i].storeData(dateTime, userid, post);
-
-			i++;
-			//std::string test1 = std::to_string(i);
-			//String^ str2 = gcnew String(test1.c_str());
-			//MessageBox::Show(str2);
-		}
-
+		
+		
 		//richTextBox1->Text = marshal_as<String^>(display.getDate());
-		for (int j = 0; j < i; ++j) {
+		for (int j = 0; j < ::size; ++j) {
 			//std::string date = marshal_as<std::string>(twitter[i].getDate());
 			//textBox1->Text="Time Date";
 
@@ -756,7 +728,7 @@ namespace CPPProject1009Gui
 
 		}
 	} /*-----------------------------END OF DISPLAY CSV BUTTON------------------------------------*/
-		  
+		/*---------------------END  OF DISPLAY CSV BUTTO----------------------------*/
 
 	/*Twitter Search keyword BUTTON*/
 	private: System::Void searchBtn_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -780,7 +752,7 @@ namespace CPPProject1009Gui
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
 			
 			
-			readData();
+			
 			
 			filtered = searchKeyword(searchword);//function
 			if (filtered.empty())
@@ -814,7 +786,7 @@ namespace CPPProject1009Gui
 	/*Start of top ten BUTTON*/
 	private: System::Void toptenBtn_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		readData();
+		
 		vector<pair<string, int> > wordvector;
 		wordvector = top10WordTopics();
 		for (int i = 0; i < wordvector.size(); ++i) 
@@ -828,65 +800,58 @@ namespace CPPProject1009Gui
 	/*Start of Sort BUTTON*/
 	private: System::Void btnSort_Click(System::Object^ sender, System::EventArgs^ e) 
 	{		
-		if (comboBox2->Text=="Sort ascending order by username")
+		
+		
+		
+		 if (comboBox2->Text == "Sort ascending order by username")
 		{
-			readData();
+			
 			// function sort userid ascending
 			sort(twitter.begin(), twitter.end(), userid_asc);		
 			
-			for (int i = 0; i < ::size; ++i) {
-
-				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
-					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
-			}
+			
 		}
 		else if(comboBox2->Text == "Sort descending order by username")
 		{
-			readData();
+			
 			// function sort userid descending
 			
 			sort(twitter.begin(), twitter.end(), userid_desc);
 			
-			for (int i = 0; i < ::size; ++i) {
-
-				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
-					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
-			}
+			
 		}
 		else if (comboBox2->Text == "Sort ascending order by post")
 		{
-			readData();
+			
 			// function sort post ascending
 			
 			sort(twitter.begin(), twitter.end(), post_asc);
+		
 			
-			for (int i = 0; i < ::size; ++i) {
-
-				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
-					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
-			}
 		}
 		else if (comboBox2->Text == "Sort descending order by post")
 		{
-			readData();
+			
 			// function sort post descending
 			sort(twitter.begin(), twitter.end(), post_desc);
-			for (int i = 0; i < ::size; ++i) {
 
-				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
-					+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-					+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
-			}
+			
 		}
 		else
 		{
 			MessageBox::Show("Please input Keyword to sort!", "Error:");
 		}
+		for (int i = 0; i < ::size; ++i) 
+		{
+
+			richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
+				+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
+				+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
+		}
+		
 	}
 	/*End of top ten BUTTON*/
+	
 
 
 
@@ -958,6 +923,7 @@ private: System::Void displayBtn2_Click(System::Object^ sender, System::EventArg
 
 }
 /*END Display CNA CSV*/
+
 
 
 

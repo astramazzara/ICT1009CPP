@@ -35,7 +35,7 @@ public:
 
 	void set_csvfilepath(string);//for filepath from gui
 	string get_csvfilepath() {  return filepath; }
-	
+
 };
 
 
@@ -124,7 +124,7 @@ void readData() {
 	string nth;
 	int day, date, mth, z, hh, mm, ss, year;
 	struct tm tm;
-	ifstream f("TwitterData.csv");
+	ifstream f("TwitterData.Csv");
 	getline(f, nth);
 	while (f.peek() != EOF) {
 		getline(f, dateTime, ',');
