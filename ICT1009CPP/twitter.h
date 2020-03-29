@@ -9,11 +9,16 @@
 #include <string>
 #include <regex>
 #include <functional>
+
+
+
+
+
 using namespace std;
 
-
+//Twitter Class
 class twitterData {
-private:
+protected:
 	string dateTime;
 	string userid;
 	string post;
@@ -23,7 +28,7 @@ public:
 	
 	twitterData() { dateTime = ""; userid = ""; post = ""; }
 	twitterData(string new_dateTime, string new_userid, string new_post);
-	void storeData(string new_dateTime, string new_userid, string new_post);
+	void storeData(string new_dateTime, string new_userid, string new_post);// USED for both CNA Twitter
 	string getDate() { return dateTime; }
 	string getUserId() { return userid; }
 	string getPost() { return post; }
@@ -32,6 +37,8 @@ public:
 	string get_csvfilepath() {  return filepath; }
 	
 };
+
+
 /*set filepath from gui*/
 void twitterData::set_csvfilepath(string path) 
 {
@@ -51,7 +58,12 @@ void twitterData::storeData(string new_dateTime, string new_userid, string new_p
 	userid = new_userid;
 	post = new_post;
 }
+//CNA Class
+class CNA : virtual public twitterData {
 
+};
+
+//----------------------------------------------- Twitter Sort by Assc or Dese -----------------------------------------------//
 typedef map<string, int> word_count_list;
 
 struct val_morethan
@@ -97,9 +109,12 @@ struct post_desc
 //----------------------------------------------- DEFINE GLOBAL VARIABLES -----------------------------------------------//
 vector <twitterData> twitter; // store twitter data in an array
 twitterData temp;			 // temporary store data before adding to vector twitter
+vector <CNA> cna;
+CNA tempcna;
 int size = 0;				  // define size of data
 
 //----------------------------------------------- READ DATA FROM CSV -----------------------------------------------//
+//Twitter Read CSV
 void readData() {
 	string dateTime;
 	const char* newDateTime;
@@ -133,6 +148,36 @@ void readData() {
 		
 	}
 }
+//CNA Read CSV
+void readCNAData() {
+	string dateTime;
+	const char* newDateTime;
+	time_t newTime;
+	string author;
+	string title;
+	string source;
+	string nth;
+	int day, date, mth, z, hh, mm, ss, year;
+	struct tm tm;
+	ifstream f("CNAData.csv");
+	getline(f, nth, '\n');
+	int found = nth.find("Title");
+	if (found != string::npos)
+	{
+		while (f.peek() != EOF) {
+			getline(f, title, ',');
+			getline(f, dateTime, ',');
+			getline(f, source, ',');
+			getline(f, author, '\n');
+			tempcna.storeData(dateTime, author, title);
+			cna.push_back(tempcna);
+			::size++;
+		}
+	}
+	else {
+		cout << "Error File Format" << endl;
+	}
+}
 
 
 // ----------------------------------------------- SEARCH KEYWORDS ----------------------------------------------- //
@@ -157,9 +202,33 @@ void readData() {
 	}
 	return filtered;
 }*/
-
+// ----------------------------------------------- CNA SEARCH KEYWORDS ----------------------------------------------- //
 /*NEW SEARCH!!!!!!*/
+vector<CNA> searchKeywordcna(string key) {
+	vector<CNA> filtered;
+	int found;
+	string str;
+	for (int i = 0; i < ::size; ++i) {
+		str = cna[i].getPost();
+		for_each(str.begin(), str.end(), [](char& c) {
+			c = ::tolower(c);
+			});
+		found = str.find(key);
+		if (found != string::npos)
+		{
+			tempcna.storeData(cna[i].getDate(), cna[i].getUserId(), cna[i].getPost());
+			filtered.push_back(tempcna);
+		}
+	}
+	if (filtered.empty()) {
+		cout << "No such records!" << endl;
+	}
+	return filtered;
+}
 
+
+// ----------------------------------------------- Twitter SEARCH KEYWORDS ----------------------------------------------- //
+/*NEW SEARCH!!!!!!*/
 vector<twitterData> searchKeyword(string key) {
 	vector<twitterData> filtered;
 	int found;
@@ -181,7 +250,8 @@ vector<twitterData> searchKeyword(string key) {
 	}
 	return filtered;
 }
-// ----------------------------------------------- TOP 10 COMMON WORDS USED ----------------------------------------------- //
+
+// ----------------------------------------------- Twitter TOP 10 COMMON WORDS USED ----------------------------------------------- //
 vector<pair<string, int>> top10WordTopics() {
 	string line;
 	string intermediate;
