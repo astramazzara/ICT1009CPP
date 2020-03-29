@@ -629,7 +629,8 @@ namespace CPPProject1009Gui
 #pragma endregion
 
 		/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<BUTTON FUNCTIONS ARE ALL HERE!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-		/*BUTTONS for Crawling*/
+
+		/*---------------BUTTONS for Crawling---------------------------------------*/
 	private: System::Void crawlBtn_Click(System::Object^ sender, System::EventArgs^ e)
 	{	//Keywords
 		System::String^ strInput1;
@@ -662,10 +663,10 @@ namespace CPPProject1009Gui
 			MessageBox::Show("Successfully Crawled and Saved to File");
 		}
 	}
-		   /*END  OF BUTTONS for Crawling*/
+		   /*--------------------END  OF BUTTONS for Crawling------------------------*/
 
 
-		   /*BUTTONS for Importing CSV File*/
+		   /*--------------------BUTTONS for Importing CSV File----------------------*/
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
@@ -692,9 +693,9 @@ namespace CPPProject1009Gui
 
 		}
 	}
-		   /*END  OF BUTTONS for Importing CSV File*/
+		   /*---------------------END  OF BUTTONS for Importing CSV File-------------------------*/
 
-		   /*DISPLAY CSV BUTTON*/
+		   /*--------------------------DISPLAY CSV BUTTON----------------------------------------*/
 	private: System::Void displayBtn_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		twitterData display;
@@ -744,13 +745,13 @@ namespace CPPProject1009Gui
 
 
 		}
-	} /*END OF DISPLAY CSV BUTTON*/
+	} /*-----------------------------END OF DISPLAY CSV BUTTON------------------------------------*/
 		  
 
 	/*Twitter Search keyword BUTTON*/
 	private: System::Void searchBtn_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		
+		vector<twitterData> filtered;
 		
 		
 		
@@ -760,7 +761,9 @@ namespace CPPProject1009Gui
 		{
 			MessageBox::Show("Please input Keyword to search!", "Error:");
 		}
-		else {
+		
+		else
+		{
 			
 			search = searchTb->Text;//Get Keyword from TexBox
 
@@ -768,9 +771,13 @@ namespace CPPProject1009Gui
 			//std::vector<string> srch(search1.begin(), search1.end());
 			
 			readData();
-			vector<twitterData> filtered;
-			filtered = searchKeyword(searchword);//function
 			
+			filtered = searchKeyword(searchword);//function
+			if (filtered.empty())
+			{
+				MessageBox::Show("No Records "+ search+" Found!", "Error:");
+			}
+			else{
 			for (int j = 0; j < filtered.size(); ++j) 
 			{
 				
@@ -782,6 +789,7 @@ namespace CPPProject1009Gui
 			}
 	
 			MessageBox::Show("Keyword Record "+search+" found!", "Keyword Found");
+			}
 		}
 	}/*End of Twitter Search keyword BUTTON*/
 	

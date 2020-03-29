@@ -136,7 +136,8 @@ void readData() {
 
 
 // ----------------------------------------------- SEARCH KEYWORDS ----------------------------------------------- //
-vector<twitterData> searchKeyword(string key) {
+/*OLD SEARCH!!!!!!*/
+/*vector<twitterData> searchKeyword(string key) {
 	int j = 0;
 	vector<twitterData> filtered;
 	size_t found;
@@ -155,8 +156,31 @@ vector<twitterData> searchKeyword(string key) {
 		}
 	}
 	return filtered;
-}
+}*/
 
+/*NEW SEARCH!!!!!!*/
+
+vector<twitterData> searchKeyword(string key) {
+	vector<twitterData> filtered;
+	int found;
+	string str;
+	for (int i = 0; i < ::size; ++i) {
+		str = twitter[i].getPost();
+		for_each(str.begin(), str.end(), [](char& c) {
+			c = ::tolower(c);
+			});
+		found = str.find(key);
+		if (found != string::npos)
+		{
+			temp.storeData(twitter[i].getDate(), twitter[i].getUserId(), twitter[i].getPost());
+			filtered.push_back(temp);
+		}
+	}
+	if (filtered.empty()) {
+		cout << "No such records!" << endl;
+	}
+	return filtered;
+}
 // ----------------------------------------------- TOP 10 COMMON WORDS USED ----------------------------------------------- //
 vector<pair<string, int>> top10WordTopics() {
 	string line;
