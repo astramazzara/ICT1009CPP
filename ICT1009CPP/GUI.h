@@ -11,7 +11,7 @@
 #include <vector>
 #include <sstream>
 #include <ctime>
-#include <iomanip>
+
 #include <algorithm>
 #include <map>
 #include <filesystem>
@@ -105,12 +105,12 @@ namespace CPPProject1009Gui
 
 
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::GroupBox^ groupBox2;
 
-	private: System::Windows::Forms::RadioButton^ radioButton2;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
+
+
+
 	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::Button^ crawlBtn2;
+
 
 
 	private: System::Windows::Forms::TextBox^ searchTb;
@@ -169,10 +169,6 @@ namespace CPPProject1009Gui
 			this->components = (gcnew System::ComponentModel::Container());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
-			this->crawlBtn2 = (gcnew System::Windows::Forms::Button());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->crawlBtn = (gcnew System::Windows::Forms::Button());
 			this->recordTb = (gcnew System::Windows::Forms::TextBox());
@@ -204,7 +200,6 @@ namespace CPPProject1009Gui
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
-			this->groupBox2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			this->groupBox4->SuspendLayout();
@@ -226,7 +221,7 @@ namespace CPPProject1009Gui
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Controls->Add(this->groupBox2);
+			this->tabPage1->BackColor = System::Drawing::Color::LavenderBlush;
 			this->tabPage1->Controls->Add(this->groupBox1);
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
@@ -234,55 +229,10 @@ namespace CPPProject1009Gui
 			this->tabPage1->Size = System::Drawing::Size(933, 529);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Crawler";
-			this->tabPage1->UseVisualStyleBackColor = true;
-			// 
-			// groupBox2
-			// 
-			this->groupBox2->Controls->Add(this->crawlBtn2);
-			this->groupBox2->Controls->Add(this->radioButton2);
-			this->groupBox2->Controls->Add(this->radioButton1);
-			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->groupBox2->Location = System::Drawing::Point(23, 232);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(611, 173);
-			this->groupBox2->TabIndex = 11;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"CNA Crawl";
-			// 
-			// crawlBtn2
-			// 
-			this->crawlBtn2->Location = System::Drawing::Point(308, 123);
-			this->crawlBtn2->Name = L"crawlBtn2";
-			this->crawlBtn2->Size = System::Drawing::Size(76, 30);
-			this->crawlBtn2->TabIndex = 2;
-			this->crawlBtn2->Text = L"Crawl";
-			this->crawlBtn2->UseVisualStyleBackColor = true;
-			// 
-			// radioButton2
-			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(242, 87);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(47, 24);
-			this->radioButton2->TabIndex = 1;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"All";
-			this->radioButton2->UseVisualStyleBackColor = true;
-			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(224, 37);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(131, 24);
-			this->radioButton1->TabIndex = 0;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"radioButton1";
-			this->radioButton1->UseVisualStyleBackColor = true;
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::Color::White;
 			this->groupBox1->Controls->Add(this->crawlBtn);
 			this->groupBox1->Controls->Add(this->recordTb);
 			this->groupBox1->Controls->Add(this->keywordTb);
@@ -290,16 +240,17 @@ namespace CPPProject1009Gui
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox1->Location = System::Drawing::Point(23, 25);
+			this->groupBox1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->groupBox1->Location = System::Drawing::Point(49, 40);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(611, 181);
+			this->groupBox1->Size = System::Drawing::Size(810, 432);
 			this->groupBox1->TabIndex = 10;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Twitter Crawl";
 			// 
 			// crawlBtn
 			// 
-			this->crawlBtn->Location = System::Drawing::Point(308, 132);
+			this->crawlBtn->Location = System::Drawing::Point(378, 229);
 			this->crawlBtn->Name = L"crawlBtn";
 			this->crawlBtn->Size = System::Drawing::Size(76, 33);
 			this->crawlBtn->TabIndex = 0;
@@ -309,14 +260,14 @@ namespace CPPProject1009Gui
 			// 
 			// recordTb
 			// 
-			this->recordTb->Location = System::Drawing::Point(284, 59);
+			this->recordTb->Location = System::Drawing::Point(354, 181);
 			this->recordTb->Name = L"recordTb";
 			this->recordTb->Size = System::Drawing::Size(100, 26);
 			this->recordTb->TabIndex = 0;
 			// 
 			// keywordTb
 			// 
-			this->keywordTb->Location = System::Drawing::Point(284, 17);
+			this->keywordTb->Location = System::Drawing::Point(354, 139);
 			this->keywordTb->Name = L"keywordTb";
 			this->keywordTb->Size = System::Drawing::Size(100, 26);
 			this->keywordTb->TabIndex = 9;
@@ -324,7 +275,7 @@ namespace CPPProject1009Gui
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(149, 62);
+			this->label2->Location = System::Drawing::Point(219, 184);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(129, 20);
 			this->label2->TabIndex = 8;
@@ -333,7 +284,7 @@ namespace CPPProject1009Gui
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(202, 20);
+			this->label1->Location = System::Drawing::Point(272, 142);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(76, 20);
 			this->label1->TabIndex = 7;
@@ -523,7 +474,7 @@ namespace CPPProject1009Gui
 			this->groupBox5->Controls->Add(this->searchBtn2);
 			this->groupBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox5->Location = System::Drawing::Point(736, 38);
+			this->groupBox5->Location = System::Drawing::Point(736, 31);
 			this->groupBox5->Name = L"groupBox5";
 			this->groupBox5->Size = System::Drawing::Size(190, 94);
 			this->groupBox5->TabIndex = 22;
@@ -561,6 +512,7 @@ namespace CPPProject1009Gui
 			this->clearBtn2->TabIndex = 21;
 			this->clearBtn2->Text = L"Clear Display";
 			this->clearBtn2->UseVisualStyleBackColor = true;
+			this->clearBtn2->Click += gcnew System::EventHandler(this, &GUI::clearBtn2_Click);
 			// 
 			// button2
 			// 
@@ -570,6 +522,7 @@ namespace CPPProject1009Gui
 			this->button2->TabIndex = 20;
 			this->button2->Text = L"Import CSV";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &GUI::button2_Click);
 			// 
 			// displayBtn2
 			// 
@@ -586,10 +539,10 @@ namespace CPPProject1009Gui
 			// 
 			this->richTextBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->richTextBox2->Location = System::Drawing::Point(6, 38);
+			this->richTextBox2->Location = System::Drawing::Point(6, 31);
 			this->richTextBox2->Name = L"richTextBox2";
 			this->richTextBox2->ReadOnly = true;
-			this->richTextBox2->Size = System::Drawing::Size(724, 440);
+			this->richTextBox2->Size = System::Drawing::Size(724, 447);
 			this->richTextBox2->TabIndex = 18;
 			this->richTextBox2->Text = L"";
 			// 
@@ -599,7 +552,7 @@ namespace CPPProject1009Gui
 			this->label6->BackColor = System::Drawing::Color::LightGray;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(9, 10);
+			this->label6->Location = System::Drawing::Point(3, 3);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(210, 25);
 			this->label6->TabIndex = 0;
@@ -621,8 +574,6 @@ namespace CPPProject1009Gui
 			this->Text = L"Crawler GUI";
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
-			this->groupBox2->ResumeLayout(false);
-			this->groupBox2->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
@@ -638,9 +589,10 @@ namespace CPPProject1009Gui
 
 		}
 #pragma endregion
+		//Global Var
+		bool plsimporttweet = 0;//check for impor csv twiiter
+		bool plsimportcna = 0;//check for import csv cna
 
-	
-		
 		/*---------------BUTTONS for Crawling---------------------------------------*/
 	private: System::Void crawlBtn_Click(System::Object^ sender, System::EventArgs^ e)
 	{	//Keywords
@@ -701,7 +653,7 @@ namespace CPPProject1009Gui
 			twitterData tweet;
 			tweet.set_csvfilepath(filename);// use stadard string
 			MessageBox::Show("Successfully Load "+filepath, "FilePath:");//use system strig
-
+			plsimporttweet = 1;
 
 
 		}
@@ -711,21 +663,27 @@ namespace CPPProject1009Gui
 		/*--------------------------DISPLAY CSV BUTTON------------------------------*/
 	private: System::Void displayBtn_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		
-		
+		if (plsimporttweet == 0)
+		{
+			MessageBox::Show("Please Import CSV" ,"Error: ");
+		}
+		else
+		{
 		//richTextBox1->Text = marshal_as<String^>(display.getDate());
-		for (int j = 0; j < ::size; ++j) {
-			//std::string date = marshal_as<std::string>(twitter[i].getDate());
-			//textBox1->Text="Time Date";
+			for (int j = 0; j < ::size; ++j) 
+			{
+				//std::string date = marshal_as<std::string>(twitter[i].getDate());
+				//textBox1->Text="Time Date";
 
-			//std::string test1 = std::to_string(j);
-			//String^ str2 = gcnew String(test1.c_str());
-			//MessageBox::Show(str2);
-			richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[j].getDate()) + "\r"
-				+ "User ID: " + marshal_as<String^>(twitter[j].getUserId()) + "\r"
-				+ "User Post: " + marshal_as<String^>(twitter[j].getPost()) + "\r" + "\r";
+				//std::string test1 = std::to_string(j);
+				//String^ str2 = gcnew String(test1.c_str());
+				//MessageBox::Show(str2);
+				richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[j].getDate()) + "\r"
+					+ "User ID: " + marshal_as<String^>(twitter[j].getUserId()) + "\r"
+					+ "User Tweet: " + marshal_as<String^>(twitter[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
 
 
+			}
 		}
 	} /*-----------------------------END OF DISPLAY CSV BUTTON------------------------------------*/
 		/*---------------------END  OF DISPLAY CSV BUTTO----------------------------*/
@@ -738,8 +696,12 @@ namespace CPPProject1009Gui
 		
 		
 		System::String^ search;//user input 
+		if (plsimporttweet == 0)
+		{
+			MessageBox::Show("Please Import CSV", "Error: ");
+		}
 
-		if (searchTb->Text == "")
+		else if (searchTb->Text == "")
 		{
 			MessageBox::Show("Please input Keyword to search!", "Error:");
 		}
@@ -763,9 +725,9 @@ namespace CPPProject1009Gui
 			for (int j = 0; j < filtered.size(); ++j) 
 			{
 				
-				richTextBox1->Text += "Date Time: " + marshal_as<String^>(filtered[j].getDate()) + "\r"
+				richTextBox1->Text +="Date Time: " + marshal_as<String^>(filtered[j].getDate()) + "\r"
 									+ "User ID: " + marshal_as<String^>(filtered[j].getUserId()) + "\r"
-									+ "User Post: " + marshal_as<String^>(filtered[j].getPost()) + "\r" + "\r";
+									+ "User Tweet: " + marshal_as<String^>(filtered[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------"+"\r";
 
 
 			}
@@ -786,13 +748,18 @@ namespace CPPProject1009Gui
 	/*Start of top ten BUTTON*/
 	private: System::Void toptenBtn_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		
-		vector<pair<string, int> > wordvector;
-		wordvector = top10WordTopics();
-		for (int i = 0; i < wordvector.size(); ++i) 
+		if (plsimporttweet == 0)
 		{
-			richTextBox1->Text += marshal_as<String^>(wordvector[i].first) + 
-							" = " + marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
+			MessageBox::Show("Please Import CSV", "Error: ");
+		}
+		else{
+			vector<pair<string, int> > wordvector;
+			wordvector = top10WordTopics();
+			for (int i = 0; i < wordvector.size(); ++i) 
+			{
+				richTextBox1->Text += marshal_as<String^>(wordvector[i].first) + 
+								" = " + marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
+			}
 		}
 	}
 	/*End of top ten BUTTON*/
@@ -802,8 +769,11 @@ namespace CPPProject1009Gui
 	{		
 		
 		
-		
-		 if (comboBox2->Text == "Sort ascending order by username")
+		if (plsimporttweet == 0)
+		{
+			MessageBox::Show("Please Import CSV", "Error: ");
+		}
+		else if (comboBox2->Text == "Sort ascending order by username")
 		{
 			
 			// function sort userid ascending
@@ -846,7 +816,7 @@ namespace CPPProject1009Gui
 
 			richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
 				+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-				+ "User Post: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "\r";
+				+ "User Tweet: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
 		}
 		
 	}
@@ -858,16 +828,17 @@ namespace CPPProject1009Gui
 
 
 /*-----------------------------------------------CNA Buttons-------------------------------------------*/
-/*CNA Search by keyword*/
+	/*CNA Search by keyword*/
 	private: System::Void searchBtn2_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		vector<CNA> filtered;
-
-
-
 		System::String^ search;//user input 
 
-		if (searchTb2->Text == "")
+		if (plsimportcna == 0)
+		{
+			MessageBox::Show("Please Import CSV", "Error: ");
+		}
+		else if (searchTb2->Text == "")
 		{
 			MessageBox::Show("Please input Keyword to search!", "Error:");
 		}
@@ -894,7 +865,7 @@ namespace CPPProject1009Gui
 
 					richTextBox2->Text += "Date: " + marshal_as<String^>(filtered[j].getDate()) + "\r"
 						+ "Author: " + marshal_as<String^>(filtered[j].getUserId()) + "\r"
-						+ "Title: " + marshal_as<String^>(filtered[j].getPost()) + "\r" + "\r";
+						+ "Title: " + marshal_as<String^>(filtered[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
 
 
 				}
@@ -903,30 +874,70 @@ namespace CPPProject1009Gui
 			}
 		}
 	}
-/*END of CNA Search by keyword*/
+	/*END of CNA Search by keyword*/
 
 
 
-/*Display CNA CSV*/
-private: System::Void displayBtn2_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*Display CNA CSV*/
+	private: System::Void displayBtn2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	//Read CNA CSV
-	readCNAData();
-	for (int j = 0; j < ::size; ++j) {
-		
-		richTextBox2->Text += "Date: " + marshal_as<String^>(cna[j].getDate()) + "\r"
-			+ "Author: " + marshal_as<String^>(cna[j].getUserId()) + "\r"
-			+ "Title: " + marshal_as<String^>(cna[j].getPost()) + "\r" + "\r";
-
-
+	if (plsimportcna == 0)
+	{
+		MessageBox::Show("Please Import CSV", "Error: ");
 	}
+	else
+	{
+		readCNAData();//Read CNA CSV
+		for (int j = 0; j < ::size; ++j) 
+		{
 
+			richTextBox2->Text += "Date: " + marshal_as<String^>(cna[j].getDate()) + "\r"
+				+ "Author: " + marshal_as<String^>(cna[j].getUserId()) + "\r"
+				+ "Title: " + marshal_as<String^>(cna[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
+
+
+		}
+	}
 }
-/*END Display CNA CSV*/
+	/*END Display CNA CSV*/
 
 
 
+	/*Loading CNA CSV*/
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		OpenFileDialog^ openFileDialog2 = gcnew OpenFileDialog;
 
+		openFileDialog2->InitialDirectory = "C:\\Users\\lim_j\\Documents\\GitHub\\ICT1009CPP\\ICT1009CPP\\";
+		openFileDialog2->RestoreDirectory = true;
+
+		if (openFileDialog2->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			System::String^ filepath = System::IO::Path::GetFileName(openFileDialog2->FileName);
+			std::string filename = marshal_as<std::string>(filepath);
+
+
+			//fs::path filepath = fs::u8path(fpath);
+			//std::string path_string = filepath.u8string();
+
+			//String^ str2 = gcnew String(path_string.c_str());
+			readCNAData();
+			//twitterData tweet;
+			//tweet.set_csvfilepath(filename);// use stadard string
+			MessageBox::Show("Successfully Load " + filepath, "FilePath:");//use system strig
+			plsimportcna = 1;
+		}
+	}
+	/*End of Loading CNA CSV*/
+	
+	/*Clear Display*/
+	private: System::Void clearBtn2_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		
+			richTextBox2->Text = "";
+		
+	}
+	/* End of Clear Display*/
 };
 }
 
