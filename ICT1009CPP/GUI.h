@@ -241,16 +241,16 @@ namespace CPPProject1009Gui
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->groupBox1->Location = System::Drawing::Point(49, 40);
+			this->groupBox1->Location = System::Drawing::Point(164, 89);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(810, 432);
+			this->groupBox1->Size = System::Drawing::Size(619, 335);
 			this->groupBox1->TabIndex = 10;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Twitter Crawl";
 			// 
 			// crawlBtn
 			// 
-			this->crawlBtn->Location = System::Drawing::Point(378, 229);
+			this->crawlBtn->Location = System::Drawing::Point(302, 200);
 			this->crawlBtn->Name = L"crawlBtn";
 			this->crawlBtn->Size = System::Drawing::Size(76, 33);
 			this->crawlBtn->TabIndex = 0;
@@ -260,14 +260,14 @@ namespace CPPProject1009Gui
 			// 
 			// recordTb
 			// 
-			this->recordTb->Location = System::Drawing::Point(354, 181);
+			this->recordTb->Location = System::Drawing::Point(278, 152);
 			this->recordTb->Name = L"recordTb";
 			this->recordTb->Size = System::Drawing::Size(100, 26);
 			this->recordTb->TabIndex = 0;
 			// 
 			// keywordTb
 			// 
-			this->keywordTb->Location = System::Drawing::Point(354, 139);
+			this->keywordTb->Location = System::Drawing::Point(278, 110);
 			this->keywordTb->Name = L"keywordTb";
 			this->keywordTb->Size = System::Drawing::Size(100, 26);
 			this->keywordTb->TabIndex = 9;
@@ -275,7 +275,7 @@ namespace CPPProject1009Gui
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(219, 184);
+			this->label2->Location = System::Drawing::Point(143, 155);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(129, 20);
 			this->label2->TabIndex = 8;
@@ -284,7 +284,7 @@ namespace CPPProject1009Gui
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(272, 142);
+			this->label1->Location = System::Drawing::Point(196, 113);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(76, 20);
 			this->label1->TabIndex = 7;
@@ -315,9 +315,9 @@ namespace CPPProject1009Gui
 			// 
 			this->groupBox4->Controls->Add(this->comboBox2);
 			this->groupBox4->Controls->Add(this->btnSort);
-			this->groupBox4->Location = System::Drawing::Point(730, 128);
+			this->groupBox4->Location = System::Drawing::Point(734, 195);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(200, 104);
+			this->groupBox4->Size = System::Drawing::Size(196, 104);
 			this->groupBox4->TabIndex = 23;
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Text = L"Sort By";
@@ -352,7 +352,7 @@ namespace CPPProject1009Gui
 			// 
 			this->groupBox3->Controls->Add(this->searchBtn);
 			this->groupBox3->Controls->Add(this->searchTb);
-			this->groupBox3->Location = System::Drawing::Point(730, 31);
+			this->groupBox3->Location = System::Drawing::Point(734, 322);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Size = System::Drawing::Size(196, 81);
 			this->groupBox3->TabIndex = 22;
@@ -384,9 +384,9 @@ namespace CPPProject1009Gui
 			// 
 			this->toptenBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->toptenBtn->Location = System::Drawing::Point(211, 489);
+			this->toptenBtn->Location = System::Drawing::Point(758, 138);
 			this->toptenBtn->Name = L"toptenBtn";
-			this->toptenBtn->Size = System::Drawing::Size(95, 33);
+			this->toptenBtn->Size = System::Drawing::Size(142, 33);
 			this->toptenBtn->TabIndex = 15;
 			this->toptenBtn->Text = L"Top Ten words";
 			this->toptenBtn->UseVisualStyleBackColor = true;
@@ -396,9 +396,9 @@ namespace CPPProject1009Gui
 			// 
 			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->clearBtn->Location = System::Drawing::Point(600, 489);
+			this->clearBtn->Location = System::Drawing::Point(758, 102);
 			this->clearBtn->Name = L"clearBtn";
-			this->clearBtn->Size = System::Drawing::Size(120, 33);
+			this->clearBtn->Size = System::Drawing::Size(142, 30);
 			this->clearBtn->TabIndex = 12;
 			this->clearBtn->Text = L"Clear Display";
 			this->clearBtn->UseVisualStyleBackColor = true;
@@ -420,9 +420,9 @@ namespace CPPProject1009Gui
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(9, 489);
+			this->button1->Location = System::Drawing::Point(758, 31);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(95, 33);
+			this->button1->Size = System::Drawing::Size(142, 30);
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"Import CSV";
 			this->button1->UseVisualStyleBackColor = true;
@@ -435,7 +435,7 @@ namespace CPPProject1009Gui
 			this->richTextBox1->Location = System::Drawing::Point(6, 31);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->ReadOnly = true;
-			this->richTextBox1->Size = System::Drawing::Size(714, 452);
+			this->richTextBox1->Size = System::Drawing::Size(714, 491);
 			this->richTextBox1->TabIndex = 6;
 			this->richTextBox1->Text = L"";
 			// 
@@ -444,9 +444,9 @@ namespace CPPProject1009Gui
 			this->displayBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
 			this->displayBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->displayBtn->Location = System::Drawing::Point(110, 489);
+			this->displayBtn->Location = System::Drawing::Point(758, 67);
 			this->displayBtn->Name = L"displayBtn";
-			this->displayBtn->Size = System::Drawing::Size(95, 33);
+			this->displayBtn->Size = System::Drawing::Size(142, 29);
 			this->displayBtn->TabIndex = 5;
 			this->displayBtn->Text = L"Display CSV";
 			this->displayBtn->UseVisualStyleBackColor = true;
@@ -474,7 +474,7 @@ namespace CPPProject1009Gui
 			this->groupBox5->Controls->Add(this->searchBtn2);
 			this->groupBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox5->Location = System::Drawing::Point(736, 31);
+			this->groupBox5->Location = System::Drawing::Point(737, 223);
 			this->groupBox5->Name = L"groupBox5";
 			this->groupBox5->Size = System::Drawing::Size(190, 94);
 			this->groupBox5->TabIndex = 22;
@@ -506,9 +506,9 @@ namespace CPPProject1009Gui
 			// 
 			// clearBtn2
 			// 
-			this->clearBtn2->Location = System::Drawing::Point(633, 483);
+			this->clearBtn2->Location = System::Drawing::Point(750, 116);
 			this->clearBtn2->Name = L"clearBtn2";
-			this->clearBtn2->Size = System::Drawing::Size(97, 39);
+			this->clearBtn2->Size = System::Drawing::Size(156, 32);
 			this->clearBtn2->TabIndex = 21;
 			this->clearBtn2->Text = L"Clear Display";
 			this->clearBtn2->UseVisualStyleBackColor = true;
@@ -516,9 +516,9 @@ namespace CPPProject1009Gui
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(3, 483);
+			this->button2->Location = System::Drawing::Point(750, 42);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 39);
+			this->button2->Size = System::Drawing::Size(156, 30);
 			this->button2->TabIndex = 20;
 			this->button2->Text = L"Import CSV";
 			this->button2->UseVisualStyleBackColor = true;
@@ -527,9 +527,9 @@ namespace CPPProject1009Gui
 			// displayBtn2
 			// 
 			this->displayBtn2->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->displayBtn2->Location = System::Drawing::Point(87, 483);
+			this->displayBtn2->Location = System::Drawing::Point(750, 78);
 			this->displayBtn2->Name = L"displayBtn2";
-			this->displayBtn2->Size = System::Drawing::Size(75, 39);
+			this->displayBtn2->Size = System::Drawing::Size(156, 32);
 			this->displayBtn2->TabIndex = 19;
 			this->displayBtn2->Text = L"Display CSV";
 			this->displayBtn2->UseVisualStyleBackColor = true;
@@ -539,10 +539,10 @@ namespace CPPProject1009Gui
 			// 
 			this->richTextBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->richTextBox2->Location = System::Drawing::Point(6, 31);
+			this->richTextBox2->Location = System::Drawing::Point(3, 31);
 			this->richTextBox2->Name = L"richTextBox2";
 			this->richTextBox2->ReadOnly = true;
-			this->richTextBox2->Size = System::Drawing::Size(724, 447);
+			this->richTextBox2->Size = System::Drawing::Size(724, 495);
 			this->richTextBox2->TabIndex = 18;
 			this->richTextBox2->Text = L"";
 			// 
