@@ -10,10 +10,6 @@
 #include <regex>
 #include <functional>
 
-
-
-
-
 using namespace std;
 
 //Twitter Class
@@ -46,18 +42,18 @@ void twitterData::set_csvfilepath(string path)
 
 }
 
-
-
 twitterData::twitterData(string new_dateTime, string new_userid, string new_post) {
 	dateTime = new_dateTime;
 	userid = new_userid;
 	post = new_post;
 }
+
 void twitterData::storeData(string new_dateTime, string new_userid, string new_post) {
 	dateTime = new_dateTime;
 	userid = new_userid;
 	post = new_post;
 }
+
 //CNA Class
 class CNA : virtual public twitterData {
 
@@ -108,10 +104,10 @@ struct post_desc
 
 //----------------------------------------------- DEFINE GLOBAL VARIABLES -----------------------------------------------//
 vector <twitterData> twitter; // store twitter data in an array
-twitterData temp;			 // temporary store data before adding to vector twitter
+//twitterData temp;			 // temporary store data before adding to vector twitter
 vector <CNA> cna;
-CNA tempcna;
-int size = 0;				  // define size of data
+//CNA tempcna;
+//int size = 0;				  // define size of data
 
 //----------------------------------------------- READ DATA FROM CSV -----------------------------------------------//
 //Twitter Read CSV
@@ -125,6 +121,7 @@ void readData(string gg) {
 	string nth;
 	int day, date, mth, z, hh, mm, ss, year;
 	struct tm tm;
+	twitterData temp;			 // temporary store data before adding to vector twitter
 	ifstream f(pathname1);
 	getline(f, nth);
 	while (f.peek() != EOF) {
@@ -143,12 +140,20 @@ void readData(string gg) {
 		tm.tm_sec = ss;
 		newTime = mktime(&tm);
 		*/
+
+		//remove colon from display
+		regex regexCollon("[\"]");
+		post = regex_replace(post, regexCollon, "");
+		userid = regex_replace(userid, regexCollon, "");
+		dateTime = regex_replace(dateTime, regexCollon, "");
+
 		temp.storeData(dateTime, userid, post);
 		twitter.push_back(temp);
-		::size++;
+		//::size++;
 
 	}
 }
+
 //CNA Read CSV
 void readCNAData(string gg) {
 	string pathname1 = gg;
@@ -161,6 +166,7 @@ void readCNAData(string gg) {
 	string nth;
 	int day, date, mth, z, hh, mm, ss, year;
 	struct tm tm;
+	CNA temp;			 // temporary store data before adding to vector cna
 	ifstream f(pathname1);
 	getline(f, nth, '\n');
 	int found = nth.find("Title");
@@ -171,9 +177,9 @@ void readCNAData(string gg) {
 			getline(f, dateTime, ',');
 			getline(f, source, ',');
 			getline(f, author, '\n');
-			tempcna.storeData(dateTime, author, title);
-			cna.push_back(tempcna);
-			::size++;
+			temp.storeData(dateTime, author, title);
+			cna.push_back(temp);
+			//::size++;
 		}
 	}
 	else {
@@ -205,52 +211,84 @@ void readCNAData(string gg) {
 	return filtered;
 }*/
 // ----------------------------------------------- CNA SEARCH KEYWORDS ----------------------------------------------- //
-/*NEW SEARCH!!!!!!*/
-vector<CNA> searchKeywordcna(string key) {
-	vector<CNA> filtered;
+///*OLD NEW SEARCH!!!!!!*/
+//vector<CNA> searchKeywordcna(string key) {
+//	vector<CNA> filtered;
+//	int found;
+//	string str;
+//	for (int i = 0; i < cna.size(); ++i) {
+//		str = cna[i].getPost();
+//		for_each(str.begin(), str.end(), [](char& c) {
+//			c = ::tolower(c);
+//			});
+//		found = str.find(key);
+//		if (found != string::npos)
+//		{
+//			tempcna.storeData(cna[i].getDate(), cna[i].getUserId(), cna[i].getPost());
+//			filtered.push_back(tempcna);
+//		}
+//	}
+//	if (filtered.empty()) {
+//		cout << "No such records!" << endl;
+//	}
+//	return filtered;
+//}
+//
+//
+//// ----------------------------------------------- Twitter SEARCH KEYWORDS ----------------------------------------------- //
+///*OLD NEW SEARCH!!!!!!*/
+//vector<twitterData> searchKeyword(string key) {
+//
+//	vector<twitterData> filtered;
+//	int found;
+//	string str;
+//	for (int i = 0; i < ::size; ++i) {
+//		str = twitter[i].getPost();
+//		for_each(str.begin(), str.end(), [](char& c) {
+//			c = ::tolower(c);
+//			});
+//		found = str.find(key);
+//		if (found != string::npos)
+//		{
+//			temp.storeData(twitter[i].getDate(), twitter[i].getUserId(), twitter[i].getPost());
+//			filtered.push_back(temp);
+//		}
+//	}
+//	if (filtered.empty()) {
+//		cout << "No such records!" << endl;
+//	}
+//	return filtered;
+//}
+
+// ----------------------------------------------- SEARCH KEYWORDS USING TEMPLATE ------------------------------------------- //
+/*SEARCH KEYWORD USING TEMPLATE*/
+template<typename myType>
+typename vector<myType> searchKeyword(string key, vector<myType> &vect, vector<myType> &dataSource) {
+	//convert search key to lowercase
+	for_each(key.begin(), key.end(), [](char& c) {
+		c = ::tolower(c);
+		});
+
+	myType temp;			 // temporary store data before adding to vector twitter OR cna
+
 	int found;
 	string str;
-	for (int i = 0; i < cna.size(); ++i) {
-		str = cna[i].getPost();
+	for (int i = 0; i < dataSource.size(); ++i) {
+		str = dataSource[i].getPost();
 		for_each(str.begin(), str.end(), [](char& c) {
 			c = ::tolower(c);
 			});
 		found = str.find(key);
 		if (found != string::npos)
 		{
-			tempcna.storeData(cna[i].getDate(), cna[i].getUserId(), cna[i].getPost());
-			filtered.push_back(tempcna);
+			temp.storeData(dataSource[i].getDate(), dataSource[i].getUserId(), dataSource[i].getPost());
+			vect.push_back(temp);
 		}
 	}
-	if (filtered.empty()) {
+	if (vect.empty()) {
 		cout << "No such records!" << endl;
 	}
-	return filtered;
-}
-
-
-// ----------------------------------------------- Twitter SEARCH KEYWORDS ----------------------------------------------- //
-/*NEW SEARCH!!!!!!*/
-vector<twitterData> searchKeyword(string key) {
-	vector<twitterData> filtered;
-	int found;
-	string str;
-	for (int i = 0; i < ::size; ++i) {
-		str = twitter[i].getPost();
-		for_each(str.begin(), str.end(), [](char& c) {
-			c = ::tolower(c);
-			});
-		found = str.find(key);
-		if (found != string::npos)
-		{
-			temp.storeData(twitter[i].getDate(), twitter[i].getUserId(), twitter[i].getPost());
-			filtered.push_back(temp);
-		}
-	}
-	if (filtered.empty()) {
-		cout << "No such records!" << endl;
-	}
-	return filtered;
+	return vect;
 }
 
 // ------------------------------------- recursive function to find and erase substring -------------------------------- //
@@ -289,6 +327,7 @@ string deepCleanText(string strText) {
 	replace_if(strText.begin(), strText.end(),
 		[](const char& c) { return std::ispunct(c); }, ' ');
 
+	// further cleaning using regex
 	regex regexAllowAlphabetsOnly("[^a-zA-Z\\s:]");
 	regex regexMultiSpace("[\\s]+");
 	regex regexLeadSpaces("^\\s+");
@@ -318,7 +357,7 @@ string deepCleanText(string strText) {
 	vector<string> vstrings(begin, end);
 
 	//call recursive function to erase substring
-	//cuz vector size changes after every erase, to prevent out of range
+	//cuz vector size changes after every erase; to prevent out of range
 	commonWord, vstrings = eraseSubstring(commonWord, vstrings);
 
 	//store back to strText
@@ -330,7 +369,6 @@ string deepCleanText(string strText) {
 	return strText;
 }
 
-
 // ----------------------------------------------- Twitter TOP 10 COMMON WORDS USED ----------------------------------------------- //
 vector<pair<string, int>> top10WordTopics() {
 	string line;
@@ -339,7 +377,7 @@ vector<pair<string, int>> top10WordTopics() {
 	word_count_list word_count;
 
 	//loop all records of tweets
-	for (int i = 0; i < ::size; i++) {
+	for (int i = 0; i < twitter.size(); i++) {
 		//clean text and stored into line
 		line = deepCleanText(twitter[i].getPost());
 		stringstream check1(line);
@@ -362,9 +400,17 @@ vector<pair<string, int>> top10WordTopics() {
 	vector<pair<string, int> > wordvector;
 	vector<pair<string, int> > wordvector10;
 	copy(word_count.begin(), word_count.end(), back_inserter(wordvector));
+	
 	//sort the vector by second (value) instead of key
 	sort(wordvector.begin(), wordvector.end(), val_lt);
-	for (int i = 0; i < 10; i++)
+	int intTop10Size = 0;
+	if (wordvector.size() >= 10) {
+		intTop10Size = 10;
+	}
+	else if(wordvector.size() >=1 & wordvector.size() < 10) {
+		intTop10Size = wordvector.size();
+	}
+	for (int i = 0; i < intTop10Size; i++)
 		wordvector10.push_back(wordvector[i]);
 	return wordvector10; // return key value pair of limit 10
 }

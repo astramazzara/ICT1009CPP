@@ -1,36 +1,45 @@
 ﻿  GUI.cpp
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(127,12): warning C4101: 'tm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,22): warning C4101: 'z': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(121,14): warning C4101: 'newDateTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,29): warning C4101: 'mm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,37): warning C4101: 'year': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,25): warning C4101: 'hh': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,33): warning C4101: 'ss': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,6): warning C4101: 'day': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(122,9): warning C4101: 'newTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,17): warning C4101: 'mth': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(126,11): warning C4101: 'date': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(163,12): warning C4101: 'tm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,22): warning C4101: 'z': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(156,14): warning C4101: 'newDateTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,29): warning C4101: 'mm': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,37): warning C4101: 'year': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,25): warning C4101: 'hh': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,33): warning C4101: 'ss': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,6): warning C4101: 'day': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(157,9): warning C4101: 'newTime': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,17): warning C4101: 'mth': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(162,11): warning C4101: 'date': unreferenced local variable
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(213,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(260,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(263,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(271,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\twitter.h(352,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\GUI.h(826,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\GUI.h(860,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\GUI.h(969,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\GUI.h(997,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\lim_j\Documents\GitHub\ICT1009CPP\GUI.cpp(8,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(123,12): warning C4101: 'tm': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,22): warning C4101: 'z': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(117,14): warning C4101: 'newDateTime': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,29): warning C4101: 'mm': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,37): warning C4101: 'year': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,25): warning C4101: 'hh': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,33): warning C4101: 'ss': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,6): warning C4101: 'day': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(118,9): warning C4101: 'newTime': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,17): warning C4101: 'mth': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(122,11): warning C4101: 'date': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(168,12): warning C4101: 'tm': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,22): warning C4101: 'z': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(161,14): warning C4101: 'newDateTime': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,29): warning C4101: 'mm': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,37): warning C4101: 'year': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,25): warning C4101: 'hh': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,33): warning C4101: 'ss': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,6): warning C4101: 'day': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(162,9): warning C4101: 'newTime': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,17): warning C4101: 'mth': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(167,11): warning C4101: 'date': unreferenced local variable
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(298,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(301,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(309,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(380,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(390,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(410,56): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(839,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(887,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(921,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(979,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1027,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1055,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(8,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(276,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(880): message : see reference to function template instantiation 'std::vector<twitterData,std::allocator<_Ty>> searchKeyword<twitterData>(std::string,std::vector<_Ty,std::allocator<_Ty>> &,std::vector<_Ty,std::allocator<_Ty>> &)' being compiled
+          with
+          [
+              _Ty=twitterData
+          ]
   Crawler.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
 LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
 LINK : warning LNK4098: defaultlib 'ucrtd.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
@@ -38,10 +47,10 @@ LINK : warning LNK4217: symbol '___iob_func' defined in 'GUI.obj' is imported by
 LINK : warning LNK4217: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(cookie.obj)' in function '_Curl_cookie_add'
 LINK : warning LNK4286: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(mprintf.obj)'
 LINK : warning LNK4217: symbol '___iob_func' defined in 'GUI.obj' is imported by 'libcurl.lib(formdata.obj)' in function '_FormAdd'
-libcurl.lib(base64.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(base64.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
-libcurl.lib(HMAC_SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(HMAC_SHA1.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
-libcurl.lib(oauthlib.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(oauthlib.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
-libcurl.lib(SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(SHA1.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
-libcurl.lib(twitcurl.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(twitcurl.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
-libcurl.lib(urlencode.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(urlencode.obj)' or at 'C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
-  ICT1009CPP.vcxproj -> C:\Users\lim_j\Documents\GitHub\ICT1009CPP\Debug\ICT1009CPP.exe
+libcurl.lib(base64.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(base64.obj)' or at 'C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(HMAC_SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(HMAC_SHA1.obj)' or at 'C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(oauthlib.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(oauthlib.obj)' or at 'C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(SHA1.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(SHA1.obj)' or at 'C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(twitcurl.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(twitcurl.obj)' or at 'C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+libcurl.lib(urlencode.obj) : warning LNK4099: PDB 'twitcurl.pdb' was not found with 'libcurl.lib(urlencode.obj)' or at 'C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\twitcurl.pdb'; linking object as if no debug info
+  ICT1009CPP.vcxproj -> C:\Users\alexthetechkia\source\repos\ICT1009CPP\Debug\ICT1009CPP.exe
