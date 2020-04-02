@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.25.28610:TargetPlatformVersion=10.0.18362.0:TargetFrameworkVersion=v4.7.2::EnableManagedIncrementalBuild=true:
-Debug|Win32|C:\Users\alexthetechkia\source\repos\ICT1009CPP\|
+#TargetFrameworkVersion=v4.7.2:PlatformToolSet=v142:EnableManagedIncrementalBuild=true:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
+Debug|Win32|C:\Users\lim_j\Documents\GitHub\ICT1009CPP\|

@@ -115,7 +115,8 @@ int size = 0;				  // define size of data
 
 //----------------------------------------------- READ DATA FROM CSV -----------------------------------------------//
 //Twitter Read CSV
-void readData() {
+void readData(string gg) {
+	string pathname1 = gg;
 	string dateTime;
 	const char* newDateTime;
 	time_t newTime;
@@ -124,7 +125,7 @@ void readData() {
 	string nth;
 	int day, date, mth, z, hh, mm, ss, year;
 	struct tm tm;
-	ifstream f("TwitterData.Csv");
+	ifstream f(pathname1);
 	getline(f, nth);
 	while (f.peek() != EOF) {
 		getline(f, dateTime, ',');
@@ -149,7 +150,8 @@ void readData() {
 	}
 }
 //CNA Read CSV
-void readCNAData() {
+void readCNAData(string gg) {
+	string pathname1 = gg;
 	string dateTime;
 	const char* newDateTime;
 	time_t newTime;
@@ -159,7 +161,7 @@ void readCNAData() {
 	string nth;
 	int day, date, mth, z, hh, mm, ss, year;
 	struct tm tm;
-	ifstream f("CNAData.csv");
+	ifstream f(pathname1);
 	getline(f, nth, '\n');
 	int found = nth.find("Title");
 	if (found != string::npos)
@@ -208,7 +210,7 @@ vector<CNA> searchKeywordcna(string key) {
 	vector<CNA> filtered;
 	int found;
 	string str;
-	for (int i = 0; i < ::size; ++i) {
+	for (int i = 0; i < cna.size(); ++i) {
 		str = cna[i].getPost();
 		for_each(str.begin(), str.end(), [](char& c) {
 			c = ::tolower(c);
