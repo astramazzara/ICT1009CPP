@@ -93,18 +93,20 @@ namespace CPPProject1009Gui
 
 
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+	private: System::Windows::Forms::Button^ btnTweetDisplay;
 
 
 
 
-	private: System::Windows::Forms::Button^ displayBtn;
+
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+	private: System::Windows::Forms::Button^ btnTweetImport;
 
 
 
 
 
-	private: System::Windows::Forms::Button^ button1;
+
 
 
 
@@ -114,37 +116,68 @@ namespace CPPProject1009Gui
 
 
 	private: System::Windows::Forms::TextBox^ searchTb;
-	private: System::Windows::Forms::Button^ searchBtn;
+	private: System::Windows::Forms::Button^ btnTweetSearch;
+
+
+
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Button^ clearBtn;
+	private: System::Windows::Forms::Button^ btnTweetClear;
+
+
 
 	private: System::Windows::Forms::TextBox^ searchTb2;
-	private: System::Windows::Forms::Button^ searchBtn2;
+	private: System::Windows::Forms::Button^ btnCnaSearch;
+
+
 
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ displayBtn2;
+	private: System::Windows::Forms::Button^ btnCnaImport;
+	private: System::Windows::Forms::Button^ btnCnaDisplay;
+
+
+
+
 
 
 	private: System::Windows::Forms::RichTextBox^ richTextBox2;
-	private: System::Windows::Forms::Button^ clearBtn2;
-	private: System::Windows::Forms::Button^ toptenBtn;
+	private: System::Windows::Forms::Button^ btnCnaClear;
 
 
-	private: System::Windows::Forms::Button^ btnSort;
+	private: System::Windows::Forms::Button^ btnTweetTopTen;
+	private: System::Windows::Forms::Button^ btnTweetSort;
+
+
+
+
+
+
 	private: System::Windows::Forms::ComboBox^ comboBox2;
-	private: System::Windows::Forms::GroupBox^ groupBox4;
-	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::GroupBox^ grpBoxSortTweet;
+	private: System::Windows::Forms::GroupBox^ grpBoxSearchTweet;
+
+
 	private: System::Windows::Forms::GroupBox^ groupBox5;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
-	private: System::Windows::Forms::Button^ toptenBtn2;
+
+
+
+private: System::Windows::Forms::Button^ btnCnaTopTen;
+
+
+	private: System::Windows::Forms::TabPage^ tabPage4;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+private: System::Windows::Forms::Button^ btnCnaSort;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
+
+
 
 
 
@@ -181,7 +214,9 @@ namespace CPPProject1009Gui
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(GUI::typeid));
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
@@ -195,43 +230,51 @@ namespace CPPProject1009Gui
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->grpBoxSortTweet = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->btnSort = (gcnew System::Windows::Forms::Button());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
-			this->searchBtn = (gcnew System::Windows::Forms::Button());
+			this->btnTweetSort = (gcnew System::Windows::Forms::Button());
+			this->grpBoxSearchTweet = (gcnew System::Windows::Forms::GroupBox());
+			this->btnTweetSearch = (gcnew System::Windows::Forms::Button());
 			this->searchTb = (gcnew System::Windows::Forms::TextBox());
-			this->toptenBtn = (gcnew System::Windows::Forms::Button());
-			this->clearBtn = (gcnew System::Windows::Forms::Button());
+			this->btnTweetTopTen = (gcnew System::Windows::Forms::Button());
+			this->btnTweetClear = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnTweetImport = (gcnew System::Windows::Forms::Button());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
-			this->displayBtn = (gcnew System::Windows::Forms::Button());
+			this->btnTweetDisplay = (gcnew System::Windows::Forms::Button());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->toptenBtn2 = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->btnCnaSort = (gcnew System::Windows::Forms::Button());
+			this->btnCnaTopTen = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
+			this->searchTb2 = (gcnew System::Windows::Forms::TextBox());
+			this->btnCnaSearch = (gcnew System::Windows::Forms::Button());
+			this->btnCnaClear = (gcnew System::Windows::Forms::Button());
+			this->btnCnaImport = (gcnew System::Windows::Forms::Button());
+			this->btnCnaDisplay = (gcnew System::Windows::Forms::Button());
+			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
-			this->searchTb2 = (gcnew System::Windows::Forms::TextBox());
-			this->searchBtn2 = (gcnew System::Windows::Forms::Button());
-			this->clearBtn2 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->displayBtn2 = (gcnew System::Windows::Forms::Button());
-			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			this->groupBox4->SuspendLayout();
-			this->groupBox3->SuspendLayout();
+			this->grpBoxSortTweet->SuspendLayout();
+			this->grpBoxSearchTweet->SuspendLayout();
 			this->tabPage3->SuspendLayout();
+			this->groupBox2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->groupBox5->SuspendLayout();
+			this->tabPage4->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -239,6 +282,7 @@ namespace CPPProject1009Gui
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Location = System::Drawing::Point(-1, -1);
 			this->tabControl1->Margin = System::Windows::Forms::Padding(4);
 			this->tabControl1->Name = L"tabControl1";
@@ -330,14 +374,14 @@ namespace CPPProject1009Gui
 			this->tabPage2->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->tabPage2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->tabPage2->Controls->Add(this->dataGridView1);
-			this->tabPage2->Controls->Add(this->groupBox4);
-			this->tabPage2->Controls->Add(this->groupBox3);
-			this->tabPage2->Controls->Add(this->toptenBtn);
-			this->tabPage2->Controls->Add(this->clearBtn);
+			this->tabPage2->Controls->Add(this->grpBoxSortTweet);
+			this->tabPage2->Controls->Add(this->grpBoxSearchTweet);
+			this->tabPage2->Controls->Add(this->btnTweetTopTen);
+			this->tabPage2->Controls->Add(this->btnTweetClear);
 			this->tabPage2->Controls->Add(this->label4);
-			this->tabPage2->Controls->Add(this->button1);
+			this->tabPage2->Controls->Add(this->btnTweetImport);
 			this->tabPage2->Controls->Add(this->richTextBox1);
-			this->tabPage2->Controls->Add(this->displayBtn);
+			this->tabPage2->Controls->Add(this->btnTweetDisplay);
 			this->tabPage2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tabPage2->Location = System::Drawing::Point(4, 25);
@@ -389,20 +433,20 @@ namespace CPPProject1009Gui
 			this->Column3->ReadOnly = true;
 			this->Column3->Width = 116;
 			// 
-			// groupBox4
+			// grpBoxSortTweet
 			// 
-			this->groupBox4->Controls->Add(this->comboBox2);
-			this->groupBox4->Controls->Add(this->btnSort);
-			this->groupBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->grpBoxSortTweet->Controls->Add(this->comboBox2);
+			this->grpBoxSortTweet->Controls->Add(this->btnTweetSort);
+			this->grpBoxSortTweet->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox4->Location = System::Drawing::Point(1188, 38);
-			this->groupBox4->Margin = System::Windows::Forms::Padding(4);
-			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox4->Size = System::Drawing::Size(267, 128);
-			this->groupBox4->TabIndex = 23;
-			this->groupBox4->TabStop = false;
-			this->groupBox4->Text = L"Sort By";
+			this->grpBoxSortTweet->Location = System::Drawing::Point(1188, 38);
+			this->grpBoxSortTweet->Margin = System::Windows::Forms::Padding(4);
+			this->grpBoxSortTweet->Name = L"grpBoxSortTweet";
+			this->grpBoxSortTweet->Padding = System::Windows::Forms::Padding(4);
+			this->grpBoxSortTweet->Size = System::Drawing::Size(267, 128);
+			this->grpBoxSortTweet->TabIndex = 23;
+			this->grpBoxSortTweet->TabStop = false;
+			this->grpBoxSortTweet->Text = L"Sort By";
 			// 
 			// comboBox2
 			// 
@@ -419,47 +463,47 @@ namespace CPPProject1009Gui
 			this->comboBox2->Size = System::Drawing::Size(255, 25);
 			this->comboBox2->TabIndex = 20;
 			// 
-			// btnSort
+			// btnTweetSort
 			// 
-			this->btnSort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnTweetSort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSort->Location = System::Drawing::Point(88, 59);
-			this->btnSort->Margin = System::Windows::Forms::Padding(4);
-			this->btnSort->Name = L"btnSort";
-			this->btnSort->Size = System::Drawing::Size(100, 28);
-			this->btnSort->TabIndex = 18;
-			this->btnSort->Text = L"Sort";
-			this->btnSort->UseVisualStyleBackColor = true;
-			this->btnSort->Click += gcnew System::EventHandler(this, &GUI::btnSort_Click);
+			this->btnTweetSort->Location = System::Drawing::Point(88, 59);
+			this->btnTweetSort->Margin = System::Windows::Forms::Padding(4);
+			this->btnTweetSort->Name = L"btnTweetSort";
+			this->btnTweetSort->Size = System::Drawing::Size(100, 28);
+			this->btnTweetSort->TabIndex = 18;
+			this->btnTweetSort->Text = L"Sort";
+			this->btnTweetSort->UseVisualStyleBackColor = true;
+			this->btnTweetSort->Click += gcnew System::EventHandler(this, &GUI::btnTweetSort_Click);
 			// 
-			// groupBox3
+			// grpBoxSearchTweet
 			// 
-			this->groupBox3->Controls->Add(this->searchBtn);
-			this->groupBox3->Controls->Add(this->searchTb);
-			this->groupBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->grpBoxSearchTweet->Controls->Add(this->btnTweetSearch);
+			this->grpBoxSearchTweet->Controls->Add(this->searchTb);
+			this->grpBoxSearchTweet->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox3->Location = System::Drawing::Point(1188, 174);
-			this->groupBox3->Margin = System::Windows::Forms::Padding(4);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox3->Size = System::Drawing::Size(261, 100);
-			this->groupBox3->TabIndex = 22;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Search by Keyword";
+			this->grpBoxSearchTweet->Location = System::Drawing::Point(1188, 174);
+			this->grpBoxSearchTweet->Margin = System::Windows::Forms::Padding(4);
+			this->grpBoxSearchTweet->Name = L"grpBoxSearchTweet";
+			this->grpBoxSearchTweet->Padding = System::Windows::Forms::Padding(4);
+			this->grpBoxSearchTweet->Size = System::Drawing::Size(261, 100);
+			this->grpBoxSearchTweet->TabIndex = 22;
+			this->grpBoxSearchTweet->TabStop = false;
+			this->grpBoxSearchTweet->Text = L"Search by Keyword";
 			// 
-			// searchBtn
+			// btnTweetSearch
 			// 
-			this->searchBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->searchBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnTweetSearch->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->btnTweetSearch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->searchBtn->Location = System::Drawing::Point(88, 60);
-			this->searchBtn->Margin = System::Windows::Forms::Padding(4);
-			this->searchBtn->Name = L"searchBtn";
-			this->searchBtn->Size = System::Drawing::Size(100, 30);
-			this->searchBtn->TabIndex = 8;
-			this->searchBtn->Text = L"Search";
-			this->searchBtn->UseVisualStyleBackColor = true;
-			this->searchBtn->Click += gcnew System::EventHandler(this, &GUI::searchBtn_Click);
+			this->btnTweetSearch->Location = System::Drawing::Point(88, 60);
+			this->btnTweetSearch->Margin = System::Windows::Forms::Padding(4);
+			this->btnTweetSearch->Name = L"btnTweetSearch";
+			this->btnTweetSearch->Size = System::Drawing::Size(100, 30);
+			this->btnTweetSearch->TabIndex = 8;
+			this->btnTweetSearch->Text = L"Search";
+			this->btnTweetSearch->UseVisualStyleBackColor = true;
+			this->btnTweetSearch->Click += gcnew System::EventHandler(this, &GUI::btnTweetSearch_Click);
 			// 
 			// searchTb
 			// 
@@ -472,31 +516,31 @@ namespace CPPProject1009Gui
 			this->searchTb->Size = System::Drawing::Size(245, 27);
 			this->searchTb->TabIndex = 9;
 			// 
-			// toptenBtn
+			// btnTweetTopTen
 			// 
-			this->toptenBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnTweetTopTen->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->toptenBtn->Location = System::Drawing::Point(1221, 436);
-			this->toptenBtn->Margin = System::Windows::Forms::Padding(4);
-			this->toptenBtn->Name = L"toptenBtn";
-			this->toptenBtn->Size = System::Drawing::Size(208, 41);
-			this->toptenBtn->TabIndex = 15;
-			this->toptenBtn->Text = L"Top Ten words";
-			this->toptenBtn->UseVisualStyleBackColor = true;
-			this->toptenBtn->Click += gcnew System::EventHandler(this, &GUI::toptenBtn_Click);
+			this->btnTweetTopTen->Location = System::Drawing::Point(1221, 436);
+			this->btnTweetTopTen->Margin = System::Windows::Forms::Padding(4);
+			this->btnTweetTopTen->Name = L"btnTweetTopTen";
+			this->btnTweetTopTen->Size = System::Drawing::Size(208, 41);
+			this->btnTweetTopTen->TabIndex = 15;
+			this->btnTweetTopTen->Text = L"Top Ten words";
+			this->btnTweetTopTen->UseVisualStyleBackColor = true;
+			this->btnTweetTopTen->Click += gcnew System::EventHandler(this, &GUI::btnTweetTopTen_Click);
 			// 
-			// clearBtn
+			// btnTweetClear
 			// 
-			this->clearBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnTweetClear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->clearBtn->Location = System::Drawing::Point(1221, 388);
-			this->clearBtn->Margin = System::Windows::Forms::Padding(4);
-			this->clearBtn->Name = L"clearBtn";
-			this->clearBtn->Size = System::Drawing::Size(208, 41);
-			this->clearBtn->TabIndex = 12;
-			this->clearBtn->Text = L"Clear Display";
-			this->clearBtn->UseVisualStyleBackColor = true;
-			this->clearBtn->Click += gcnew System::EventHandler(this, &GUI::clearBtn_Click);
+			this->btnTweetClear->Location = System::Drawing::Point(1221, 388);
+			this->btnTweetClear->Margin = System::Windows::Forms::Padding(4);
+			this->btnTweetClear->Name = L"btnTweetClear";
+			this->btnTweetClear->Size = System::Drawing::Size(208, 41);
+			this->btnTweetClear->TabIndex = 12;
+			this->btnTweetClear->Text = L"Clear Display";
+			this->btnTweetClear->UseVisualStyleBackColor = true;
+			this->btnTweetClear->Click += gcnew System::EventHandler(this, &GUI::btnTweetClear_Click);
 			// 
 			// label4
 			// 
@@ -511,18 +555,18 @@ namespace CPPProject1009Gui
 			this->label4->TabIndex = 11;
 			this->label4->Text = L"Twitter Crawl Display";
 			// 
-			// button1
+			// btnTweetImport
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnTweetImport->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(1221, 292);
-			this->button1->Margin = System::Windows::Forms::Padding(4);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(208, 41);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Import CSV";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &GUI::button1_Click);
+			this->btnTweetImport->Location = System::Drawing::Point(1221, 292);
+			this->btnTweetImport->Margin = System::Windows::Forms::Padding(4);
+			this->btnTweetImport->Name = L"btnTweetImport";
+			this->btnTweetImport->Size = System::Drawing::Size(208, 41);
+			this->btnTweetImport->TabIndex = 7;
+			this->btnTweetImport->Text = L"Import CSV";
+			this->btnTweetImport->UseVisualStyleBackColor = true;
+			this->btnTweetImport->Click += gcnew System::EventHandler(this, &GUI::btnTweetImport_Click);
 			// 
 			// richTextBox1
 			// 
@@ -536,29 +580,30 @@ namespace CPPProject1009Gui
 			this->richTextBox1->TabIndex = 6;
 			this->richTextBox1->Text = L"";
 			// 
-			// displayBtn
+			// btnTweetDisplay
 			// 
-			this->displayBtn->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->displayBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnTweetDisplay->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->btnTweetDisplay->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->displayBtn->Location = System::Drawing::Point(1221, 340);
-			this->displayBtn->Margin = System::Windows::Forms::Padding(4);
-			this->displayBtn->Name = L"displayBtn";
-			this->displayBtn->Size = System::Drawing::Size(208, 41);
-			this->displayBtn->TabIndex = 5;
-			this->displayBtn->Text = L"Display CSV";
-			this->displayBtn->UseVisualStyleBackColor = true;
-			this->displayBtn->Click += gcnew System::EventHandler(this, &GUI::displayBtn_Click);
+			this->btnTweetDisplay->Location = System::Drawing::Point(1221, 340);
+			this->btnTweetDisplay->Margin = System::Windows::Forms::Padding(4);
+			this->btnTweetDisplay->Name = L"btnTweetDisplay";
+			this->btnTweetDisplay->Size = System::Drawing::Size(208, 41);
+			this->btnTweetDisplay->TabIndex = 5;
+			this->btnTweetDisplay->Text = L"Display CSV";
+			this->btnTweetDisplay->UseVisualStyleBackColor = true;
+			this->btnTweetDisplay->Click += gcnew System::EventHandler(this, &GUI::btnTweetDisplay_Click);
 			// 
 			// tabPage3
 			// 
 			this->tabPage3->BackColor = System::Drawing::Color::IndianRed;
-			this->tabPage3->Controls->Add(this->toptenBtn2);
+			this->tabPage3->Controls->Add(this->groupBox2);
+			this->tabPage3->Controls->Add(this->btnCnaTopTen);
 			this->tabPage3->Controls->Add(this->dataGridView2);
 			this->tabPage3->Controls->Add(this->groupBox5);
-			this->tabPage3->Controls->Add(this->clearBtn2);
-			this->tabPage3->Controls->Add(this->button2);
-			this->tabPage3->Controls->Add(this->displayBtn2);
+			this->tabPage3->Controls->Add(this->btnCnaClear);
+			this->tabPage3->Controls->Add(this->btnCnaImport);
+			this->tabPage3->Controls->Add(this->btnCnaDisplay);
 			this->tabPage3->Controls->Add(this->richTextBox2);
 			this->tabPage3->Controls->Add(this->label6);
 			this->tabPage3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F));
@@ -570,16 +615,59 @@ namespace CPPProject1009Gui
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"CNA";
 			// 
-			// toptenBtn2
+			// groupBox2
 			// 
-			this->toptenBtn2->Location = System::Drawing::Point(1216, 345);
-			this->toptenBtn2->Margin = System::Windows::Forms::Padding(4);
-			this->toptenBtn2->Name = L"toptenBtn2";
-			this->toptenBtn2->Size = System::Drawing::Size(219, 39);
-			this->toptenBtn2->TabIndex = 24;
-			this->toptenBtn2->Text = L"Top Ten words";
-			this->toptenBtn2->UseVisualStyleBackColor = true;
-			this->toptenBtn2->Click += gcnew System::EventHandler(this, &GUI::toptenBtn2_Click);
+			this->groupBox2->Controls->Add(this->comboBox1);
+			this->groupBox2->Controls->Add(this->btnCnaSort);
+			this->groupBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox2->Location = System::Drawing::Point(1192, 38);
+			this->groupBox2->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
+			this->groupBox2->Size = System::Drawing::Size(267, 128);
+			this->groupBox2->TabIndex = 25;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Sort By";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Sort ascending order by source", L"Sort descending order by source",
+					L"Sort ascending order by headline", L"Sort descending order by headline"
+			});
+			this->comboBox1->Location = System::Drawing::Point(3, 31);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(255, 25);
+			this->comboBox1->TabIndex = 20;
+			// 
+			// btnCnaSort
+			// 
+			this->btnCnaSort->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnCnaSort->Location = System::Drawing::Point(88, 59);
+			this->btnCnaSort->Margin = System::Windows::Forms::Padding(4);
+			this->btnCnaSort->Name = L"btnCnaSort";
+			this->btnCnaSort->Size = System::Drawing::Size(100, 28);
+			this->btnCnaSort->TabIndex = 18;
+			this->btnCnaSort->Text = L"Sort";
+			this->btnCnaSort->UseVisualStyleBackColor = true;
+			this->btnCnaSort->Click += gcnew System::EventHandler(this, &GUI::btnCnaSort_Click);
+			// 
+			// btnCnaTopTen
+			// 
+			this->btnCnaTopTen->Location = System::Drawing::Point(1211, 423);
+			this->btnCnaTopTen->Margin = System::Windows::Forms::Padding(4);
+			this->btnCnaTopTen->Name = L"btnCnaTopTen";
+			this->btnCnaTopTen->Size = System::Drawing::Size(219, 39);
+			this->btnCnaTopTen->TabIndex = 24;
+			this->btnCnaTopTen->Text = L"Top Ten words";
+			this->btnCnaTopTen->UseVisualStyleBackColor = true;
+			this->btnCnaTopTen->Click += gcnew System::EventHandler(this, &GUI::btnCnaTopTen_Click);
 			// 
 			// dataGridView2
 			// 
@@ -598,37 +686,13 @@ namespace CPPProject1009Gui
 			this->dataGridView2->Size = System::Drawing::Size(1180, 720);
 			this->dataGridView2->TabIndex = 23;
 			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Source";
-			this->Column4->MinimumWidth = 7;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			this->Column4->Width = 94;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Date";
-			this->Column5->MinimumWidth = 7;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			this->Column5->Width = 77;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"HeadLine";
-			this->Column6->MinimumWidth = 7;
-			this->Column6->Name = L"Column6";
-			this->Column6->ReadOnly = true;
-			this->Column6->Width = 113;
-			// 
 			// groupBox5
 			// 
 			this->groupBox5->Controls->Add(this->searchTb2);
-			this->groupBox5->Controls->Add(this->searchBtn2);
+			this->groupBox5->Controls->Add(this->btnCnaSearch);
 			this->groupBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->groupBox5->Location = System::Drawing::Point(1196, 38);
+			this->groupBox5->Location = System::Drawing::Point(1188, 174);
 			this->groupBox5->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox5->Name = L"groupBox5";
 			this->groupBox5->Padding = System::Windows::Forms::Padding(4);
@@ -648,53 +712,53 @@ namespace CPPProject1009Gui
 			this->searchTb2->Size = System::Drawing::Size(245, 24);
 			this->searchTb2->TabIndex = 17;
 			// 
-			// searchBtn2
+			// btnCnaSearch
 			// 
-			this->searchBtn2->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->searchBtn2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnCnaSearch->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->btnCnaSearch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->searchBtn2->Location = System::Drawing::Point(88, 60);
-			this->searchBtn2->Margin = System::Windows::Forms::Padding(4);
-			this->searchBtn2->Name = L"searchBtn2";
-			this->searchBtn2->Size = System::Drawing::Size(100, 30);
-			this->searchBtn2->TabIndex = 16;
-			this->searchBtn2->Text = L"Search";
-			this->searchBtn2->UseVisualStyleBackColor = true;
-			this->searchBtn2->Click += gcnew System::EventHandler(this, &GUI::searchBtn2_Click);
+			this->btnCnaSearch->Location = System::Drawing::Point(88, 60);
+			this->btnCnaSearch->Margin = System::Windows::Forms::Padding(4);
+			this->btnCnaSearch->Name = L"btnCnaSearch";
+			this->btnCnaSearch->Size = System::Drawing::Size(100, 30);
+			this->btnCnaSearch->TabIndex = 16;
+			this->btnCnaSearch->Text = L"Search";
+			this->btnCnaSearch->UseVisualStyleBackColor = true;
+			this->btnCnaSearch->Click += gcnew System::EventHandler(this, &GUI::btnCnaSearch_Click);
 			// 
-			// clearBtn2
+			// btnCnaClear
 			// 
-			this->clearBtn2->Location = System::Drawing::Point(1216, 298);
-			this->clearBtn2->Margin = System::Windows::Forms::Padding(4);
-			this->clearBtn2->Name = L"clearBtn2";
-			this->clearBtn2->Size = System::Drawing::Size(219, 39);
-			this->clearBtn2->TabIndex = 21;
-			this->clearBtn2->Text = L"Clear Display";
-			this->clearBtn2->UseVisualStyleBackColor = true;
-			this->clearBtn2->Click += gcnew System::EventHandler(this, &GUI::clearBtn2_Click);
+			this->btnCnaClear->Location = System::Drawing::Point(1211, 376);
+			this->btnCnaClear->Margin = System::Windows::Forms::Padding(4);
+			this->btnCnaClear->Name = L"btnCnaClear";
+			this->btnCnaClear->Size = System::Drawing::Size(219, 39);
+			this->btnCnaClear->TabIndex = 21;
+			this->btnCnaClear->Text = L"Clear Display";
+			this->btnCnaClear->UseVisualStyleBackColor = true;
+			this->btnCnaClear->Click += gcnew System::EventHandler(this, &GUI::btnCnaClear_Click);
 			// 
-			// button2
+			// btnCnaImport
 			// 
-			this->button2->Location = System::Drawing::Point(1216, 204);
-			this->button2->Margin = System::Windows::Forms::Padding(4);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(219, 41);
-			this->button2->TabIndex = 20;
-			this->button2->Text = L"Import CSV";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &GUI::button2_Click);
+			this->btnCnaImport->Location = System::Drawing::Point(1211, 282);
+			this->btnCnaImport->Margin = System::Windows::Forms::Padding(4);
+			this->btnCnaImport->Name = L"btnCnaImport";
+			this->btnCnaImport->Size = System::Drawing::Size(219, 41);
+			this->btnCnaImport->TabIndex = 20;
+			this->btnCnaImport->Text = L"Import CSV";
+			this->btnCnaImport->UseVisualStyleBackColor = true;
+			this->btnCnaImport->Click += gcnew System::EventHandler(this, &GUI::btnCnaImport_Click);
 			// 
-			// displayBtn2
+			// btnCnaDisplay
 			// 
-			this->displayBtn2->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->displayBtn2->Location = System::Drawing::Point(1216, 252);
-			this->displayBtn2->Margin = System::Windows::Forms::Padding(4);
-			this->displayBtn2->Name = L"displayBtn2";
-			this->displayBtn2->Size = System::Drawing::Size(219, 38);
-			this->displayBtn2->TabIndex = 19;
-			this->displayBtn2->Text = L"Display CSV";
-			this->displayBtn2->UseVisualStyleBackColor = true;
-			this->displayBtn2->Click += gcnew System::EventHandler(this, &GUI::displayBtn2_Click);
+			this->btnCnaDisplay->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->btnCnaDisplay->Location = System::Drawing::Point(1211, 330);
+			this->btnCnaDisplay->Margin = System::Windows::Forms::Padding(4);
+			this->btnCnaDisplay->Name = L"btnCnaDisplay";
+			this->btnCnaDisplay->Size = System::Drawing::Size(219, 38);
+			this->btnCnaDisplay->TabIndex = 19;
+			this->btnCnaDisplay->Text = L"Display CSV";
+			this->btnCnaDisplay->UseVisualStyleBackColor = true;
+			this->btnCnaDisplay->Click += gcnew System::EventHandler(this, &GUI::btnCnaDisplay_Click);
 			// 
 			// richTextBox2
 			// 
@@ -721,11 +785,62 @@ namespace CPPProject1009Gui
 			this->label6->TabIndex = 0;
 			this->label6->Text = L"CNA Crawl Display";
 			// 
+			// tabPage4
+			// 
+			this->tabPage4->Controls->Add(this->chart1);
+			this->tabPage4->Location = System::Drawing::Point(4, 25);
+			this->tabPage4->Name = L"tabPage4";
+			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage4->Size = System::Drawing::Size(1467, 765);
+			this->tabPage4->TabIndex = 3;
+			this->tabPage4->Text = L"tabPage4";
+			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// chart1
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chart1->Legends->Add(legend1);
+			this->chart1->Location = System::Drawing::Point(368, 95);
+			this->chart1->Name = L"chart1";
+			series1->ChartArea = L"ChartArea1";
+			series1->Legend = L"Legend1";
+			series1->Name = L"Series1";
+			this->chart1->Series->Add(series1);
+			this->chart1->Size = System::Drawing::Size(848, 417);
+			this->chart1->TabIndex = 0;
+			this->chart1->Text = L"chart1";
+			// 
 			// contextMenuStrip1
 			// 
 			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(21, 21);
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Source";
+			this->Column4->MinimumWidth = 7;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			this->Column4->Width = 94;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Date";
+			this->Column5->MinimumWidth = 7;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			this->Column5->Width = 77;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Headline";
+			this->Column6->MinimumWidth = 7;
+			this->Column6->Name = L"Column6";
+			this->Column6->ReadOnly = true;
+			this->Column6->Width = 107;
 			// 
 			// GUI
 			// 
@@ -744,14 +859,17 @@ namespace CPPProject1009Gui
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			this->groupBox4->ResumeLayout(false);
-			this->groupBox3->ResumeLayout(false);
-			this->groupBox3->PerformLayout();
+			this->grpBoxSortTweet->ResumeLayout(false);
+			this->grpBoxSearchTweet->ResumeLayout(false);
+			this->grpBoxSearchTweet->PerformLayout();
 			this->tabPage3->ResumeLayout(false);
 			this->tabPage3->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox5->PerformLayout();
+			this->tabPage4->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -798,7 +916,7 @@ namespace CPPProject1009Gui
 	/*-----------------------------------------------Twitter Buttons-------------------------------------------*/
 
 	/*BUTTONS for Importing CSV File*/
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnTweetImport_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 
@@ -828,7 +946,7 @@ namespace CPPProject1009Gui
 	/*END OF BUTTONS for Importing CSV File*/
 
 	/*DISPLAY CSV BUTTON*/
-	private: System::Void displayBtn_Click(System::Object^ sender, System::EventArgs^ e)
+	private: System::Void btnTweetDisplay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		if (plsimporttweet == 0)
 		{
@@ -857,7 +975,7 @@ namespace CPPProject1009Gui
 
 	
 	/*Twitter Search keyword BUTTON*/
-	private: System::Void searchBtn_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void btnTweetSearch_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		System::String^ search;//user input 
 		if (plsimporttweet == 0)
@@ -872,6 +990,7 @@ namespace CPPProject1009Gui
 		
 		else
 		{
+			btnTweetClear_Click(sender, e);
 			search = searchTb->Text;//Get Keyword from TexBox
 
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
@@ -903,7 +1022,7 @@ namespace CPPProject1009Gui
 	/*End of Twitter Search keyword BUTTON*/
 	
 	/*clear BUTTON*/
-	private: System::Void clearBtn_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void btnTweetClear_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		richTextBox1->Text = "";
 		dataGridView1->Rows->Clear();
@@ -911,7 +1030,7 @@ namespace CPPProject1009Gui
 	/*End of clear BUTTON*/
 	
 	/*top ten BUTTON*/
-	private: System::Void toptenBtn_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void btnTweetTopTen_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		if (plsimporttweet == 0)
 		{
@@ -931,48 +1050,36 @@ namespace CPPProject1009Gui
 	}
 	/*End of top ten BUTTON*/
 	
-	/*Sort BUTTON*/
-	private: System::Void btnSort_Click(System::Object^ sender, System::EventArgs^ e) 
+	/*Twitter Sort BUTTON*/
+	private: System::Void btnTweetSort_Click(System::Object^ sender, System::EventArgs^ e) 
 	{		
-		
-		
 		if (plsimporttweet == 0)
 		{
 			MessageBox::Show("Please Import CSV", "Error: ");
 		}
 		else if (comboBox2->Text == "Sort ascending order by username")
 		{
-			
+			btnTweetClear_Click(sender, e);
 			// function sort userid ascending
-			sort(twitter.begin(), twitter.end(), userid_asc);		
-			
-			
+			sort(twitter.begin(), twitter.end(), userid_asc);			
 		}
 		else if(comboBox2->Text == "Sort descending order by username")
 		{
-			
-			// function sort userid descending
-			
+			btnTweetClear_Click(sender, e);
+			// function sort userid descending	
 			sort(twitter.begin(), twitter.end(), userid_desc);
-			
-			
 		}
 		else if (comboBox2->Text == "Sort ascending order by post")
 		{
-			
-			// function sort post ascending
-			
+			btnTweetClear_Click(sender, e);
+			// function sort post ascending	
 			sort(twitter.begin(), twitter.end(), post_asc);
-		
-			
 		}
 		else if (comboBox2->Text == "Sort descending order by post")
 		{
-			
+			btnTweetClear_Click(sender, e);
 			// function sort post descending
-			sort(twitter.begin(), twitter.end(), post_desc);
-
-			
+			sort(twitter.begin(), twitter.end(), post_desc);	
 		}
 		else
 		{
@@ -985,21 +1092,14 @@ namespace CPPProject1009Gui
 				//+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
 				//+ "User Tweet: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
 			dataGridView1->Rows->Add(marshal_as<String^>(twitter[i].getUserId()), marshal_as<String^>(twitter[i].getDate()), marshal_as<String^>(twitter[i].getPost()));
-
 		}
-		
 	}
 	/*End of top ten BUTTON*/
-	
 
-
-
-
-
-/*-----------------------------------------------CNA Buttons-------------------------------------------*/
+	/*-----------------------------------------------CNA Buttons-------------------------------------------*/
 
 	/*CNA Search by keyword*/
-	private: System::Void searchBtn2_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void btnCnaSearch_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		System::String^ search;//user input 
 
@@ -1014,6 +1114,7 @@ namespace CPPProject1009Gui
 
 		else
 		{
+			btnCnaClear_Click(sender, e);
 			search = searchTb2->Text;//Get Keyword from TexBox
 
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
@@ -1044,7 +1145,7 @@ namespace CPPProject1009Gui
 	/*END of CNA Search by keyword*/
 
 	/*Display CNA CSV*/
-	private: System::Void displayBtn2_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnCnaDisplay_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (plsimportcna == 0)
 	{
@@ -1068,7 +1169,7 @@ namespace CPPProject1009Gui
 	/*END Display CNA CSV*/
 
 	/*Loading CNA CSV*/
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e)
+	private: System::Void btnCnaImport_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		OpenFileDialog^ openFileDialog2 = gcnew OpenFileDialog;
 
@@ -1095,7 +1196,7 @@ namespace CPPProject1009Gui
 	/*End of Loading CNA CSV*/
 	
 	/*Clear Display Button*/
-	private: System::Void clearBtn2_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void btnCnaClear_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		
 			richTextBox2->Text = "";
@@ -1103,8 +1204,8 @@ namespace CPPProject1009Gui
 	}
 	/* End of Clear Button*/
 
-	/*top ten button*/
-	private: System::Void toptenBtn2_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*CNA top ten button*/
+	private: System::Void btnCnaTopTen_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (plsimportcna == 0)
 		{
 			MessageBox::Show("Please Import CSV", "Error: ");
@@ -1122,6 +1223,50 @@ namespace CPPProject1009Gui
 		}
 	}
 	/*End of top ten BUTTON*/
+
+	/*CNA Sort BUTTON*/
+	private: System::Void btnCnaSort_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (plsimportcna == 0)
+		{
+			MessageBox::Show("Please Import CSV", "Error: ");
+		}
+		else if (comboBox1->Text == "Sort ascending order by source")
+		{
+			btnCnaClear_Click(sender, e);
+			// function sort userid ascending
+			sort(cna.begin(), cna.end(), source_asc_cna);
+		}
+		else if (comboBox1->Text == "Sort descending order by source")
+		{
+			btnCnaClear_Click(sender, e);
+			// function sort userid descending	
+			sort(cna.begin(), cna.end(), source_desc_cna);
+		}
+		else if (comboBox1->Text == "Sort ascending order by headline")
+		{
+			btnCnaClear_Click(sender, e);
+			// function sort post ascending	
+			sort(cna.begin(), cna.end(), post_asc_cna);
+		}
+		else if (comboBox1->Text == "Sort descending order by headline")
+		{
+			btnCnaClear_Click(sender, e);
+			// function sort post descending
+			sort(cna.begin(), cna.end(), post_desc_cna);
+		}
+		else
+		{
+			MessageBox::Show("Please input Keyword to sort!", "Error:");
+		}
+		for (int i = 0; i < cna.size(); ++i)
+		{
+			dataGridView2->Rows->Add(
+				marshal_as<String^>(cna[i].getUserId()), 
+				marshal_as<String^>(cna[i].getDate()), 
+				marshal_as<String^>(cna[i].getPost()));
+		}
+	}
+	/*End of CNA Sort BUTTON*/
 };
 }
 

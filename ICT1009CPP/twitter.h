@@ -70,6 +70,7 @@ struct val_morethan
 	}
 }val_lt;
 
+/*Twitter struct*/
 struct userid_asc
 {
 
@@ -102,14 +103,41 @@ struct post_desc
 	}
 }post_desc;
 
+
+/*cna struct*/
+struct source_asc_cna
+{
+
+	inline bool operator() (CNA& x, CNA& y) {
+		return x.getUserId() < y.getUserId();
+	}
+}source_asc_cna;
+
+struct source_desc_cna
+{
+
+	inline bool operator() (CNA& x, CNA& y) {
+		return x.getUserId() > y.getUserId();
+	}
+}source_desc_cna;
+
+struct post_asc_cna {
+	inline bool operator() (CNA& x, CNA& y) {
+		return x.getPost() < y.getPost();
+	}
+}post_asc_cna;
+
+struct post_desc_cna {
+	inline bool operator() (CNA& x, CNA& y) {
+		return x.getPost() > y.getPost();
+	}
+}post_desc_cna;
+
 //----------------------------------------------- DEFINE GLOBAL VARIABLES -----------------------------------------------//
 /*GLOBAL VARIABLES - vector twitterData Class*/
 vector <twitterData> twitter; // store twitter data in an array
-//twitterData temp;			 // temporary store data before adding to vector twitter
 /*GLOBAL VARIABLES - vector CNA Class*/
-vector <CNA> cna;
-//CNA tempcna;
-//int size = 0;				  // define size of data
+vector <CNA> cna; // store cna data in an array
 
 //----------------------------------------------- READ DATA FROM CSV -----------------------------------------------//
 //Twitter Read CSV
