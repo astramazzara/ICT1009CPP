@@ -12,288 +12,102 @@
 
 using namespace std;
 
-//Twitter Class
-class twitterData {
+/*Parent Class*/
+class DataModel {
 protected:
 	string dateTime;
 	string userid;
 	string post;
 	string filepath;
 	string t_keyword;
-public:
 
-	twitterData() { dateTime = ""; userid = ""; post = ""; }
-	twitterData(string new_dateTime, string new_userid, string new_post);
-	void storeData(string new_dateTime, string new_userid, string new_post);// USED for both CNA Twitter
+	// ------ used by top 10 common words for sorting and mapping ------------------ //
+	/*parent variable
+	word count mapping*/
+	typedef map<string, int> word_count_list;
+	/*parent variable
+	struct for more than*/
+	struct val_morethan
+	{
+		inline bool operator() (const pair<string, int>& x, const pair<string, int>& y) const
+		{
+			return x.second > y.second;
+		}
+	}val_lt;
+public:
+	/*parent constructor*/
+	DataModel() { dateTime = ""; userid = ""; post = ""; }
+	/*parent constructor with variables*/
+	DataModel(string new_dateTime, string new_userid, string new_post);
+
+	/*parent function
+	add on to class variables
+	USED for both CNA & Twitter*/
+	void storeData(string new_dateTime, string new_userid, string new_post);
 	string getDate() { return dateTime; }
 	string getUserId() { return userid; }
 	string getPost() { return post; }
 
-	void set_csvfilepath(string);//for filepath from gui
+	/*parent function
+	set filepath from gui*/
+	void set_csvfilepath(string);
 	string get_csvfilepath() { return filepath; }
 
+	/*SEARCH KEYWORD USING TEMPLATE
+	parent function
+	Input: string:key, vector<dataSrcType>:vect, vector<dataSrcType>:dataSource
+	Output: vector<dataSrcType>:vect*/
+	template<typename dataSrcType>
+	typename vector<dataSrcType> searchKeyword(string, vector<dataSrcType>& vect, vector<dataSrcType>& dataSource);
+
+	// ------------------ TOP 10 COMMON WORDS USED ------------------------------ //
+	/*clean Text function entry point and calls for eraseSubstring
+	Parent function
+	Input: string:strText
+	Output: string:strText*/
+	vector<string> eraseSubstring(vector<string>, vector<string>);
+	string deepCleanText(string);
+
+	/*TOP 10 COMMON WORDS USED
+	parent function
+	Input: vector Data Source
+	Output: vector with key and value pair for top 10 frequently appeared words*/
+	template<typename dataSrcType>
+	vector<pair<string, int>> top10WordTopics(vector<dataSrcType>& dataSource);
+
 };
 
+// --------------------------------------------------------------------- DataModel.cpp --------------------------------------------------------- //
+/*parent constructor*/
+DataModel::DataModel(string new_dateTime, string new_userid, string new_post) {
+	dateTime = new_dateTime;
+	userid = new_userid;
+	post = new_post;
+}
 
-/*set filepath from gui*/
-void twitterData::set_csvfilepath(string path)
+/*parent function
+add on to class variables*/
+void DataModel::storeData(string new_dateTime, string new_userid, string new_post) {
+	dateTime = new_dateTime;
+	userid = new_userid;
+	post = new_post;
+}
+
+/*parent function
+set filepath from gui*/
+void DataModel::set_csvfilepath(string path)
 {
 	filepath = path;
-
 }
 
-twitterData::twitterData(string new_dateTime, string new_userid, string new_post) {
-	dateTime = new_dateTime;
-	userid = new_userid;
-	post = new_post;
-}
-
-void twitterData::storeData(string new_dateTime, string new_userid, string new_post) {
-	dateTime = new_dateTime;
-	userid = new_userid;
-	post = new_post;
-}
-
-//CNA Class
-class CNA : virtual public twitterData {
-
-};
-
-//----------------------------------------------- Twitter Sort by Assc or Dese -----------------------------------------------//
-typedef map<string, int> word_count_list;
-
-struct val_morethan
-{
-	inline bool operator() (const pair<string, int>& x, const pair<string, int>& y) const
-	{
-		return x.second > y.second;
-	}
-}val_lt;
-
-/*Twitter struct*/
-struct userid_asc
-{
-
-	inline bool operator() (twitterData& x, twitterData& y) {
-		return x.getUserId() < y.getUserId();
-	}
-}userid_asc;
-
-struct userid_desc
-{
-
-	inline bool operator() (twitterData& x, twitterData& y) {
-		return x.getUserId() > y.getUserId();
-	}
-}userid_desc;
-
-struct post_asc
-{
-
-	inline bool operator() (twitterData& x, twitterData& y) {
-		return x.getPost() < y.getPost();
-	}
-}post_asc;
-
-struct post_desc
-{
-
-	inline bool operator() (twitterData& x, twitterData& y) {
-		return x.getPost() > y.getPost();
-	}
-}post_desc;
-
-
-/*cna struct*/
-struct source_asc_cna
-{
-
-	inline bool operator() (CNA& x, CNA& y) {
-		return x.getUserId() < y.getUserId();
-	}
-}source_asc_cna;
-
-struct source_desc_cna
-{
-
-	inline bool operator() (CNA& x, CNA& y) {
-		return x.getUserId() > y.getUserId();
-	}
-}source_desc_cna;
-
-struct post_asc_cna {
-	inline bool operator() (CNA& x, CNA& y) {
-		return x.getPost() < y.getPost();
-	}
-}post_asc_cna;
-
-struct post_desc_cna {
-	inline bool operator() (CNA& x, CNA& y) {
-		return x.getPost() > y.getPost();
-	}
-}post_desc_cna;
-
-//----------------------------------------------- DEFINE GLOBAL VARIABLES -----------------------------------------------//
-/*GLOBAL VARIABLES - vector twitterData Class*/
-vector <twitterData> twitter; // store twitter data in an array
-/*GLOBAL VARIABLES - vector CNA Class*/
-vector <CNA> cna; // store cna data in an array
-
-//----------------------------------------------- READ DATA FROM CSV -----------------------------------------------//
-//Twitter Read CSV
-void readData(string gg) {
-	string pathname1 = gg;
-	string dateTime;
-	const char* newDateTime;
-	time_t newTime;
-	string userid;
-	string post;
-	string nth;
-	int day, date, mth, z, hh, mm, ss, year;
-	struct tm tm;
-	twitterData temp;			 // temporary store data before adding to vector twitter
-	ifstream f(pathname1);
-	getline(f, nth);
-	while (f.peek() != EOF) {
-		getline(f, dateTime, ',');
-		getline(f, userid, ',');
-		getline(f, post, '\n');
-		/**
-		newDateTime = dateTime.c_str();
-		sscanf(newDateTime,	 "%a %b %d %H:%M:%S %z %Y", &day, &mth, &date, &hh, &mm, &ss, &z, &year);
-		tm.tm_year = year - 1900;
-		tm.tm_wday = day;
-		tm.tm_mon = mth - 1;
-		tm.tm_mday = date;
-		tm.tm_hour = hh;
-		tm.tm_min = mm;
-		tm.tm_sec = ss;
-		newTime = mktime(&tm);
-		*/
-
-		//remove colon from display
-		regex regexCollon("[\"]");
-		post = regex_replace(post, regexCollon, "");
-		userid = regex_replace(userid, regexCollon, "");
-		dateTime = regex_replace(dateTime, regexCollon, "");
-
-		temp.storeData(dateTime, userid, post);
-		twitter.push_back(temp);
-		//::size++;
-
-	}
-}
-
-//CNA Read CSV
-void readCNAData(string gg) {
-	string pathname1 = gg;
-	string dateTime;
-	const char* newDateTime;
-	time_t newTime;
-	string author;
-	string title;
-	string source;
-	string nth;
-	int day, date, mth, z, hh, mm, ss, year;
-	struct tm tm;
-	CNA temp;			 // temporary store data before adding to vector cna
-	ifstream f(pathname1);
-	getline(f, nth, '\n');
-	int found = nth.find("Title");
-	if (found != string::npos)
-	{
-		while (f.peek() != EOF) {
-			getline(f, title, ',');
-			getline(f, dateTime, ',');
-			getline(f, source, ',');
-			getline(f, author, '\n');
-			temp.storeData(dateTime, author, title);
-			cna.push_back(temp);
-			//::size++;
-		}
-	}
-	else {
-		cout << "Error File Format" << endl;
-	}
-}
-
-
-// ----------------------------------------------- SEARCH KEYWORDS ----------------------------------------------- //
-/*OLD SEARCH!!!!!!*/
-/*vector<twitterData> searchKeyword(string key) {
-	int j = 0;
-	vector<twitterData> filtered;
-	size_t found;
-	string str;
-	for (int i = 0; i < ::size; ++i) {
-		str = twitter[i].getPost();
-		for_each(str.begin(), str.end(), [](char& c) {
-			c = ::tolower(c);
-			});
-		found = str.find(key);
-		if (found != string::npos)
-		{
-			temp.storeData(twitter[j].getDate(), twitter[j].getUserId(), twitter[j].getPost());
-			filtered.push_back(temp);
-			j++;
-		}
-	}
-	return filtered;
-}*/
-// ----------------------------------------------- CNA SEARCH KEYWORDS ----------------------------------------------- //
-///*OLD NEW SEARCH!!!!!!*/
-//vector<CNA> searchKeywordcna(string key) {
-//	vector<CNA> filtered;
-//	int found;
-//	string str;
-//	for (int i = 0; i < cna.size(); ++i) {
-//		str = cna[i].getPost();
-//		for_each(str.begin(), str.end(), [](char& c) {
-//			c = ::tolower(c);
-//			});
-//		found = str.find(key);
-//		if (found != string::npos)
-//		{
-//			tempcna.storeData(cna[i].getDate(), cna[i].getUserId(), cna[i].getPost());
-//			filtered.push_back(tempcna);
-//		}
-//	}
-//	if (filtered.empty()) {
-//		cout << "No such records!" << endl;
-//	}
-//	return filtered;
-//}
-//
-//
-//// ----------------------------------------------- Twitter SEARCH KEYWORDS ----------------------------------------------- //
-///*OLD NEW SEARCH!!!!!!*/
-//vector<twitterData> searchKeyword(string key) {
-//
-//	vector<twitterData> filtered;
-//	int found;
-//	string str;
-//	for (int i = 0; i < ::size; ++i) {
-//		str = twitter[i].getPost();
-//		for_each(str.begin(), str.end(), [](char& c) {
-//			c = ::tolower(c);
-//			});
-//		found = str.find(key);
-//		if (found != string::npos)
-//		{
-//			temp.storeData(twitter[i].getDate(), twitter[i].getUserId(), twitter[i].getPost());
-//			filtered.push_back(temp);
-//		}
-//	}
-//	if (filtered.empty()) {
-//		cout << "No such records!" << endl;
-//	}
-//	return filtered;
-//}
-
-// ----------------------------------------------- SEARCH KEYWORDS USING TEMPLATE ------------------------------------------- //
-/*SEARCH KEYWORD USING TEMPLATE*/
+// --------------------------------- SEARCH KEYWORDS USING TEMPLATE --------------------------- //
+/*SEARCH KEYWORD USING TEMPLATE
+parent function
+Input: string:key, vector<dataSrcType>:vect, vector<dataSrcType>:dataSource
+Output: vector<dataSrcType>:vect
+*/
 template<typename dataSrcType>
-typename vector<dataSrcType> searchKeyword(string key, vector<dataSrcType> &vect, vector<dataSrcType> &dataSource) {
+typename vector<dataSrcType> DataModel::searchKeyword(string key, vector<dataSrcType>& vect, vector<dataSrcType>& dataSource) {
 	//convert search key to lowercase
 	for_each(key.begin(), key.end(), [](char& c) {
 		c = ::tolower(c);
@@ -321,11 +135,12 @@ typename vector<dataSrcType> searchKeyword(string key, vector<dataSrcType> &vect
 	return vect;
 }
 
-// ----------------------------------------------- Clean Text ----------------------------------------------- //
+// ------------------------------------------- Clean Text -------------------------------------- //
 /*recursive function to find and erase substring
+Parent function
 Input: vector<string>:commonWord, vector<string>:vstrings
 Output: vector<string>:commonWord, vector<string>:vstrings*/
-vector<string> eraseSubstring(vector<string> commonWord, vector<string> vstrings)
+vector<string> DataModel::eraseSubstring(vector<string> commonWord, vector<string> vstrings)
 {
 	//loop through all words
 	for (int j = 0; j < vstrings.size(); j++)
@@ -350,9 +165,10 @@ vector<string> eraseSubstring(vector<string> commonWord, vector<string> vstrings
 }
 
 /*clean Text function entry point and calls for eraseSubstring
+Parent function
 Input: string:strText
 Output: string:strText*/
-string deepCleanText(string strText) {
+string DataModel::deepCleanText(string strText) {
 	// convert string to lower case
 	for_each(strText.begin(), strText.end(), [](char& c) {
 		c = ::tolower(c);
@@ -408,12 +224,13 @@ string deepCleanText(string strText) {
 	return strText;
 }
 
-// ----------------------------------------------- TOP 10 COMMON WORDS USED ----------------------------------------------- //
+// --------------------------------- TOP 10 COMMON WORDS USED ------------------------------------ //
 /*TOP 10 COMMON WORDS USED
+parent function
 Input: vector Data Source
 Output: vector with key and value pair for top 10 frequently appeared words*/
 template<typename dataSrcType>
-vector<pair<string, int>> top10WordTopics(vector<dataSrcType> &dataSource) {
+vector<pair<string, int>> DataModel::top10WordTopics(vector<dataSrcType>& dataSource) {
 	string line;
 	string intermediate;
 	vector<string> words;
@@ -443,17 +260,179 @@ vector<pair<string, int>> top10WordTopics(vector<dataSrcType> &dataSource) {
 	vector<pair<string, int> > wordvector;
 	vector<pair<string, int> > wordvector10;
 	copy(word_count.begin(), word_count.end(), back_inserter(wordvector));
-	
+
 	//sort the vector by second (value) instead of key
 	sort(wordvector.begin(), wordvector.end(), val_lt);
 	int intTop10Size = 0;
 	if (wordvector.size() >= 10) {
 		intTop10Size = 10;
 	}
-	else if(wordvector.size() >=1 & wordvector.size() < 10) {
+	else if (wordvector.size() >= 1 & wordvector.size() < 10) {
 		intTop10Size = wordvector.size();
 	}
 	for (int i = 0; i < intTop10Size; i++)
 		wordvector10.push_back(wordvector[i]);
 	return wordvector10; // return key value pair of limit 10
+}
+
+
+
+
+/*CNA Class inherits from DataModel*/
+class Cna : public DataModel {
+public:
+	//-------------- CNA Sort by Assc or Dese ----------------//
+	/*cna struct*/
+	struct source_asc_cna
+	{
+
+		inline bool operator() (Cna& x, Cna& y) {
+			return x.getUserId() < y.getUserId();
+		}
+	}source_asc_cna;
+	struct source_desc_cna
+	{
+
+		inline bool operator() (Cna& x, Cna& y) {
+			return x.getUserId() > y.getUserId();
+		}
+	}source_desc_cna;
+	struct post_asc_cna {
+		inline bool operator() (Cna& x, Cna& y) {
+			return x.getPost() < y.getPost();
+		}
+	}post_asc_cna;
+	struct post_desc_cna {
+		inline bool operator() (Cna& x, Cna& y) {
+			return x.getPost() > y.getPost();
+		}
+	}post_desc_cna;
+	
+	/*CNA Read CSV
+	CNA child function*/
+	void readCnaData(string);
+};
+
+/*GLOBAL VARIABLES - vector CNA Class*/
+vector <Cna> cna;
+
+/*CNA Read CSV
+CNA child function*/
+void Cna::readCnaData(string gg) {
+	string pathname1 = gg;
+	string dateTime;
+	const char* newDateTime;
+	time_t newTime;
+	string author;
+	string title;
+	string source;
+	string nth;
+	int day, date, mth, z, hh, mm, ss, year;
+	struct tm tm;
+	Cna temp;			 // temporary store data before adding to vector cna
+	ifstream f(pathname1);
+	getline(f, nth, '\n');
+	int found = nth.find("Title");
+	if (found != string::npos)
+	{
+		while (f.peek() != EOF) {
+			getline(f, title, ',');
+			getline(f, dateTime, ',');
+			getline(f, source, ',');
+			getline(f, author, '\n');
+			temp.storeData(dateTime, author, title);
+			cna.push_back(temp);
+		}
+	}
+	else {
+		cout << "Error File Format" << endl;
+	}
+}
+
+
+/*Twitter Class inherits from DataModel*/
+class Twitter : public DataModel {
+public:
+	//-------------- Twitter Sort by Assc or Dese ----------------//
+	/*Twitter struct*/
+	struct userid_asc
+	{
+
+		inline bool operator() (Twitter& x, Twitter& y) {
+			return x.getUserId() < y.getUserId();
+		}
+	}userid_asc;
+	struct userid_desc
+	{
+
+		inline bool operator() (Twitter& x, Twitter& y) {
+			return x.getUserId() > y.getUserId();
+		}
+	}userid_desc;
+	struct post_asc
+	{
+
+		inline bool operator() (Twitter& x, Twitter& y) {
+			return x.getPost() < y.getPost();
+		}
+	}post_asc;
+	struct post_desc
+	{
+
+		inline bool operator() (Twitter& x, Twitter& y) {
+			return x.getPost() > y.getPost();
+		}
+	}post_desc;
+
+	/*Twitter Read CSV
+	Twitter child Function*/
+	void readTwitterData(string gg);
+
+};
+
+/*GLOBAL VARIABLES - vector twitterData Class*/
+vector <Twitter> twitter;
+
+// ----------------------------------------------------------------- Twitter.cpp ------------------------------------------------------------------ //
+/*Twitter Read CSV
+Twitter child Function*/
+void Twitter::readTwitterData(string gg) {
+	string pathname1 = gg;
+	string dateTime;
+	const char* newDateTime;
+	time_t newTime;
+	string userid;
+	string post;
+	string nth;
+	int day, date, mth, z, hh, mm, ss, year;
+	struct tm tm;
+	Twitter temp;			 // temporary store data before adding to vector twitter
+	ifstream f(pathname1);
+	getline(f, nth);
+	while (f.peek() != EOF) {
+		getline(f, dateTime, ',');
+		getline(f, userid, ',');
+		getline(f, post, '\n');
+		/**
+		newDateTime = dateTime.c_str();
+		sscanf(newDateTime,	 "%a %b %d %H:%M:%S %z %Y", &day, &mth, &date, &hh, &mm, &ss, &z, &year);
+		tm.tm_year = year - 1900;
+		tm.tm_wday = day;
+		tm.tm_mon = mth - 1;
+		tm.tm_mday = date;
+		tm.tm_hour = hh;
+		tm.tm_min = mm;
+		tm.tm_sec = ss;
+		newTime = mktime(&tm);
+		*/
+
+		//remove colon from display
+		regex regexCollon("[\"]");
+		post = regex_replace(post, regexCollon, "");
+		userid = regex_replace(userid, regexCollon, "");
+		dateTime = regex_replace(dateTime, regexCollon, "");
+
+		temp.storeData(dateTime, userid, post);
+		twitter.push_back(temp);
+	}
 }

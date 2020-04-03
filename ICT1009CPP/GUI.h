@@ -1,4 +1,3 @@
-
 #include "Crawler.h"
 #include "twitter.h"
 
@@ -11,14 +10,9 @@
 #include <vector>
 #include <sstream>
 #include <ctime>
-
 #include <algorithm>
 #include <map>
 #include <filesystem>
-
-
-
-
 
 namespace fs = std::filesystem;
 using namespace System;
@@ -41,7 +35,6 @@ extern "C" void __imp__set_output_format(void) {};
 
 namespace CPPProject1009Gui
 {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -58,8 +51,6 @@ namespace CPPProject1009Gui
 		GUI(void)
 		{
 			InitializeComponent();
-
-
 			//
 			//TODO: Add the constructor code here
 			//
@@ -880,7 +871,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 	/*BUTTONS for Crawling*/
 	private: System::Void crawlBtn_Click(System::Object^ sender, System::EventArgs^ e)
-	{	//Keywords
+	{	
+		//Keywords
 		System::String^ strInput1;
 		//No. of Records
 		System::String^ intInput2;
@@ -928,19 +920,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			System::String^ filepath = System::IO::Path::GetFileName(openFileDialog1->FileName);
 			std::string filename = marshal_as<std::string>(filepath);
 
-
-			//fs::path filepath = fs::u8path(fpath);
-			//std::string path_string = filepath.u8string();
-
-			//String^ str2 = gcnew String(path_string.c_str());
-			
-			twitterData tweet;
-			tweet.set_csvfilepath(filename);// use stadard string
-			readData(filename);
+			//create a Twitter object
+			Twitter TWITTER;
+			TWITTER.set_csvfilepath(filename);// use stadard string
+			TWITTER.readTwitterData(filename);
 			MessageBox::Show("Successfully Load "+filepath, "FilePath:");//use system strig
 			plsimporttweet = 1;
-
-
 		}
 	}
 	/*END OF BUTTONS for Importing CSV File*/
@@ -954,20 +939,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 		}
 		else
 		{
-		//richTextBox1->Text = marshal_as<String^>(display.getDate());
 			for (int j = 0; j < twitter.size(); ++j)
-			{
-				//std::string date = marshal_as<std::string>(twitter[i].getDate());
-				//textBox1->Text="Time Date";
-
-				//std::string test1 = std::to_string(j);
-				//String^ str2 = gcnew String(test1.c_str());
-				//MessageBox::Show(str2);
-				//richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[j].getDate()) + "\r"
-					//+ "User ID: " + marshal_as<String^>(twitter[j].getUserId()) + "\r"
-					//+ "User Tweet: " + marshal_as<String^>(twitter[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
-				
-				dataGridView1->Rows->Add(marshal_as<String^>(twitter[j].getUserId()), marshal_as<String^>(twitter[j].getDate()), marshal_as<String^>(twitter[j].getPost()));
+			{	
+				dataGridView1->Rows->Add(
+					marshal_as<String^>(twitter[j].getUserId()), 
+					marshal_as<String^>(twitter[j].getDate()), 
+					marshal_as<String^>(twitter[j].getPost()));
 			}
 		}
 	}
@@ -977,6 +954,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	/*Twitter Search keyword BUTTON*/
 	private: System::Void btnTweetSearch_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
+		//create Twitter object
+		Twitter TWITTER;
+
 		System::String^ search;//user input 
 		if (plsimporttweet == 0)
 		{
@@ -995,10 +975,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
 
-			//vector<twitterData> filtered;
-			//std::vector<twitterData> filtered = searchKeyword(searchword, filtered, twitter);//function
-			std::vector<twitterData> filtered; 
-			filtered = searchKeyword<twitterData>(searchword, filtered, twitter);
+			std::vector<Twitter> filtered; 
+			filtered = TWITTER.searchKeyword<Twitter>(searchword, filtered, twitter);
 
 			if (filtered.empty())
 			{
@@ -1007,14 +985,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			else{
 			for (int j = 0; j < filtered.size(); ++j) 
 			{
-				
-				//richTextBox1->Text +="Date Time: " + marshal_as<String^>(filtered[j].getDate()) + "\r"
-									//+ "User ID: " + marshal_as<String^>(filtered[j].getUserId()) + "\r"
-									//+ "User Tweet: " + marshal_as<String^>(filtered[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------"+"\r";
-
-				dataGridView1->Rows->Add(marshal_as<String^>(filtered[j].getUserId()), marshal_as<String^>(filtered[j].getDate()), marshal_as<String^>(filtered[j].getPost()));
+				dataGridView1->Rows->Add(
+					marshal_as<String^>(filtered[j].getUserId()), 
+					marshal_as<String^>(filtered[j].getDate()), 
+					marshal_as<String^>(filtered[j].getPost()));
 			}
-	
 			MessageBox::Show("Keyword Record "+search+" found!", "Keyword Found");
 			}
 		}
@@ -1032,19 +1007,21 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	/*top ten BUTTON*/
 	private: System::Void btnTweetTopTen_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
+		//create Twitter Object
+		Twitter TWITTER;
+
 		if (plsimporttweet == 0)
 		{
 			MessageBox::Show("Please Import CSV", "Error: ");
 		}
 		else{
 			vector<pair<string, int> > wordvector;
-			wordvector = top10WordTopics(twitter);
+			wordvector = TWITTER.top10WordTopics(twitter);
 			for (int i = 0; i < wordvector.size(); ++i) 
 			{
-				//chart1->Series["Top Ten Words"]->
-					//Points->Add( ((wordvector[i].first),wordvector[i].second));
 				richTextBox1->Text += marshal_as<String^>(wordvector[i].first) + 
-								" = " + marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
+								" = " + 
+					marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
 			}
 		}
 	}
@@ -1053,6 +1030,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	/*Twitter Sort BUTTON*/
 	private: System::Void btnTweetSort_Click(System::Object^ sender, System::EventArgs^ e) 
 	{		
+		//create Twitter object
+		Twitter TWITTER;
 		if (plsimporttweet == 0)
 		{
 			MessageBox::Show("Please Import CSV", "Error: ");
@@ -1061,25 +1040,25 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 		{
 			btnTweetClear_Click(sender, e);
 			// function sort userid ascending
-			sort(twitter.begin(), twitter.end(), userid_asc);			
+			sort(twitter.begin(), twitter.end(), TWITTER.userid_asc);			
 		}
 		else if(comboBox2->Text == "Sort descending order by username")
 		{
 			btnTweetClear_Click(sender, e);
 			// function sort userid descending	
-			sort(twitter.begin(), twitter.end(), userid_desc);
+			sort(twitter.begin(), twitter.end(), TWITTER.userid_desc);
 		}
 		else if (comboBox2->Text == "Sort ascending order by post")
 		{
 			btnTweetClear_Click(sender, e);
 			// function sort post ascending	
-			sort(twitter.begin(), twitter.end(), post_asc);
+			sort(twitter.begin(), twitter.end(), TWITTER.post_asc);
 		}
 		else if (comboBox2->Text == "Sort descending order by post")
 		{
 			btnTweetClear_Click(sender, e);
 			// function sort post descending
-			sort(twitter.begin(), twitter.end(), post_desc);	
+			sort(twitter.begin(), twitter.end(), TWITTER.post_desc);
 		}
 		else
 		{
@@ -1087,11 +1066,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 		}
 		for (int i = 0; i < twitter.size(); ++i) 
 		{
-
-			//richTextBox1->Text += "Date Time: " + marshal_as<String^>(twitter[i].getDate()) + "\r"
-				//+ "User ID: " + marshal_as<String^>(twitter[i].getUserId()) + "\r"
-				//+ "User Tweet: " + marshal_as<String^>(twitter[i].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
-			dataGridView1->Rows->Add(marshal_as<String^>(twitter[i].getUserId()), marshal_as<String^>(twitter[i].getDate()), marshal_as<String^>(twitter[i].getPost()));
+			dataGridView1->Rows->Add(
+				marshal_as<String^>(twitter[i].getUserId()), 
+				marshal_as<String^>(twitter[i].getDate()), 
+				marshal_as<String^>(twitter[i].getPost()));
 		}
 	}
 	/*End of top ten BUTTON*/
@@ -1101,6 +1079,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	/*CNA Search by keyword*/
 	private: System::Void btnCnaSearch_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
+		//create Cna object
+		Cna CNA;
 		System::String^ search;//user input 
 
 		if (plsimportcna == 0)
@@ -1119,9 +1099,8 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
 			
-			//vector<CNA> filtered;
-			std::vector<CNA> filtered;
-			filtered = searchKeyword<CNA>(searchword, filtered, cna);//function
+			std::vector<Cna> filtered;
+			filtered = CNA.searchKeyword<Cna>(searchword, filtered, cna);//function
 
 			if (filtered.empty())
 			{
@@ -1130,14 +1109,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			else {
 				for (int j = 0; j < filtered.size(); ++j)
 				{
-
-					//richTextBox2->Text += "Date: " + marshal_as<String^>(filtered[j].getDate()) + "\r"
-						//+ "Author: " + marshal_as<String^>(filtered[j].getUserId()) + "\r"
-						//+ "Title: " + marshal_as<String^>(filtered[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
-					dataGridView2->Rows->Add(marshal_as<String^>(filtered[j].getUserId()), marshal_as<String^>(filtered[j].getDate()), marshal_as<String^>(filtered[j].getPost()));
-
+					dataGridView2->Rows->Add(
+						marshal_as<String^>(filtered[j].getUserId()), 
+						marshal_as<String^>(filtered[j].getDate()), 
+						marshal_as<String^>(filtered[j].getPost()));
 				}
-
 				MessageBox::Show("Keyword Record " + search + " found!", "Keyword Found");
 			}
 		}
@@ -1153,16 +1129,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	}
 	else
 	{
-		
 		for (int j = 0; j <cna.size(); ++j) 
 		{
-
-			//richTextBox2->Text += "Date: " + marshal_as<String^>(cna[j].getDate()) + "\r"
-			//	+ "Author: " + marshal_as<String^>(cna[j].getUserId()) + "\r"
-				//+ "Title: " + marshal_as<String^>(cna[j].getPost()) + "\r" + "------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\r";
-			dataGridView2->Rows->Add(marshal_as<String^>(cna[j].getUserId()), marshal_as<String^>(cna[j].getDate()), marshal_as<String^>(cna[j].getPost()));
-
-
+			dataGridView2->Rows->Add(
+				marshal_as<String^>(cna[j].getUserId()), 
+				marshal_as<String^>(cna[j].getDate()), 
+				marshal_as<String^>(cna[j].getPost()));
 		}
 	}
 }
@@ -1181,14 +1153,10 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			System::String^ filepath = System::IO::Path::GetFileName(openFileDialog2->FileName);
 			std::string filename = marshal_as<std::string>(filepath);
 
+			//create Cna object
+			Cna CNA;
 
-			//fs::path filepath = fs::u8path(fpath);
-			//std::string path_string = filepath.u8string();
-
-			//String^ str2 = gcnew String(path_string.c_str());
-			readCNAData(filename);
-			//twitterData tweet;
-			//tweet.set_csvfilepath(filename);// use stadard string
+			CNA.readCnaData(filename);
 			MessageBox::Show("Successfully Load " + filepath, "FilePath:");//use system strig
 			plsimportcna = 1;
 		}
@@ -1198,7 +1166,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	/*Clear Display Button*/
 	private: System::Void btnCnaClear_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		
 			richTextBox2->Text = "";
 			dataGridView2->Rows->Clear();
 	}
@@ -1206,19 +1173,22 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 	/*CNA top ten button*/
 	private: System::Void btnCnaTopTen_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		//create Cna object
+		Cna CNA;
+
 		if (plsimportcna == 0)
 		{
 			MessageBox::Show("Please Import CSV", "Error: ");
 		}
 		else {
 			vector<pair<string, int> > wordvector;
-			wordvector = top10WordTopics(cna);
+			wordvector = CNA.top10WordTopics(cna);
 			for (int i = 0; i < wordvector.size(); ++i)
 			{
-				//chart1->Series["Top Ten Words"]->
-					//Points->Add( ((wordvector[i].first),wordvector[i].second));
 				richTextBox2->Text += marshal_as<String^>(wordvector[i].first) +
-					" = " + marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
+					" = " + 
+					marshal_as<String^>(to_string(wordvector[i].second)) + "\r";
 			}
 		}
 	}
@@ -1226,6 +1196,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 	/*CNA Sort BUTTON*/
 	private: System::Void btnCnaSort_Click(System::Object^ sender, System::EventArgs^ e) {
+		//create Cna object
+		Cna CNA;
+
 		if (plsimportcna == 0)
 		{
 			MessageBox::Show("Please Import CSV", "Error: ");
@@ -1234,25 +1207,25 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 		{
 			btnCnaClear_Click(sender, e);
 			// function sort userid ascending
-			sort(cna.begin(), cna.end(), source_asc_cna);
+			sort(cna.begin(), cna.end(), CNA.source_asc_cna);
 		}
 		else if (comboBox1->Text == "Sort descending order by source")
 		{
 			btnCnaClear_Click(sender, e);
 			// function sort userid descending	
-			sort(cna.begin(), cna.end(), source_desc_cna);
+			sort(cna.begin(), cna.end(), CNA.source_desc_cna);
 		}
 		else if (comboBox1->Text == "Sort ascending order by headline")
 		{
 			btnCnaClear_Click(sender, e);
 			// function sort post ascending	
-			sort(cna.begin(), cna.end(), post_asc_cna);
+			sort(cna.begin(), cna.end(), CNA.post_asc_cna);
 		}
 		else if (comboBox1->Text == "Sort descending order by headline")
 		{
 			btnCnaClear_Click(sender, e);
 			// function sort post descending
-			sort(cna.begin(), cna.end(), post_desc_cna);
+			sort(cna.begin(), cna.end(), CNA.post_desc_cna);
 		}
 		else
 		{
@@ -1269,4 +1242,3 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	/*End of CNA Sort BUTTON*/
 };
 }
-
