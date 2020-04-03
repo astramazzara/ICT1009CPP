@@ -103,8 +103,10 @@ struct post_desc
 }post_desc;
 
 //----------------------------------------------- DEFINE GLOBAL VARIABLES -----------------------------------------------//
+/*GLOBAL VARIABLES - vector twitterData Class*/
 vector <twitterData> twitter; // store twitter data in an array
 //twitterData temp;			 // temporary store data before adding to vector twitter
+/*GLOBAL VARIABLES - vector CNA Class*/
 vector <CNA> cna;
 //CNA tempcna;
 //int size = 0;				  // define size of data
@@ -262,14 +264,14 @@ void readCNAData(string gg) {
 
 // ----------------------------------------------- SEARCH KEYWORDS USING TEMPLATE ------------------------------------------- //
 /*SEARCH KEYWORD USING TEMPLATE*/
-template<typename myType>
-typename vector<myType> searchKeyword(string key, vector<myType> &vect, vector<myType> &dataSource) {
+template<typename dataSrcType>
+typename vector<dataSrcType> searchKeyword(string key, vector<dataSrcType> &vect, vector<dataSrcType> &dataSource) {
 	//convert search key to lowercase
 	for_each(key.begin(), key.end(), [](char& c) {
 		c = ::tolower(c);
 		});
 
-	myType temp;			 // temporary store data before adding to vector twitter OR cna
+	dataSrcType temp;			 // temporary store data before adding to vector twitter OR cna
 
 	int found;
 	string str;
@@ -291,7 +293,10 @@ typename vector<myType> searchKeyword(string key, vector<myType> &vect, vector<m
 	return vect;
 }
 
-// ------------------------------------- recursive function to find and erase substring -------------------------------- //
+// ----------------------------------------------- Clean Text ----------------------------------------------- //
+/*recursive function to find and erase substring
+Input: vector<string>:commonWord, vector<string>:vstrings
+Output: vector<string>:commonWord, vector<string>:vstrings*/
 vector<string> eraseSubstring(vector<string> commonWord, vector<string> vstrings)
 {
 	//loop through all words
@@ -316,12 +321,18 @@ vector<string> eraseSubstring(vector<string> commonWord, vector<string> vstrings
 	return commonWord, vstrings;
 }
 
-// ----------------------------------------------- Twitter Clean Text ----------------------------------------------- //
+/*clean Text function entry point and calls for eraseSubstring
+Input: string:strText
+Output: string:strText*/
 string deepCleanText(string strText) {
 	// convert string to lower case
 	for_each(strText.begin(), strText.end(), [](char& c) {
 		c = ::tolower(c);
 		});
+
+	// remove Non-Ascii chars
+	regex regexNonAscii("[^\\x00-\\x7F]");
+	strText = regex_replace(strText, regexNonAscii, "");
 
 	// Remove punctuation
 	replace_if(strText.begin(), strText.end(),
@@ -369,17 +380,21 @@ string deepCleanText(string strText) {
 	return strText;
 }
 
-// ----------------------------------------------- Twitter TOP 10 COMMON WORDS USED ----------------------------------------------- //
-vector<pair<string, int>> top10WordTopics() {
+// ----------------------------------------------- TOP 10 COMMON WORDS USED ----------------------------------------------- //
+/*TOP 10 COMMON WORDS USED
+Input: vector Data Source
+Output: vector with key and value pair for top 10 frequently appeared words*/
+template<typename dataSrcType>
+vector<pair<string, int>> top10WordTopics(vector<dataSrcType> &dataSource) {
 	string line;
 	string intermediate;
 	vector<string> words;
 	word_count_list word_count;
 
-	//loop all records of tweets
-	for (int i = 0; i < twitter.size(); i++) {
+	//loop all records from source
+	for (int i = 0; i < dataSource.size(); i++) {
 		//clean text and stored into line
-		line = deepCleanText(twitter[i].getPost());
+		line = deepCleanText(dataSource[i].getPost());
 		stringstream check1(line);
 		while (getline(check1, intermediate, ' ')) {
 			//if NOT space, push_back to words
