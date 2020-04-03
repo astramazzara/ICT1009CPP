@@ -162,9 +162,9 @@ namespace CPPProject1009Gui
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
+
+
+
 private: System::Windows::Forms::Button^ btnCnaTopTen;
 
 
@@ -173,6 +173,9 @@ private: System::Windows::Forms::Button^ btnCnaTopTen;
 	private: System::Windows::Forms::GroupBox^ groupBox2;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 private: System::Windows::Forms::Button^ btnCnaSort;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 
 
 
@@ -245,9 +248,6 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 			this->btnCnaSort = (gcnew System::Windows::Forms::Button());
 			this->btnCnaTopTen = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->searchTb2 = (gcnew System::Windows::Forms::TextBox());
 			this->btnCnaSearch = (gcnew System::Windows::Forms::Button());
@@ -259,6 +259,9 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -634,7 +637,7 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
 				L"Sort ascending order by source", L"Sort descending order by source",
-					L"Sort ascending order by post", L"Sort descending order by post"
+					L"Sort ascending order by headline", L"Sort descending order by headline"
 			});
 			this->comboBox1->Location = System::Drawing::Point(3, 31);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
@@ -682,30 +685,6 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 			this->dataGridView2->RowHeadersWidth = 53;
 			this->dataGridView2->Size = System::Drawing::Size(1180, 720);
 			this->dataGridView2->TabIndex = 23;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Source";
-			this->Column4->MinimumWidth = 7;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			this->Column4->Width = 94;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Date";
-			this->Column5->MinimumWidth = 7;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			this->Column5->Width = 77;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"HeadLine";
-			this->Column6->MinimumWidth = 7;
-			this->Column6->Name = L"Column6";
-			this->Column6->ReadOnly = true;
-			this->Column6->Width = 113;
 			// 
 			// groupBox5
 			// 
@@ -838,6 +817,30 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(21, 21);
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Source";
+			this->Column4->MinimumWidth = 7;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			this->Column4->Width = 94;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Date";
+			this->Column5->MinimumWidth = 7;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			this->Column5->Width = 77;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Headline";
+			this->Column6->MinimumWidth = 7;
+			this->Column6->Name = L"Column6";
+			this->Column6->ReadOnly = true;
+			this->Column6->Width = 107;
 			// 
 			// GUI
 			// 
@@ -987,7 +990,7 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 		
 		else
 		{
-			btnTweetDisplay_Click(sender, e);
+			btnTweetClear_Click(sender, e);
 			search = searchTb->Text;//Get Keyword from TexBox
 
 			std::string searchword = marshal_as<std::string>(search);//change to stadard string
@@ -1239,13 +1242,13 @@ private: System::Windows::Forms::Button^ btnCnaSort;
 			// function sort userid descending	
 			sort(cna.begin(), cna.end(), source_desc_cna);
 		}
-		else if (comboBox1->Text == "Sort ascending order by post")
+		else if (comboBox1->Text == "Sort ascending order by headline")
 		{
 			btnCnaClear_Click(sender, e);
 			// function sort post ascending	
 			sort(cna.begin(), cna.end(), post_asc_cna);
 		}
-		else if (comboBox1->Text == "Sort descending order by post")
+		else if (comboBox1->Text == "Sort descending order by headline")
 		{
 			btnCnaClear_Click(sender, e);
 			// function sort post descending

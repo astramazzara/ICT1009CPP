@@ -24,23 +24,23 @@ C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(197,11): warning C4101
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(331,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(334,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(342,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(955,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1005,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1039,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1085,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1128,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1154,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1213,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1258,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(958,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1008,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1042,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1088,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1131,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1157,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1216,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1261,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(8,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(306,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(998): message : see reference to function template instantiation 'std::vector<twitterData,std::allocator<_Ty>> searchKeyword<twitterData>(std::string,std::vector<_Ty,std::allocator<_Ty>> &,std::vector<_Ty,std::allocator<_Ty>> &)' being compiled
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1001): message : see reference to function template instantiation 'std::vector<twitterData,std::allocator<_Ty>> searchKeyword<twitterData>(std::string,std::vector<_Ty,std::allocator<_Ty>> &,std::vector<_Ty,std::allocator<_Ty>> &)' being compiled
           with
           [
               _Ty=twitterData
           ]
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(423,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1038): message : see reference to function template instantiation 'std::vector<std::pair<std::string,int>,std::allocator<_Ty>> top10WordTopics<twitterData>(std::vector<twitterData,std::allocator<twitterData>> &)' being compiled
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1041): message : see reference to function template instantiation 'std::vector<std::pair<std::string,int>,std::allocator<_Ty>> top10WordTopics<twitterData>(std::vector<twitterData,std::allocator<twitterData>> &)' being compiled
           with
           [
               _Ty=std::pair<std::string,int>
