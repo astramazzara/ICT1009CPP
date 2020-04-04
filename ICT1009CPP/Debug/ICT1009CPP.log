@@ -24,23 +24,23 @@ C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(407,6): warning C4101:
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(403,9): warning C4101: 'newTime': unreferenced local variable
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(407,17): warning C4101: 'mth': unreferenced local variable
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(407,11): warning C4101: 'date': unreferenced local variable
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(942,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(986,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1020,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1067,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1110,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1132,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1187,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1234,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(8,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(10,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(96,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(139,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(174,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(221,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(265,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(288,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(344,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(392,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(120,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(979): message : see reference to function template instantiation 'std::vector<Twitter,std::allocator<_Ty>> DataModel::searchKeyword<Twitter>(std::string,std::vector<_Ty,std::allocator<_Ty>> &,std::vector<_Ty,std::allocator<_Ty>> &)' being compiled
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(132): message : see reference to function template instantiation 'std::vector<Twitter,std::allocator<_Ty>> DataModel::searchKeyword<Twitter>(std::string,std::vector<_Ty,std::allocator<_Ty>> &,std::vector<_Ty,std::allocator<_Ty>> &)' being compiled
           with
           [
               _Ty=Twitter
           ]
 C:\Users\alexthetechkia\source\repos\ICT1009CPP\twitter.h(240,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.h(1019): message : see reference to function template instantiation 'std::vector<std::pair<std::string,int>,std::allocator<_Ty>> DataModel::top10WordTopics<Twitter>(std::vector<Twitter,std::allocator<Twitter>> &)' being compiled
+C:\Users\alexthetechkia\source\repos\ICT1009CPP\GUI.cpp(173): message : see reference to function template instantiation 'std::vector<std::pair<std::string,int>,std::allocator<_Ty>> DataModel::top10WordTopics<Twitter>(std::vector<Twitter,std::allocator<Twitter>> &)' being compiled
           with
           [
               _Ty=std::pair<std::string,int>
