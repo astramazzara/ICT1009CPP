@@ -1,6 +1,7 @@
 #include "GUI.h"
 #include "Crawler.h"
-#include "twitter.h"
+#include "Twitter.h"
+#include "Cna.h"
 
 using namespace System;
 using namespace System::Windows::Forms;

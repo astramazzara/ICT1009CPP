@@ -202,9 +202,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
@@ -236,6 +236,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaSort = (gcnew System::Windows::Forms::Button());
 			this->btnCnaTopTen = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->searchTb2 = (gcnew System::Windows::Forms::TextBox());
 			this->btnCnaSearch = (gcnew System::Windows::Forms::Button());
@@ -247,9 +250,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -276,7 +276,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(1475, 794);
-			this->tabControl1->TabIndex = 0;
+			this->tabControl1->TabIndex = 3;
 			// 
 			// tabPage1
 			// 
@@ -316,7 +316,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->crawlBtn->Margin = System::Windows::Forms::Padding(4);
 			this->crawlBtn->Name = L"crawlBtn";
 			this->crawlBtn->Size = System::Drawing::Size(101, 41);
-			this->crawlBtn->TabIndex = 0;
+			this->crawlBtn->TabIndex = 2;
 			this->crawlBtn->Text = L"Crawl ";
 			this->crawlBtn->UseVisualStyleBackColor = true;
 			this->crawlBtn->Click += gcnew System::EventHandler(this, &GUI::crawlBtn_Click);
@@ -327,7 +327,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->recordTb->Margin = System::Windows::Forms::Padding(4);
 			this->recordTb->Name = L"recordTb";
 			this->recordTb->Size = System::Drawing::Size(132, 31);
-			this->recordTb->TabIndex = 0;
+			this->recordTb->TabIndex = 1;
 			// 
 			// keywordTb
 			// 
@@ -335,7 +335,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->keywordTb->Margin = System::Windows::Forms::Padding(4);
 			this->keywordTb->Name = L"keywordTb";
 			this->keywordTb->Size = System::Drawing::Size(132, 31);
-			this->keywordTb->TabIndex = 9;
+			this->keywordTb->TabIndex = 0;
 			// 
 			// label2
 			// 
@@ -432,7 +432,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->grpBoxSortTweet->Name = L"grpBoxSortTweet";
 			this->grpBoxSortTweet->Padding = System::Windows::Forms::Padding(4);
 			this->grpBoxSortTweet->Size = System::Drawing::Size(267, 128);
-			this->grpBoxSortTweet->TabIndex = 23;
+			this->grpBoxSortTweet->TabIndex = 4;
 			this->grpBoxSortTweet->TabStop = false;
 			this->grpBoxSortTweet->Text = L"Sort By";
 			// 
@@ -449,7 +449,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->comboBox2->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(255, 25);
-			this->comboBox2->TabIndex = 20;
+			this->comboBox2->TabIndex = 0;
 			// 
 			// btnTweetSort
 			// 
@@ -459,7 +459,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnTweetSort->Margin = System::Windows::Forms::Padding(4);
 			this->btnTweetSort->Name = L"btnTweetSort";
 			this->btnTweetSort->Size = System::Drawing::Size(100, 28);
-			this->btnTweetSort->TabIndex = 18;
+			this->btnTweetSort->TabIndex = 1;
 			this->btnTweetSort->Text = L"Sort";
 			this->btnTweetSort->UseVisualStyleBackColor = true;
 			this->btnTweetSort->Click += gcnew System::EventHandler(this, &GUI::btnTweetSort_Click);
@@ -475,7 +475,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->grpBoxSearchTweet->Name = L"grpBoxSearchTweet";
 			this->grpBoxSearchTweet->Padding = System::Windows::Forms::Padding(4);
 			this->grpBoxSearchTweet->Size = System::Drawing::Size(261, 100);
-			this->grpBoxSearchTweet->TabIndex = 22;
+			this->grpBoxSearchTweet->TabIndex = 5;
 			this->grpBoxSearchTweet->TabStop = false;
 			this->grpBoxSearchTweet->Text = L"Search by Keyword";
 			// 
@@ -488,7 +488,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnTweetSearch->Margin = System::Windows::Forms::Padding(4);
 			this->btnTweetSearch->Name = L"btnTweetSearch";
 			this->btnTweetSearch->Size = System::Drawing::Size(100, 30);
-			this->btnTweetSearch->TabIndex = 8;
+			this->btnTweetSearch->TabIndex = 1;
 			this->btnTweetSearch->Text = L"Search";
 			this->btnTweetSearch->UseVisualStyleBackColor = true;
 			this->btnTweetSearch->Click += gcnew System::EventHandler(this, &GUI::btnTweetSearch_Click);
@@ -502,7 +502,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->searchTb->Margin = System::Windows::Forms::Padding(4);
 			this->searchTb->Name = L"searchTb";
 			this->searchTb->Size = System::Drawing::Size(245, 27);
-			this->searchTb->TabIndex = 9;
+			this->searchTb->TabIndex = 0;
 			// 
 			// btnTweetTopTen
 			// 
@@ -512,7 +512,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnTweetTopTen->Margin = System::Windows::Forms::Padding(4);
 			this->btnTweetTopTen->Name = L"btnTweetTopTen";
 			this->btnTweetTopTen->Size = System::Drawing::Size(208, 41);
-			this->btnTweetTopTen->TabIndex = 15;
+			this->btnTweetTopTen->TabIndex = 3;
 			this->btnTweetTopTen->Text = L"Top Ten words";
 			this->btnTweetTopTen->UseVisualStyleBackColor = true;
 			this->btnTweetTopTen->Click += gcnew System::EventHandler(this, &GUI::btnTweetTopTen_Click);
@@ -525,7 +525,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnTweetClear->Margin = System::Windows::Forms::Padding(4);
 			this->btnTweetClear->Name = L"btnTweetClear";
 			this->btnTweetClear->Size = System::Drawing::Size(208, 41);
-			this->btnTweetClear->TabIndex = 12;
+			this->btnTweetClear->TabIndex = 2;
 			this->btnTweetClear->Text = L"Clear Display";
 			this->btnTweetClear->UseVisualStyleBackColor = true;
 			this->btnTweetClear->Click += gcnew System::EventHandler(this, &GUI::btnTweetClear_Click);
@@ -551,7 +551,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnTweetImport->Margin = System::Windows::Forms::Padding(4);
 			this->btnTweetImport->Name = L"btnTweetImport";
 			this->btnTweetImport->Size = System::Drawing::Size(208, 41);
-			this->btnTweetImport->TabIndex = 7;
+			this->btnTweetImport->TabIndex = 0;
 			this->btnTweetImport->Text = L"Import CSV";
 			this->btnTweetImport->UseVisualStyleBackColor = true;
 			this->btnTweetImport->Click += gcnew System::EventHandler(this, &GUI::btnTweetImport_Click);
@@ -566,6 +566,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->richTextBox1->ReadOnly = true;
 			this->richTextBox1->Size = System::Drawing::Size(257, 260);
 			this->richTextBox1->TabIndex = 6;
+			this->richTextBox1->TabStop = false;
 			this->richTextBox1->Text = L"";
 			// 
 			// btnTweetDisplay
@@ -577,7 +578,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnTweetDisplay->Margin = System::Windows::Forms::Padding(4);
 			this->btnTweetDisplay->Name = L"btnTweetDisplay";
 			this->btnTweetDisplay->Size = System::Drawing::Size(208, 41);
-			this->btnTweetDisplay->TabIndex = 5;
+			this->btnTweetDisplay->TabIndex = 1;
 			this->btnTweetDisplay->Text = L"Display CSV";
 			this->btnTweetDisplay->UseVisualStyleBackColor = true;
 			this->btnTweetDisplay->Click += gcnew System::EventHandler(this, &GUI::btnTweetDisplay_Click);
@@ -614,7 +615,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox2->Size = System::Drawing::Size(267, 128);
-			this->groupBox2->TabIndex = 25;
+			this->groupBox2->TabIndex = 4;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Sort By";
 			// 
@@ -631,7 +632,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(255, 25);
-			this->comboBox1->TabIndex = 20;
+			this->comboBox1->TabIndex = 0;
 			// 
 			// btnCnaSort
 			// 
@@ -641,7 +642,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaSort->Margin = System::Windows::Forms::Padding(4);
 			this->btnCnaSort->Name = L"btnCnaSort";
 			this->btnCnaSort->Size = System::Drawing::Size(100, 28);
-			this->btnCnaSort->TabIndex = 18;
+			this->btnCnaSort->TabIndex = 1;
 			this->btnCnaSort->Text = L"Sort";
 			this->btnCnaSort->UseVisualStyleBackColor = true;
 			this->btnCnaSort->Click += gcnew System::EventHandler(this, &GUI::btnCnaSort_Click);
@@ -652,7 +653,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaTopTen->Margin = System::Windows::Forms::Padding(4);
 			this->btnCnaTopTen->Name = L"btnCnaTopTen";
 			this->btnCnaTopTen->Size = System::Drawing::Size(219, 39);
-			this->btnCnaTopTen->TabIndex = 24;
+			this->btnCnaTopTen->TabIndex = 3;
 			this->btnCnaTopTen->Text = L"Top Ten words";
 			this->btnCnaTopTen->UseVisualStyleBackColor = true;
 			this->btnCnaTopTen->Click += gcnew System::EventHandler(this, &GUI::btnCnaTopTen_Click);
@@ -674,6 +675,30 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->dataGridView2->Size = System::Drawing::Size(1180, 720);
 			this->dataGridView2->TabIndex = 23;
 			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Source";
+			this->Column4->MinimumWidth = 7;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			this->Column4->Width = 94;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Date";
+			this->Column5->MinimumWidth = 7;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			this->Column5->Width = 77;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Headline";
+			this->Column6->MinimumWidth = 7;
+			this->Column6->Name = L"Column6";
+			this->Column6->ReadOnly = true;
+			this->Column6->Width = 107;
+			// 
 			// groupBox5
 			// 
 			this->groupBox5->Controls->Add(this->searchTb2);
@@ -685,7 +710,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->groupBox5->Name = L"groupBox5";
 			this->groupBox5->Padding = System::Windows::Forms::Padding(4);
 			this->groupBox5->Size = System::Drawing::Size(261, 100);
-			this->groupBox5->TabIndex = 22;
+			this->groupBox5->TabIndex = 5;
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Search by Keyword";
 			// 
@@ -698,7 +723,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->searchTb2->Margin = System::Windows::Forms::Padding(4);
 			this->searchTb2->Name = L"searchTb2";
 			this->searchTb2->Size = System::Drawing::Size(245, 24);
-			this->searchTb2->TabIndex = 17;
+			this->searchTb2->TabIndex = 0;
 			// 
 			// btnCnaSearch
 			// 
@@ -709,7 +734,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaSearch->Margin = System::Windows::Forms::Padding(4);
 			this->btnCnaSearch->Name = L"btnCnaSearch";
 			this->btnCnaSearch->Size = System::Drawing::Size(100, 30);
-			this->btnCnaSearch->TabIndex = 16;
+			this->btnCnaSearch->TabIndex = 2;
 			this->btnCnaSearch->Text = L"Search";
 			this->btnCnaSearch->UseVisualStyleBackColor = true;
 			this->btnCnaSearch->Click += gcnew System::EventHandler(this, &GUI::btnCnaSearch_Click);
@@ -720,7 +745,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaClear->Margin = System::Windows::Forms::Padding(4);
 			this->btnCnaClear->Name = L"btnCnaClear";
 			this->btnCnaClear->Size = System::Drawing::Size(219, 39);
-			this->btnCnaClear->TabIndex = 21;
+			this->btnCnaClear->TabIndex = 2;
 			this->btnCnaClear->Text = L"Clear Display";
 			this->btnCnaClear->UseVisualStyleBackColor = true;
 			this->btnCnaClear->Click += gcnew System::EventHandler(this, &GUI::btnCnaClear_Click);
@@ -731,7 +756,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaImport->Margin = System::Windows::Forms::Padding(4);
 			this->btnCnaImport->Name = L"btnCnaImport";
 			this->btnCnaImport->Size = System::Drawing::Size(219, 41);
-			this->btnCnaImport->TabIndex = 20;
+			this->btnCnaImport->TabIndex = 0;
 			this->btnCnaImport->Text = L"Import CSV";
 			this->btnCnaImport->UseVisualStyleBackColor = true;
 			this->btnCnaImport->Click += gcnew System::EventHandler(this, &GUI::btnCnaImport_Click);
@@ -743,7 +768,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->btnCnaDisplay->Margin = System::Windows::Forms::Padding(4);
 			this->btnCnaDisplay->Name = L"btnCnaDisplay";
 			this->btnCnaDisplay->Size = System::Drawing::Size(219, 38);
-			this->btnCnaDisplay->TabIndex = 19;
+			this->btnCnaDisplay->TabIndex = 1;
 			this->btnCnaDisplay->Text = L"Display CSV";
 			this->btnCnaDisplay->UseVisualStyleBackColor = true;
 			this->btnCnaDisplay->Click += gcnew System::EventHandler(this, &GUI::btnCnaDisplay_Click);
@@ -758,6 +783,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->richTextBox2->ReadOnly = true;
 			this->richTextBox2->Size = System::Drawing::Size(257, 260);
 			this->richTextBox2->TabIndex = 18;
+			this->richTextBox2->TabStop = false;
 			this->richTextBox2->Text = L"";
 			// 
 			// label6
@@ -786,16 +812,16 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			// 
 			// chart1
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart1->Legends->Add(legend1);
+			chartArea4->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea4);
+			legend4->Name = L"Legend1";
+			this->chart1->Legends->Add(legend4);
 			this->chart1->Location = System::Drawing::Point(368, 95);
 			this->chart1->Name = L"chart1";
-			series1->ChartArea = L"ChartArea1";
-			series1->Legend = L"Legend1";
-			series1->Name = L"Series1";
-			this->chart1->Series->Add(series1);
+			series4->ChartArea = L"ChartArea1";
+			series4->Legend = L"Legend1";
+			series4->Name = L"Series1";
+			this->chart1->Series->Add(series4);
 			this->chart1->Size = System::Drawing::Size(848, 417);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
@@ -805,30 +831,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(21, 21);
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Source";
-			this->Column4->MinimumWidth = 7;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			this->Column4->Width = 94;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Date";
-			this->Column5->MinimumWidth = 7;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			this->Column5->Width = 77;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Headline";
-			this->Column6->MinimumWidth = 7;
-			this->Column6->Name = L"Column6";
-			this->Column6->ReadOnly = true;
-			this->Column6->Width = 107;
 			// 
 			// GUI
 			// 

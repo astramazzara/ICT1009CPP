@@ -24,9 +24,6 @@
     <ClCompile Include="include\json\jsoncpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TwitterFunction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI.h">
@@ -35,7 +32,13 @@
     <ClInclude Include="Crawler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="twitter.h">
+    <ClInclude Include="DataModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Twitter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cna.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
