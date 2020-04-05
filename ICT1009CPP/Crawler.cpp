@@ -152,7 +152,10 @@ void Crawler::crawlerJsonToFile() {
 	}
 	else {
 		outFile.close();
+		// if error
 		cout << "Error: cannot write to file" << endl;
+		const string ERROR_MSG = "Error: cannot write to file";
+		throw(ERROR_MSG);
 	}
 }
 

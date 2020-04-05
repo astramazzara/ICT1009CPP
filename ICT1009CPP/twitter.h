@@ -63,7 +63,8 @@ vector <Twitter> twitter;
 /*Twitter Read CSV
 Twitter child Function*/
 void Twitter::readTwitterData(string gg) {
-	string pathname1 = gg;
+	// declare variables
+	string pathname1 = gg; // file path that is gg to be read
 	string dateTime;
 	const char* newDateTime;
 	time_t newTime;
@@ -74,31 +75,29 @@ void Twitter::readTwitterData(string gg) {
 	struct tm tm;
 	Twitter temp;			 // temporary store data before adding to vector twitter
 	ifstream f(pathname1);
-	getline(f, nth);
-	while (f.peek() != EOF) {
-		getline(f, dateTime, ',');
-		getline(f, userid, ',');
-		getline(f, post, '\n');
-		/**
-		newDateTime = dateTime.c_str();
-		sscanf(newDateTime,	 "%a %b %d %H:%M:%S %z %Y", &day, &mth, &date, &hh, &mm, &ss, &z, &year);
-		tm.tm_year = year - 1900;
-		tm.tm_wday = day;
-		tm.tm_mon = mth - 1;
-		tm.tm_mday = date;
-		tm.tm_hour = hh;
-		tm.tm_min = mm;
-		tm.tm_sec = ss;
-		newTime = mktime(&tm);
-		*/
+	getline(f, nth); // check header row
+	int found = nth.find("Created By"); // check if header row contains 'created by' or it will reject file
+	if (found != string::npos)
+	{
+		while (f.peek() != EOF) {
+			getline(f, dateTime, ',');
+			getline(f, userid, ',');
+			getline(f, post, '\n');
 
-		//remove colon from display
-		regex regexCollon("[\"]");
-		post = regex_replace(post, regexCollon, "");
-		userid = regex_replace(userid, regexCollon, "");
-		dateTime = regex_replace(dateTime, regexCollon, "");
+			//remove colon from display
+			regex regexCollon("[\"]");
+			post = regex_replace(post, regexCollon, "");
+			userid = regex_replace(userid, regexCollon, "");
+			dateTime = regex_replace(dateTime, regexCollon, "");
 
-		temp.storeData(dateTime, userid, post);
-		twitter.push_back(temp);
+			temp.storeData(dateTime, userid, post); // call function to store into twitterdata class
+			twitter.push_back(temp); // push to vector
+		}
+	}
+	else {
+		// if header row does not contain created by, it will return error.
+		cout << "File selected contains the wrong data format" << endl;
+		const string ERROR_MSG = "File selected contains the wrong data format";
+		throw(ERROR_MSG);
 	}
 }

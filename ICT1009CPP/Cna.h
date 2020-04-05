@@ -83,6 +83,9 @@ void Cna::readCnaData(string gg) {
 		}
 	}
 	else {
-		cout << "Error File Format" << endl;
+		// if header row does not contain created by, it will return error.
+		cout << "File selected contains the wrong data format" << endl;
+		const string ERROR_MSG = "File selected contains the wrong data format";
+		throw(ERROR_MSG);
 	}
 }
